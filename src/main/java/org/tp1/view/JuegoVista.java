@@ -2,10 +2,11 @@ package org.tp1.view;
 
 import org.tp1.model.Juego;
 import org.tp1.model.Jugador;
+import org.tp1.model.Tablero;
 
 public class JuegoVista {
 
-    private Juego juego;
+    private final Juego juego;
 
     public JuegoVista(Juego juego) {
         this.juego = juego;
@@ -23,6 +24,8 @@ public class JuegoVista {
     }
 
     public void mostrarOpciones() {
-        System.out.println("Para avanzar presiona la tecla 1");
+        Tablero tablero = juego.getTablero();
+        TableroVista tableroVista = new TableroVista(tablero);
+        tableroVista.mostrarOpciones(tablero.getCasilleros()[juego.jugadorEnTurnoActual().getPosicionActual()]);
     }
 }

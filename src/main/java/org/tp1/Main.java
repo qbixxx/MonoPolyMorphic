@@ -24,7 +24,7 @@ public class Main {
 
         ControladorJuego controladorJuego = new ControladorJuego(monopoly);
 
-        while(controladorJuego.enJuego()) { //loop infinito por ahora
+        while (controladorJuego.enJuego()) {
             controladorJuego.jugarTurno();
         }
 

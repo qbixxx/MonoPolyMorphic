@@ -1,6 +1,8 @@
 package org.tp1.model;
 
-public class Casillero {
+import org.tp1.view.CasilleroVista;
+
+public class Casillero implements CasilleroVista {
     String nombre;
     Jugador[] jugadores;
 
@@ -15,5 +17,20 @@ public class Casillero {
 
     public Jugador[] getJugadores() {
         return jugadores;
+    }
+
+    @Override
+    public void mostrarCasillero() {
+        System.out.println(nombre);
+        if (jugadores != null) {
+            for (Jugador jugador : jugadores) {
+                System.out.println(jugador.getNombre());
+            }
+        }
+    }
+
+    @Override
+    public void mostrarOpcionesCasillero() {
+        System.out.println("Presiona 1 para avanzar");
     }
 }

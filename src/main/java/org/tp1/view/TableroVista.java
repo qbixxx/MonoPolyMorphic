@@ -5,7 +5,7 @@ import org.tp1.model.Tablero;
 
 public class TableroVista {
 
-    private Tablero tablero;
+    private final Tablero tablero;
 
     public TableroVista(Tablero tablero) {
         this.tablero = tablero;
@@ -13,8 +13,11 @@ public class TableroVista {
 
     public void mostrarTablero() {
         for (Casillero casillero : tablero.getCasilleros()) { // horrible
-            CasilleroVista casilleroVista = new CasilleroVista(casillero);
-            casilleroVista.mostrarCasillero();
+            casillero.mostrarCasillero();
         }
+    }
+
+    public void mostrarOpciones(Casillero casillero) {
+        casillero.mostrarOpcionesCasillero();
     }
 }

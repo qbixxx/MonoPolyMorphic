@@ -9,14 +9,14 @@ public class Jugador {
     private double dineroDisponible;
     private List<Casillero> propiedades; // cambiar a casillero propiedades
     private EstadoJugador estadoJugador;
-    //private int posicionActual;
+    private int posicionActual;
 
     public Jugador(String nombre) {
         this.dineroDisponible = 100;
         this.nombre = nombre;
         this.propiedades = new ArrayList<>();
         this.estadoJugador = EstadoJugador.EN_JUEGO;
-        //this.posicionActual = 0;
+        this.posicionActual = 0;
     }
 
     public String getNombre() {
@@ -33,5 +33,9 @@ public class Jugador {
 
     public EstadoJugador getEstadoJugador() {
         return estadoJugador;
+    }
+
+    public int getPosicionActual() {
+        return posicionActual;
     }
 }
