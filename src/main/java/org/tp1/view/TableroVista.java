@@ -1,7 +1,7 @@
 package org.tp1.view;
 
-import org.tp1.model.Casillero;
 import org.tp1.model.Tablero;
+import org.tp1.model.casilleros.Casillero;
 
 public class TableroVista {
 
@@ -12,8 +12,8 @@ public class TableroVista {
     }
 
     public void mostrarTablero() {
-        for (Casillero casillero : tablero.getCasilleros()) { // horrible
-            casillero.mostrarCasillero();
+        for (Casillero casillero : tablero.getCasilleros()) {
+            System.out.println(casillero.getNombre());
         }
     }
 

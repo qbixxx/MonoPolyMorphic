@@ -1,13 +1,15 @@
 package org.tp1.model;
 
+import org.tp1.model.casilleros.Casillero;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Jugador {
 
-    private String nombre;
+    private final String nombre;
     private double dineroDisponible;
-    private List<Casillero> propiedades; // cambiar a casillero propiedades
+    private List<Casillero> propiedades;
     private EstadoJugador estadoJugador;
     private int posicionActual;
 

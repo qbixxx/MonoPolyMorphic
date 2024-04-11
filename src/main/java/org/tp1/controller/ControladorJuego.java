@@ -19,17 +19,16 @@ public class ControladorJuego {
     public boolean enJuego() {
         int numJugadoresEnJuego = 0;
         for (Jugador jugador : monopoly.getJugadores()) {
-            if (!jugador.getEstadoJugador().equals(EstadoJugador.EN_JUEGO)) {
-                return false;
+            if (jugador.getEstadoJugador().equals(EstadoJugador.EN_JUEGO)) {
+                numJugadoresEnJuego++;
             }
-            numJugadoresEnJuego++;
         }
         return numJugadoresEnJuego >= 2;
     }
 
     public void jugarTurno() {
-        mostrarJuego();
-        mostrarOpciones();
+        juegoVista.mostrarDatosJuego();
+        juegoVista.mostrarOpciones();
         elegirOpcion();
     }
 
@@ -37,15 +36,8 @@ public class ControladorJuego {
         Scanner scanner = new Scanner(System.in);
         String decision = scanner.nextLine();
         if (decision.equals("1")) {
-            jugarTurno();
+            monopoly.siguienteTurno();
         }
     }
 
-    public void mostrarOpciones() {
-        juegoVista.mostrarOpciones();
-    }
-
-    public void mostrarJuego() {
-        juegoVista.mostrarDatosJuego();
-    }
 }
