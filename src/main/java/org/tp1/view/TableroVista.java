@@ -13,7 +13,8 @@ public class TableroVista {
 
     public void mostrarTablero() {
         for (Casillero casillero : tablero.getCasilleros()) {
-            System.out.println(casillero.getNombre());
+            CasilleroVista casilleroVista = new CasilleroVista(casillero);
+            casilleroVista.mostrarCasillero();
         }
     }
 

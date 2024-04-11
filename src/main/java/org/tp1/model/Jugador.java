@@ -38,4 +38,8 @@ public class Jugador {
     public int getPosicionActual() {
         return posicionActual;
     }
+
+    public void setPosicionActual(int nuevaPosicion) {
+        this.posicionActual = nuevaPosicion;
+    }
 }

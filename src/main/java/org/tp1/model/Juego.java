@@ -1,5 +1,7 @@
 package org.tp1.model;
 
+import java.util.Random;
+
 public class Juego {
     private final Tablero tablero;
     private final Jugador[] jugadores;
@@ -27,6 +29,19 @@ public class Juego {
 
     public Jugador[] getJugadores() {
         return jugadores;
+    }
+
+    public void avanzar() {
+        Random rand = new Random();
+        int dado = rand.nextInt(4);
+        Jugador jugador = jugadorEnTurnoActual();
+        int posicionAnterior = jugador.getPosicionActual();
+        jugador.setPosicionActual(jugador.getPosicionActual() + dado);
+        if (jugador.getPosicionActual() >= tablero.tablero.length) {
+            jugador.setPosicionActual(3);
+        }
+        tablero.getCasillero(jugador.getPosicionActual()).agregarJugador(jugador);
+        tablero.getCasillero(posicionAnterior).eliminarJugador(jugador);
     }
 
 }

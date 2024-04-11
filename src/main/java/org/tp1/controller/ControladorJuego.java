@@ -36,8 +36,9 @@ public class ControladorJuego {
         Scanner scanner = new Scanner(System.in);
         String decision = scanner.nextLine();
         if (decision.equals("1")) {
+            monopoly.avanzar();
+        } else if (decision.equals("2")) {
             monopoly.siguienteTurno();
         }
     }
-
 }

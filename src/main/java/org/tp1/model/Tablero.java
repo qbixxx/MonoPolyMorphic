@@ -11,4 +11,8 @@ public class Tablero {
     public Casillero[] getCasilleros() {
         return tablero;
     }
+
+    public Casillero getCasillero(int indice) {
+        return tablero[indice];
+    }
 }

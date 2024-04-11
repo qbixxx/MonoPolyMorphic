@@ -1,7 +1,26 @@
 package org.tp1.view;
 
-public interface CasilleroVista {
-    void mostrarCasillero();
+import org.tp1.model.Casillero;
+import org.tp1.model.Jugador;
 
-    void mostrarOpcionesCasillero();
+public class CasilleroVista {
+
+    Casillero casillero;
+
+
+    CasilleroVista(Casillero casillero) {
+        this.casillero = casillero;
+    }
+
+    public void mostrarCasillero() {
+        System.out.println(casillero.getNombre());
+        if (casillero.getJugadores() != null) {
+            for (Jugador jugador : casillero.getJugadores()) {
+                System.out.println(jugador.getNombre());
+            }
+        }
+
+    }
+
+    //void mostrarOpcionesCasillero();
 }
