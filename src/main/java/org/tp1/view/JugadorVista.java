@@ -1,7 +1,7 @@
 package org.tp1.view;
 
+import org.tp1.model.Casillero;
 import org.tp1.model.Jugador;
-import org.tp1.model.casilleros.Casillero;
 
 public class JugadorVista {
 

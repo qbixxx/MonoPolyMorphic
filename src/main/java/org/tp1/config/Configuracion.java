@@ -1,6 +1,6 @@
 package org.tp1.config;
 
-import org.tp1.model.casilleros.Casillero;
+import org.tp1.model.Casillero;
 
 public class Configuracion {
     int montoSalidaLlegada = 200;
@@ -10,6 +10,4 @@ public class Configuracion {
     public Casillero[] getTablero() {
         return tablero;
     }
-
-
 }
