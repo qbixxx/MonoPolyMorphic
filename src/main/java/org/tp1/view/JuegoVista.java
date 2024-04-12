@@ -20,7 +20,7 @@ public class JuegoVista {
             jugadorVista.mostrarJugador();
         }
         Jugador jugadorEnTurno = juego.jugadorEnTurnoActual();
-        System.out.println("Turno de: " + jugadorEnTurno.getNombre() + ", dinero disponible: " + jugadorEnTurno.getDineroDisponible());
+        System.out.println("--------------------\nTurno de: " + jugadorEnTurno.getNombre() + ",\ndinero disponible: " + jugadorEnTurno.getDineroDisponible() + "\n--------------------");
     }
 
     public void mostrarOpciones() {

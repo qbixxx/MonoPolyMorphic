@@ -27,6 +27,5 @@ public class Main {
         while (controladorJuego.enJuego()) {
             controladorJuego.jugarTurno();
         }
-
     }
 }

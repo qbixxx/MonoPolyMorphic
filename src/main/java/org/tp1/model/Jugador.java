@@ -42,4 +42,9 @@ public class Jugador {
     public void setPosicionActual(int nuevaPosicion) {
         this.posicionActual = nuevaPosicion;
     }
+
+    public void setDineroDisponible(double monto) {
+        this.dineroDisponible += monto;
+    }
+
 }
