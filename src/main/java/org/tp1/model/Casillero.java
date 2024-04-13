@@ -6,7 +6,6 @@ import java.util.List;
 public class Casillero {
     String nombre;
     List<Jugador> jugadores;
-    String tipoCasillero;
 
     public Casillero(String nombre) {
         this.nombre = nombre;
@@ -41,7 +40,10 @@ public class Casillero {
 
      */
 
+
     public void mostrarOpcionesCasillero() {
         System.out.println("Presiona 1 para avanzar");
     }
+
+
 }
