@@ -10,6 +10,7 @@ public class Jugador {
     private List<Casillero> propiedades;
     private EstadoJugador estadoJugador;
     private int posicionActual;
+    private Casillero casilleroActual;
 
     public Jugador(String nombre) {
         this.dineroDisponible = 100;
@@ -17,6 +18,7 @@ public class Jugador {
         this.propiedades = new ArrayList<>();
         this.estadoJugador = EstadoJugador.EN_JUEGO;
         this.posicionActual = 0;
+        this.casilleroActual = null;
     }
 
     public String getNombre() {
@@ -44,6 +46,14 @@ public class Jugador {
     }
 
     public void setDineroDisponible(double monto) {
+        this.dineroDisponible += monto;
+    }
+
+    public double entregarDinero(double monto){
+        this.dineroDisponible -= monto;
+        return monto;
+    }
+    public void recibirDinero(double monto){
         this.dineroDisponible += monto;
     }
 

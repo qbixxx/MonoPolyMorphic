@@ -13,8 +13,16 @@ public class CasilleroEstacion extends Casillero {
         this.dueno = null;
     }
 
+    public double getTarifa(){
+        return this.tarifa;
+    }
 
+    public Jugador getOwner(){
+        return this.dueno;
+    }
 
-
+    public double getCostoCompra(){
+        return this.costoCompra;
+    }
 
 }
