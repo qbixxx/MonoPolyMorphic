@@ -5,7 +5,6 @@ import org.tp1.model.Jugador;
 import org.tp1.model.Tablero;
 
 public class JuegoVista {
-
     private final Juego juego;
 
     public JuegoVista(Juego juego) {
@@ -20,7 +19,7 @@ public class JuegoVista {
             jugadorVista.mostrarJugador();
         }
         Jugador jugadorEnTurno = juego.jugadorEnTurnoActual();
-        System.out.println("--------------------\nTurno de: " + jugadorEnTurno.getNombre() + ",\ndinero disponible: " + jugadorEnTurno.getDineroDisponible() + "\n--------------------");
+        System.out.println(Colores.RED.getColor() + "------------------------------\n" + Colores.RESET.getColor() + "Turno de: " + Colores.GREEN.getColor() + jugadorEnTurno.getNombre() + Colores.RESET.getColor() + ",\n" + Colores.YELLOW.getColor() +"dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Colores.RESET.getColor() + Colores.RED.getColor() + "\n------------------------------" + Colores.RESET.getColor());
     }
 
     public void mostrarOpciones() {
