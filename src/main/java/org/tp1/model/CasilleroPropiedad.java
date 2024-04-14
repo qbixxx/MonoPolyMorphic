@@ -39,7 +39,7 @@ public class CasilleroPropiedad extends Casillero{
 
     public void pagarRenta(Jugador inquilino){
         if(this.dueno != null){
-            this.dueno.recibirDinero(inquilino.entregarDinero(this.renta));
+            this.dueno.recibirDinero(inquilino, this.renta);
         }
 
     }
