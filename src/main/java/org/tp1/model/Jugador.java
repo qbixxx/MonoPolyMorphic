@@ -49,12 +49,17 @@ public class Jugador {
         this.dineroDisponible += monto;
     }
 
-    public double entregarDinero(double monto){
+    public void setEstadoJugador(EstadoJugador estadoJugador) {
+        this.estadoJugador = estadoJugador;
+    }
+
+    public double entregarDinero(double monto) {
         this.dineroDisponible -= monto;
         // logica si queda negativo
         return monto;
     }
-    public void recibirDinero(Jugador jugador, double monto){
+
+    public void recibirDinero(Jugador jugador, double monto) {
 
         this.dineroDisponible += jugador.entregarDinero(monto);
     }

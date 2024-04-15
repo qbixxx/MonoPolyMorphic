@@ -1,7 +1,6 @@
 package org.tp1.view;
 
 import org.tp1.model.Casillero;
-import org.tp1.model.CasilleroEstacion;
 import org.tp1.model.Jugador;
 
 public class CasilleroVista {
@@ -25,7 +24,6 @@ public class CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero() {
-        if (casillero.getClass().equals(CasilleroEstacion.class))
-            System.out.println("Presiona 1 para avanzar");
+        System.out.println("Presiona 1 para avanzar");
     }
 }
