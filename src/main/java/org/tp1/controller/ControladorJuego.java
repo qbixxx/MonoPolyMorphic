@@ -35,10 +35,10 @@ public class ControladorJuego {
     public void elegirOpcion() {
         Scanner scanner = new Scanner(System.in);
         String decision = scanner.nextLine();
-        if (decision.equals("1")) {
+        if (decision.equals(Comandos.AVANZAR.getComando())) {
             monopoly.avanzar();
             monopoly.siguienteTurno();
-        } else if (decision.equals("2")) {
+        } else if (decision.equals(Comandos.SIG_TURNO.getComando())) {
             monopoly.siguienteTurno();
         }
     }
