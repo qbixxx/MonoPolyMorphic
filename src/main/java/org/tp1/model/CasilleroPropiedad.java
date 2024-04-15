@@ -1,14 +1,14 @@
 package org.tp1.model;
 
 
-public class CasilleroPropiedad extends Casillero{
+public class CasilleroPropiedad extends Casillero {
     String grupo;
-    double costoCompra;
-    double renta;
-    Jugador dueno;
+    private double costoCompra;
+    private double renta;
+    private Jugador dueno;
 
-    public CasilleroPropiedad(String nombre, double costoCompra, double renta, String grupo){
-        super(nombre);
+    public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta, String grupo) {
+        super(nombre, tipoCasillero);
         this.grupo = grupo;
         this.costoCompra = costoCompra;
         this.renta = renta;
@@ -17,28 +17,28 @@ public class CasilleroPropiedad extends Casillero{
     }
 
 
-    public String getGrupo(){
+    public String getGrupo() {
         return this.grupo;
     }
 
-    public double getCostoCompra(){
+    public double getCostoCompra() {
         return this.costoCompra;
     }
 
-    public double getRenta(){
+    public double getRenta() {
         return this.renta;
     }
 
-    public Jugador getDueno(){
+    public Jugador getDueno() {
         return this.dueno;
     }
 
-    public void comprar(Jugador comprador){
+    public void comprar(Jugador comprador) {
         this.dueno = comprador;
     }
 
-    public void pagarRenta(Jugador inquilino){
-        if(this.dueno != null){
+    public void pagarRenta(Jugador inquilino) {
+        if (this.dueno != null) {
             this.dueno.recibirDinero(inquilino, this.renta);
         }
 
@@ -47,7 +47,7 @@ public class CasilleroPropiedad extends Casillero{
 
     //public void mostrarOpcionesCasillero() {
     //    System.out.println("Presiona 1 para avanzar");
-   // }
+    // }
 
 
 }

@@ -2,26 +2,26 @@ package org.tp1.model;
 
 public class CasilleroEstacion extends Casillero {
 
-    double costoCompra;
-    double tarifa;
-    Jugador dueno;
+    private final double costoCompra;
+    private double tarifa;
+    private Jugador dueno;
 
-    public CasilleroEstacion(String nombre, double costoCompra, double tarifa){
-        super(nombre);
+    public CasilleroEstacion(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa) {
+        super(nombre, tipoCasillero);
         this.costoCompra = costoCompra;
         this.tarifa = tarifa;
         this.dueno = null;
     }
 
-    public double getTarifa(){
+    public double getTarifa() {
         return this.tarifa;
     }
 
-    public Jugador getOwner(){
+    public Jugador getDueno() {
         return this.dueno;
     }
 
-    public double getCostoCompra(){
+    public double getCostoCompra() {
         return this.costoCompra;
     }
 

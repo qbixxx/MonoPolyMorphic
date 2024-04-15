@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Casillero {
-    String nombre;
-    List<Jugador> jugadores;
+    private final String nombre;
+    private List<Jugador> jugadores;
+    private final TipoCasillero tipoCasillero;
 
-    public Casillero(String nombre) {
+    public Casillero(String nombre, TipoCasillero tipoCasillero) {
         this.nombre = nombre;
         this.jugadores = new ArrayList<>();
+        this.tipoCasillero = tipoCasillero;
+    }
+
+    public TipoCasillero getTipoCasillero() {
+        return tipoCasillero;
     }
 
     public void agregarJugador(Jugador jugador) {
