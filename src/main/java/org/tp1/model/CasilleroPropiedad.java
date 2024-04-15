@@ -44,10 +44,7 @@ public class CasilleroPropiedad extends Casillero {
 
     }
 
-
-    //public void mostrarOpcionesCasillero() {
-    //    System.out.println("Presiona 1 para avanzar");
-    // }
-
-
+    public ComportamientoCasilla getComportamientoCasilla() {
+        return new ComportamientoPropiedad();
+    }
 }

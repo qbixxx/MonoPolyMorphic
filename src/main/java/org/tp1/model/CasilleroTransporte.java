@@ -1,12 +1,12 @@
 package org.tp1.model;
 
-public class CasilleroEstacion extends Casillero {
+public class CasilleroTransporte extends Casillero {
 
     private final double costoCompra;
     private double tarifa;
     private Jugador dueno;
 
-    public CasilleroEstacion(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa) {
+    public CasilleroTransporte(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa) {
         super(nombre, tipoCasillero);
         this.costoCompra = costoCompra;
         this.tarifa = tarifa;
@@ -25,4 +25,7 @@ public class CasilleroEstacion extends Casillero {
         return this.costoCompra;
     }
 
+    public ComportamientoCasilla getComportamientoCasilla() {
+        return new ComportamientoTransporte();
+    }
 }

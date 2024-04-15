@@ -33,37 +33,11 @@ public class Juego implements Banco {
     }
 
     private void chequearCasilla(Jugador jugador) {
-        // no respeta open closed
         Casillero casilleroDeCaida = tablero.getCasillero(jugador.getPosicionActual());
-        switch (casilleroDeCaida.getTipoCasillero()) {
-            case IR_A_CARCEL -> {
-                int posicionAnterior = jugador.getPosicionActual();
-                jugador.setPosicionActual(tablero.getPosicionCarcel());
-                jugador.setEstadoJugador(EstadoJugador.ENCARCELADO);
-                moverJugador(jugador, posicionAnterior);
-            }
-            case TRANSPORTE -> {
-                CasilleroEstacion casilleroEstacion = (CasilleroEstacion) casilleroDeCaida;
-                if (casilleroEstacion.getDueno() != null) {
-                    casilleroEstacion.getDueno().recibirDinero(jugador, casilleroEstacion.getTarifa());
-                }
-            }
-            case PROPIEDAD -> {
-                CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casilleroDeCaida;
-                if (casilleroPropiedad.getDueno() != null) {
-                    casilleroPropiedad.getDueno().recibirDinero(jugador, casilleroPropiedad.getRenta());
-                }
-            }
-            case LOTERIA -> {
-                CasilleroLoteria casilleroLoteria = (CasilleroLoteria) casilleroDeCaida;
-                cobro(jugador, casilleroLoteria.getValorPozo());
-            }
-            case MULTA -> {
-                CasilleroMulta casilleroMulta = (CasilleroMulta) casilleroDeCaida;
-                cobro(jugador, -casilleroMulta.getValorMulta());
-            }
-        }
+        ComportamientoCasilla comportamiento = casilleroDeCaida.getComportamientoCasilla();
+        comportamiento.ejecutarAlCaer(jugador, casilleroDeCaida, this);
     }
+
 
     public void avanzar() {
         Random rand = new Random();

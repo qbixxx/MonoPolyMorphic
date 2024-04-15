@@ -11,4 +11,8 @@ public class CasilleroMulta extends Casillero {
     public double getValorMulta() {
         return valorMulta;
     }
+    
+    public ComportamientoCasilla getComportamientoCasilla() {
+        return new ComportamientoMulta();
+    }
 }

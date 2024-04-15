@@ -13,4 +13,7 @@ public class CasilleroLoteria extends Casillero {
         return this.monto;
     }
 
+    public ComportamientoCasilla getComportamientoCasilla() {
+        return new ComportamientoLoteria();
+    }
 }

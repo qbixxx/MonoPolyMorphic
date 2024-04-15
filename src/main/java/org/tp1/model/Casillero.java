@@ -3,9 +3,9 @@ package org.tp1.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Casillero {
+public abstract class Casillero {
     private final String nombre;
-    private List<Jugador> jugadores;
+    protected List<Jugador> jugadores;
     private final TipoCasillero tipoCasillero;
 
     public Casillero(String nombre, TipoCasillero tipoCasillero) {
@@ -33,4 +33,6 @@ public class Casillero {
     public List<Jugador> getJugadores() {
         return jugadores;
     }
+
+    public abstract ComportamientoCasilla getComportamientoCasilla();
 }
