@@ -19,6 +19,7 @@ public class TableroVista {
     }
 
     public void mostrarOpciones(Casillero casillero) {
-        casillero.mostrarOpcionesCasillero();
+        CasilleroVista casilleroVista = new CasilleroVista(casillero);
+        casilleroVista.mostrarOpcionesCasillero();
     }
 }
