@@ -2,10 +2,21 @@ package org.tp1.model;
 
 public class Tablero {
 
-    Casillero[] tablero;
+    private final Casillero[] tablero;
+    private int posicionCarcel;
 
     public Tablero(Casillero[] tablero) {
         this.tablero = tablero;
+        this.posicionCarcel = obtenerPosicionCarcel();
+    }
+
+    private int obtenerPosicionCarcel() {
+        for (int i = 0; i < tablero.length; i++) {
+            if (tablero[i].getTipoCasillero().equals(TipoCasillero.CARCEL)) {
+                return i;
+            }
+        }
+        throw new RuntimeException("No hay carcel en este tablero");
     }
 
     public Casillero[] getCasilleros() {
@@ -14,5 +25,13 @@ public class Tablero {
 
     public Casillero getCasillero(int indice) {
         return tablero[indice];
+    }
+
+    public int getPosicionCarcel() {
+        return posicionCarcel;
+    }
+
+    private void setPosicionCarcel(int carcel) {
+        this.posicionCarcel = carcel;
     }
 }
