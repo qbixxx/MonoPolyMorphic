@@ -2,6 +2,8 @@ package org.tp1.view;
 
 import org.tp1.model.Tablero;
 import org.tp1.model.casillero.Casillero;
+import org.tp1.view.vistaCasillero.CasilleroVista;
+import org.tp1.view.vistaCasillero.CasilleroVistaFactory;
 
 public class TableroVista {
 
@@ -13,13 +15,13 @@ public class TableroVista {
 
     public void mostrarTablero() {
         for (Casillero casillero : tablero.getCasilleros()) {
-            CasilleroVista casilleroVista = new CasilleroVista(casillero);
+            CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casillero);
             casilleroVista.mostrarCasillero();
         }
     }
 
     public void mostrarOpciones(Casillero casillero) {
-        CasilleroVista casilleroVista = new CasilleroVista(casillero);
+        CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casillero);
         casilleroVista.mostrarOpcionesCasillero();
     }
 }
