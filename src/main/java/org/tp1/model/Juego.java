@@ -35,35 +35,33 @@ public class Juego implements Banco {
     private void chequearCasilla(Jugador jugador) {
         // no respeta open closed
         Casillero casilleroDeCaida = tablero.getCasillero(jugador.getPosicionActual());
-        if (casilleroDeCaida.getTipoCasillero().equals(TipoCasillero.MULTA)) {
-            CasilleroMulta casilleroMulta = (CasilleroMulta) casilleroDeCaida;
-            cobro(jugador, -casilleroMulta.getValorMulta());
-        } else if (casilleroDeCaida.getTipoCasillero().equals(TipoCasillero.LOTERIA)) {
-            CasilleroLoteria casilleroLoteria = (CasilleroLoteria) casilleroDeCaida;
-            cobro(jugador, casilleroLoteria.getValorPozo());
-        } else if (casilleroDeCaida.getTipoCasillero().equals(TipoCasillero.TRANSPORTE)) {
-            CasilleroEstacion casilleroEstacion = (CasilleroEstacion) casilleroDeCaida;
-            if (casilleroEstacion.getDueno() != null) {
-                casilleroEstacion.getDueno().recibirDinero(jugador, casilleroEstacion.getTarifa());
+        switch (casilleroDeCaida.getTipoCasillero()) {
+            case IR_A_CARCEL -> {
+                int posicionAnterior = jugador.getPosicionActual();
+                jugador.setPosicionActual(tablero.getPosicionCarcel());
+                jugador.setEstadoJugador(EstadoJugador.ENCARCELADO);
+                moverJugador(jugador, posicionAnterior);
             }
-        } else if (casilleroDeCaida.getTipoCasillero().equals(TipoCasillero.PROPIEDAD)) {
-            CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casilleroDeCaida;
-            if (casilleroPropiedad.getDueno() != null) {
-                casilleroPropiedad.getDueno().recibirDinero(jugador, casilleroPropiedad.getRenta());
-            }
-        } else if (casilleroDeCaida.getTipoCasillero().equals(TipoCasillero.IR_A_CARCEL)) {
-
-            // buscar la carcel en el tablero (podria ser un metodo del tablero directamente)
-            int indiceCarcel = 0;
-            int posicionAnterior = jugador.getPosicionActual();
-            for (int i = 0; i < tablero.getCasilleros().length; i++) {
-                if (tablero.getCasilleros()[i].getTipoCasillero().equals(TipoCasillero.CARCEL)) {
-                    indiceCarcel = i;
+            case TRANSPORTE -> {
+                CasilleroEstacion casilleroEstacion = (CasilleroEstacion) casilleroDeCaida;
+                if (casilleroEstacion.getDueno() != null) {
+                    casilleroEstacion.getDueno().recibirDinero(jugador, casilleroEstacion.getTarifa());
                 }
             }
-            jugador.setPosicionActual(indiceCarcel);
-            jugador.setEstadoJugador(EstadoJugador.ENCARCELADO);
-            moverJugador(jugador, posicionAnterior);
+            case PROPIEDAD -> {
+                CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casilleroDeCaida;
+                if (casilleroPropiedad.getDueno() != null) {
+                    casilleroPropiedad.getDueno().recibirDinero(jugador, casilleroPropiedad.getRenta());
+                }
+            }
+            case LOTERIA -> {
+                CasilleroLoteria casilleroLoteria = (CasilleroLoteria) casilleroDeCaida;
+                cobro(jugador, casilleroLoteria.getValorPozo());
+            }
+            case MULTA -> {
+                CasilleroMulta casilleroMulta = (CasilleroMulta) casilleroDeCaida;
+                cobro(jugador, -casilleroMulta.getValorMulta());
+            }
         }
     }
 
@@ -91,12 +89,12 @@ public class Juego implements Banco {
     }
 
     public void setearPosicion(Jugador jugador) {
-        int nuevaPosicion = Math.abs(this.tablero.tablero.length - jugador.getPosicionActual());
+        int nuevaPosicion = Math.abs(this.tablero.getCasilleros().length - jugador.getPosicionActual());
         jugador.setPosicionActual(nuevaPosicion);
     }
 
     public boolean pasoPorSalida(Jugador jugador) {
-        return jugador.getPosicionActual() >= this.tablero.tablero.length;
+        return jugador.getPosicionActual() >= this.tablero.getCasilleros().length;
     }
 
     // Pre:  monto deberia ser un valor positivo si el banco le paga al Jugador
