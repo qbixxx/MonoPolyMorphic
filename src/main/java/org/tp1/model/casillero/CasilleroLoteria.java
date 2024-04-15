@@ -1,4 +1,7 @@
-package org.tp1.model;
+package org.tp1.model.casillero;
+
+import org.tp1.model.comportamiento.ComportamientoCasilla;
+import org.tp1.model.comportamiento.ComportamientoLoteria;
 
 public class CasilleroLoteria extends Casillero {
 

@@ -1,4 +1,7 @@
-package org.tp1.model;
+package org.tp1.model.casillero;
+
+import org.tp1.model.comportamiento.ComportamientoCasilla;
+import org.tp1.model.comportamiento.ComportamientoMulta;
 
 public class CasilleroMulta extends Casillero {
     double valorMulta;
@@ -11,7 +14,7 @@ public class CasilleroMulta extends Casillero {
     public double getValorMulta() {
         return valorMulta;
     }
-    
+
     public ComportamientoCasilla getComportamientoCasilla() {
         return new ComportamientoMulta();
     }

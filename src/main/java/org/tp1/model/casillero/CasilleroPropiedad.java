@@ -1,5 +1,9 @@
-package org.tp1.model;
+package org.tp1.model.casillero;
 
+
+import org.tp1.model.Jugador;
+import org.tp1.model.comportamiento.ComportamientoCasilla;
+import org.tp1.model.comportamiento.ComportamientoPropiedad;
 
 public class CasilleroPropiedad extends Casillero {
     String grupo;

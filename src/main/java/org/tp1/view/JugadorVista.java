@@ -1,8 +1,8 @@
 package org.tp1.view;
 
-import org.tp1.model.Casillero;
 import org.tp1.model.EstadoJugador;
 import org.tp1.model.Jugador;
+import org.tp1.model.casillero.Casillero;
 
 public class JugadorVista {
 
@@ -14,7 +14,7 @@ public class JugadorVista {
 
     public void mostrarJugador() {
         System.out.println(jugador.getNombre() + ", Dinero en cuenta: " + jugador.getDineroDisponible());
-        System.out.println( colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador() + Colores.RESET.getColor());
+        System.out.println(colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador() + Colores.RESET.getColor());
         String propiedades = "";
         if (jugador.getPropiedades() != null) {
             for (Casillero propiedad : jugador.getPropiedades()) {
@@ -23,7 +23,7 @@ public class JugadorVista {
         }
     }
 
-    private String colorEstado(EstadoJugador estado){
+    private String colorEstado(EstadoJugador estado) {
         return estado == EstadoJugador.EN_JUEGO ? Colores.GREEN.getColor() : (estado == EstadoJugador.ENCARCELADO ? Colores.YELLOW.getColor() : Colores.RED.getColor());
     }
 }

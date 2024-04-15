@@ -1,5 +1,7 @@
 package org.tp1.model;
 
+import org.tp1.model.casillero.Casillero;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,5 +1,8 @@
 package org.tp1.model;
 
+import org.tp1.model.casillero.Casillero;
+import org.tp1.model.comportamiento.ComportamientoCasilla;
+
 import java.util.Random;
 
 public class Juego implements Banco {

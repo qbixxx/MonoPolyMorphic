@@ -1,4 +1,4 @@
-package org.tp1.model;
+package org.tp1.model.casillero;
 
 public enum TipoCasillero {
 

@@ -1,5 +1,8 @@
 package org.tp1.model;
 
+import org.tp1.model.casillero.Casillero;
+import org.tp1.model.casillero.TipoCasillero;
+
 public class Tablero {
 
     private final Casillero[] tablero;

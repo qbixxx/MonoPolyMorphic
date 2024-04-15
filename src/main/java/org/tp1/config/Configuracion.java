@@ -1,6 +1,6 @@
 package org.tp1.config;
 
-import org.tp1.model.*;
+import org.tp1.model.casillero.*;
 
 public class Configuracion {
     int montoSalidaLlegada = 200;
