@@ -10,6 +10,6 @@ public class ComportamientoIrACarcel implements ComportamientoCasilla {
         int posicionAnterior = jugador.getPosicionActual();
         jugador.setPosicionActual(juego.getTablero().getPosicionCarcel());
         jugador.setEstadoJugador(EstadoJugador.ENCARCELADO);
-        juego.moverJugador(jugador, posicionAnterior);
+        juego.encarcelarJugador(jugador, posicionAnterior);
     }
 }

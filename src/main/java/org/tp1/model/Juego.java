@@ -1,6 +1,7 @@
 package org.tp1.model;
 
 import org.tp1.model.casillero.Casillero;
+import org.tp1.model.casillero.CasilleroCarcel;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 
 import java.util.Random;
@@ -57,6 +58,18 @@ public class Juego implements Banco {
             cobro(jugador, DINERO_POR_PASAR_POR_SALIDA);
         }
         moverJugador(jugador, posicionAnterior);
+    }
+
+    public void encarcelarJugador(Jugador jugador, int posicionAnterior) {
+        tablero.getCasillero(posicionAnterior).eliminarJugador(jugador);
+        CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(tablero.getPosicionCarcel());
+        carcel.encarcelarJugador(jugador);
+    }
+
+    public void liberarJugador(Jugador jugador) {
+        CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(tablero.getPosicionCarcel());
+        carcel.liberarJugador(jugador);
+        jugador.setEstadoJugador(EstadoJugador.EN_JUEGO);
     }
 
     public void moverJugador(Jugador jugador, int posicionAnterior) {
