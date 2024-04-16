@@ -1,8 +1,8 @@
 package org.tp1.model.casillero;
 
 import org.tp1.model.Jugador;
+import org.tp1.model.comportamiento.ComportamientoCarcel;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
-import org.tp1.model.comportamiento.ComportamientoPaso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +30,19 @@ public class CasilleroCarcel extends Casillero {
         jugadores.add(jugador);
     }
 
+    public int cantTurnosEncarcelado(Jugador jugador) {
+        return turnosEncarcelados.get(jugador.getNombre());
+    }
+
+    public void pasarTurnoEnCarcel(Jugador jugador) {
+        turnosEncarcelados.put(jugador.getNombre(), cantTurnosEncarcelado(jugador) + 1);
+    }
+
+    public List<Jugador> getEncarcelados() {
+        return encarcelados;
+    }
+
     public ComportamientoCasilla getComportamientoCasilla() {
-        return new ComportamientoPaso();
+        return new ComportamientoCarcel();
     }
 }

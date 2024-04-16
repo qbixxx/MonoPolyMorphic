@@ -42,6 +42,18 @@ public class Juego implements Banco {
         comportamiento.ejecutarAlCaer(jugador, casilleroDeCaida, this);
     }
 
+    public void pasarTurnoEnCarcel() {
+        Jugador jugador = jugadorEnTurnoActual();
+        CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(jugador.getPosicionActual());
+        System.out.println(jugador.getNombre() + carcel.cantTurnosEncarcelado(jugador));
+        if (carcel.cantTurnosEncarcelado(jugador) < 3) {
+            carcel.pasarTurnoEnCarcel(jugador);
+            siguienteTurno();
+        } else if (carcel.cantTurnosEncarcelado(jugador) >= 3) {
+            liberarJugador(jugador);
+        }
+
+    }
 
     public void avanzar() {
         Random rand = new Random();

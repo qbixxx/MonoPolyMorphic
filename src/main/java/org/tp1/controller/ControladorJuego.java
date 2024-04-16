@@ -35,11 +35,19 @@ public class ControladorJuego {
     public void elegirOpcion() {
         Scanner scanner = new Scanner(System.in);
         String decision = scanner.nextLine();
-        if (decision.equals(Comandos.AVANZAR.getComando())) {
-            monopoly.avanzar();
-            monopoly.siguienteTurno();
-        } else if (decision.equals(Comandos.SIG_TURNO.getComando())) {
-            monopoly.siguienteTurno();
+        if (!monopoly.jugadorEnTurnoActual().getEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
+            if (decision.equals(Comandos.AVANZAR.getComando())) {
+                monopoly.avanzar();
+                monopoly.siguienteTurno();
+            } else if (decision.equals(Comandos.SIG_TURNO.getComando())) {
+                monopoly.siguienteTurno();
+            } else {
+                System.out.println("Esta accion no existe");
+            }
+        } else {
+            if (decision.equals(Comandos.AVANZAR.getComando())) {
+                monopoly.pasarTurnoEnCarcel();
+            }
         }
     }
 }
