@@ -1,14 +1,15 @@
 package org.tp1.controller;
 
 import org.tp1.model.EstadoJugador;
-import org.tp1.model.Juego;
 import org.tp1.model.Jugador;
+import org.tp1.model.juego.IJuego;
+import org.tp1.model.juego.Juego;
 import org.tp1.view.JuegoVista;
 
 import java.util.Scanner;
 
 public class ControladorJuego {
-    private final Juego monopoly;
+    private final IJuego monopoly;
     private final JuegoVista juegoVista;
 
     public ControladorJuego(Juego juego) {

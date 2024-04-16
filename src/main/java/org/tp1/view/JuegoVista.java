@@ -1,8 +1,8 @@
 package org.tp1.view;
 
-import org.tp1.model.Juego;
 import org.tp1.model.Jugador;
-import org.tp1.model.Tablero;
+import org.tp1.model.juego.Juego;
+import org.tp1.model.juego.Tablero;
 
 public class JuegoVista {
     private final Juego juego;

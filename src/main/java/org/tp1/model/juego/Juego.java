@@ -1,12 +1,14 @@
-package org.tp1.model;
+package org.tp1.model.juego;
 
+import org.tp1.model.EstadoJugador;
+import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroCarcel;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 
 import java.util.Random;
 
-public class Juego implements Banco {
+public class Juego implements Banco, IJuego {
     private final Tablero tablero;
     private final Jugador[] jugadores;
     private int posicionJugadorDeTurno;

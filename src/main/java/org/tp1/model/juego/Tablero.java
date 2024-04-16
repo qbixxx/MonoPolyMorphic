@@ -1,4 +1,4 @@
-package org.tp1.model;
+package org.tp1.model.juego;
 
 import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.TipoCasillero;
