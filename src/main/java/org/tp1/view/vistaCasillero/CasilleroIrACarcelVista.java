@@ -22,9 +22,8 @@ public class CasilleroIrACarcelVista implements CasilleroVista {
         }
         System.out.println(Colores.BLUE.getColor() + "--------------------" + Colores.RESET.getColor());
     }
-
-    @Override
-    public void mostrarOpcionesCasillero() {
+    
+    public void mostrarOpcionesCasillero(Jugador jugador) {
         System.out.println("Opciones casillero ir a carcel");
     }
 }

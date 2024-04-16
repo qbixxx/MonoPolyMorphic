@@ -23,8 +23,7 @@ public class CasilleroMultaVista implements CasilleroVista {
         System.out.println(Colores.BLUE.getColor() + "--------------------" + Colores.RESET.getColor());
     }
 
-    @Override
-    public void mostrarOpcionesCasillero() {
+    public void mostrarOpcionesCasillero(Jugador jugador) {
         System.out.println("Opciones casillero multa");
     }
 }

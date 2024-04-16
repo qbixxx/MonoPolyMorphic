@@ -1,5 +1,6 @@
 package org.tp1.view;
 
+import org.tp1.model.Jugador;
 import org.tp1.model.Tablero;
 import org.tp1.model.casillero.Casillero;
 import org.tp1.view.vistaCasillero.CasilleroVista;
@@ -20,8 +21,9 @@ public class TableroVista {
         }
     }
 
-    public void mostrarOpciones(Casillero casillero) {
-        CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casillero);
-        casilleroVista.mostrarOpcionesCasillero();
+    public void mostrarOpciones(Jugador jugador) {
+        Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
+        CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
+        casilleroVista.mostrarOpcionesCasillero(jugador);
     }
 }

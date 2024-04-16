@@ -19,12 +19,12 @@ public class JuegoVista {
             jugadorVista.mostrarJugador();
         }
         Jugador jugadorEnTurno = juego.jugadorEnTurnoActual();
-        System.out.println(Colores.RED.getColor() + "------------------------------\n" + Colores.RESET.getColor() + "Turno de: " + Colores.GREEN.getColor() + jugadorEnTurno.getNombre() + Colores.RESET.getColor() + ",\n" + Colores.YELLOW.getColor() +"dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Colores.RESET.getColor() + Colores.RED.getColor() + "\n------------------------------" + Colores.RESET.getColor());
+        System.out.println(Colores.RED.getColor() + "------------------------------\n" + Colores.RESET.getColor() + "Turno de: " + Colores.GREEN.getColor() + jugadorEnTurno.getNombre() + Colores.RESET.getColor() + ",\n" + Colores.YELLOW.getColor() + "dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Colores.RESET.getColor() + Colores.RED.getColor() + "\n------------------------------" + Colores.RESET.getColor());
     }
 
     public void mostrarOpciones() {
         Tablero tablero = juego.getTablero();
         TableroVista tableroVista = new TableroVista(tablero);
-        tableroVista.mostrarOpciones(tablero.getCasilleros()[juego.jugadorEnTurnoActual().getPosicionActual()]);
+        tableroVista.mostrarOpciones(juego.jugadorEnTurnoActual());
     }
 }
