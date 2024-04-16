@@ -5,14 +5,16 @@ import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoPropiedad;
 
+import java.util.List;
+
 public class CasilleroPropiedad extends Casillero {
     String grupo;
-    private double costoCompra;
+    private final double costoCompra;
     private double renta;
     private Jugador dueno;
 
-    public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta, String grupo) {
-        super(nombre, tipoCasillero);
+    public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta, String grupo, List<Jugador> jugadores) {
+        super(nombre, tipoCasillero, jugadores);
         this.grupo = grupo;
         this.costoCompra = costoCompra;
         this.renta = renta;

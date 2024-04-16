@@ -13,9 +13,8 @@ public class CasilleroCarcel extends Casillero {
     private List<Jugador> encarcelados;
     private HashMap<String, Integer> turnosEncarcelados;
 
-    public CasilleroCarcel(String nombre, TipoCasillero tipoCasillero) {
-        super(nombre, tipoCasillero);
-        this.jugadores = new ArrayList<>();
+    public CasilleroCarcel(String nombre, TipoCasillero tipoCasillero, List<Jugador> jugadores) {
+        super(nombre, tipoCasillero, jugadores);
         this.encarcelados = new ArrayList<>();
         this.turnosEncarcelados = new HashMap<>();
     }

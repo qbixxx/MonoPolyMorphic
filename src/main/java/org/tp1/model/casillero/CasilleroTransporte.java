@@ -4,14 +4,16 @@ import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoTransporte;
 
+import java.util.List;
+
 public class CasilleroTransporte extends Casillero {
 
     private final double costoCompra;
     private double tarifa;
     private Jugador dueno;
 
-    public CasilleroTransporte(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa) {
-        super(nombre, tipoCasillero);
+    public CasilleroTransporte(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa, List<Jugador> jugadores) {
+        super(nombre, tipoCasillero, jugadores);
         this.costoCompra = costoCompra;
         this.tarifa = tarifa;
         this.dueno = null;
