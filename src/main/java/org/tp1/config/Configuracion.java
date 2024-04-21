@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class Configuracion {
     int montoSalidaLlegada = 200;
-    Casillero[] tablero = {new CasilleroPaso("🏢 Casillero 1", TipoCasillero.DE_PASO, new ArrayList<>()), new CasilleroLoteria("🍀 " +
-            "Loteria",
-            TipoCasillero.LOTERIA, 300, new ArrayList<>()),
+    Casillero[] tablero = {
+            new CasilleroPaso("🏁 Inicio / Salida", TipoCasillero.DE_PASO, new ArrayList<>()),
+            new CasilleroPaso("🏢 Casillero 1", TipoCasillero.DE_PASO, new ArrayList<>()),
+            new CasilleroLoteria("🍀 " + "Loteria", TipoCasillero.LOTERIA, 300, new ArrayList<>()),
             new CasilleroPaso("🏢 Casillero 2", TipoCasillero.DE_PASO, new ArrayList<>()),
             new CasilleroIrACarcel("👮‍♂️ " + "Vas preso", TipoCasillero.IR_A_CARCEL, new ArrayList<>()),
             new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 300, 30, new ArrayList<>()),

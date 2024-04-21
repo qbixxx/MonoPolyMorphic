@@ -17,6 +17,10 @@ public class Juego implements Banco, IJuego {
     public Juego(Tablero tablero, Jugador[] jugadores) {
         this.tablero = tablero;
         this.jugadores = jugadores;
+
+        for (Jugador jugador : jugadores){
+            this.tablero.getCasillero(0).agregarJugador(jugador);
+        }
     }
 
     public Jugador jugadorEnTurnoActual() {
