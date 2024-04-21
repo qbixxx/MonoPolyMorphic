@@ -61,7 +61,7 @@ public class Juego implements Banco, IJuego {
         Random rand = new Random();
 
         // Le sumé 1 para evitar el dado con valor cer (0) y que no se mueva el jugador
-        int dado = rand.nextInt(3) + 1;
+        int dado = rand.nextInt(5) + 1;
 
         Jugador jugador = jugadorEnTurnoActual();
         int posicionAnterior = jugador.getPosicionActual();

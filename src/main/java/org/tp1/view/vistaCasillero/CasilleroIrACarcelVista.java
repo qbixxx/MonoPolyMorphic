@@ -20,10 +20,13 @@ public class CasilleroIrACarcelVista implements CasilleroVista {
                 System.out.println(Colores.RED.getColor() + "\t|" + Colores.RESET.getColor() + Colores.GREEN.getColor() + "+ " + Colores.RESET.getColor() + Colores.RED.getColor() + jugador.getNombre() + "\t|" + Colores.RESET.getColor());
             }
         }
+        System.out.println(Colores.RED.getColor() + "Ir directo a la cárcel" + Colores.RESET.getColor());
         System.out.println(Colores.BLUE.getColor() + "--------------------" + Colores.RESET.getColor());
     }
     
     public void mostrarOpcionesCasillero(Jugador jugador) {
+
         System.out.println("Opciones casillero ir a carcel");
+        System.out.println("1 1- terminar Turno");
     }
 }
