@@ -1,6 +1,6 @@
 package org.tp1.controller;
 
-import org.tp1.model.EstadoJugador;
+import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.juego.IJuego;
 import org.tp1.model.juego.Juego;
@@ -20,7 +20,7 @@ public class ControladorJuego {
     public boolean enJuego() {
         int numJugadoresEnJuego = 0;
         for (Jugador jugador : monopoly.getJugadores()) {
-            if (jugador.getEstadoJugador().equals(EstadoJugador.EN_JUEGO)) {
+            if (!jugador.getEstadoJugador().equals(EstadoJugador.EN_QUIEBRA)) {
                 numJugadoresEnJuego++;
             }
         }

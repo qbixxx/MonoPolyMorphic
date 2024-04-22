@@ -10,8 +10,8 @@ public class CasilleroLoteria extends Casillero {
 
     double monto;
 
-    public CasilleroLoteria(String nombre, TipoCasillero tipoCasillero, double monto, List<Jugador> jugadores) {
-        super(nombre, tipoCasillero, jugadores);
+    public CasilleroLoteria(String nombre, TipoCasillero tipoCasillero, double monto) {
+        super(nombre, tipoCasillero);
         this.monto = monto;
     }
 

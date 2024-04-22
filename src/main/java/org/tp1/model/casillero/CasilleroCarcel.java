@@ -13,19 +13,21 @@ public class CasilleroCarcel extends Casillero {
     private List<Jugador> encarcelados;
     private HashMap<String, Integer> turnosEncarcelados;
 
-    public CasilleroCarcel(String nombre, TipoCasillero tipoCasillero, List<Jugador> jugadores) {
-        super(nombre, tipoCasillero, jugadores);
+    public CasilleroCarcel(String nombre, TipoCasillero tipoCasillero) {
+        super(nombre, tipoCasillero);
         this.encarcelados = new ArrayList<>();
         this.turnosEncarcelados = new HashMap<>();
     }
 
     public void encarcelarJugador(Jugador jugador) {
         encarcelados.add(jugador);
+        jugador.enCarcel();
         turnosEncarcelados.put(jugador.getNombre(), 0);
     }
 
     public void liberarJugador(Jugador jugador) {
         encarcelados.remove(jugador);
+        jugador.enJuego();
         jugadores.add(jugador);
     }
 

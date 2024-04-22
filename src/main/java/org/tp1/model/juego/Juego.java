@@ -1,6 +1,5 @@
 package org.tp1.model.juego;
 
-import org.tp1.model.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroCarcel;
@@ -64,13 +63,12 @@ public class Juego implements Banco, IJuego {
     public void avanzar() {
         Random rand = new Random();
 
-        // Le sumé 1 para evitar el dado con valor cer (0) y que no se mueva el jugador
         int dado = rand.nextInt(5) + 1;
 
         Jugador jugador = jugadorEnTurnoActual();
         int posicionAnterior = jugador.getPosicionActual();
         jugador.setPosicionActual(jugador.getPosicionActual() + dado);
-        // Separé la logica en pequeños metodos ( Single responsability y Declarativo )
+
         if (pasoPorSalida(jugador)) {
             setearPosicion(jugador);
             cobro(jugador, DINERO_POR_PASAR_POR_SALIDA);
@@ -87,12 +85,13 @@ public class Juego implements Banco, IJuego {
     public void liberarJugador(Jugador jugador) {
         CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(tablero.getPosicionCarcel());
         carcel.liberarJugador(jugador);
-        jugador.setEstadoJugador(EstadoJugador.EN_JUEGO);
+        jugador.enJuego();
     }
 
     public void moverJugador(Jugador jugador, int posicionAnterior) {
         this.tablero.getCasillero(jugador.getPosicionActual()).agregarJugador(jugador);
         this.tablero.getCasillero(posicionAnterior).eliminarJugador(jugador);
+        jugador.setCasilleroActual(this.tablero.getCasillero(jugador.getPosicionActual()));
         chequearCasilla(jugador);
     }
 
@@ -109,6 +108,7 @@ public class Juego implements Banco, IJuego {
     //      ó un monto negativo si el banco le cobra al jugador
     public void cobro(Jugador jugador, double monto) {
         jugador.setDineroDisponible(monto);
+        jugador.enQuiebra();
     }
 
 }

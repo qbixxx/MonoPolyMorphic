@@ -2,19 +2,18 @@ package org.tp1.config;
 
 import org.tp1.model.casillero.*;
 
-import java.util.ArrayList;
-
 public class Configuracion {
     int montoSalidaLlegada = 200;
     Casillero[] tablero = {
-            new CasilleroPaso("🏁 Inicio / Salida", TipoCasillero.DE_PASO, new ArrayList<>()),
-            new CasilleroPaso("🏢 Casillero 1", TipoCasillero.DE_PASO, new ArrayList<>()),
-            new CasilleroLoteria("🍀 " + "Loteria", TipoCasillero.LOTERIA, 300, new ArrayList<>()),
-            new CasilleroPaso("🏢 Casillero 2", TipoCasillero.DE_PASO, new ArrayList<>()),
-            new CasilleroIrACarcel("👮‍♂️ " + "Vas preso", TipoCasillero.IR_A_CARCEL, new ArrayList<>()),
-            new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 300, 30, new ArrayList<>()),
-            new CasilleroMulta("Multa", TipoCasillero.MULTA, 150, new ArrayList<>()),
-            new CasilleroCarcel("👮‍♂️ " + "Carcel", TipoCasillero.CARCEL, new ArrayList<>())};
+            new CasilleroPaso("🏁 Inicio / Salida", TipoCasillero.DE_PASO),
+            new CasilleroPaso("🏢 Casillero 1", TipoCasillero.DE_PASO),
+            new CasilleroLoteria("🍀 " + "Loteria", TipoCasillero.LOTERIA, 300),
+            new CasilleroMulta("Multa", TipoCasillero.MULTA, 150),
+            new CasilleroPaso("🏢 Casillero 2", TipoCasillero.DE_PASO),
+            new CasilleroIrACarcel("👮‍♂️ " + "Vas preso", TipoCasillero.IR_A_CARCEL),
+            new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 300, 30),
+            new CasilleroMulta("Multa", TipoCasillero.MULTA, 150),
+            new CasilleroCarcel("👮‍♂️ " + "Carcel", TipoCasillero.CARCEL)};
 
     public Casillero[] getTablero() {
         return tablero;
