@@ -24,6 +24,6 @@ public class CasilleroDePasoVista implements CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("Opciones casillero de paso");
+        System.out.println("🚶 "+jugador.getNombre()+"! Estás en un casillero de paso, aqui no pasa nada :)");
     }
 }

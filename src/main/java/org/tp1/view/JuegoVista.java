@@ -26,5 +26,6 @@ public class JuegoVista {
         Tablero tablero = juego.getTablero();
         TableroVista tableroVista = new TableroVista(tablero);
         tableroVista.mostrarOpciones(juego.jugadorEnTurnoActual());
+        //jugadorEnTurnoActual.verOpciones()
     }
 }

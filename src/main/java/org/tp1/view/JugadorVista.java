@@ -23,6 +23,10 @@ public class JugadorVista {
         }
     }
 
+    public void verOpciones(){
+        // opciones segun el estado del jugador
+    }
+
     private String colorEstado(EstadoJugador estado) {
         return estado == EstadoJugador.EN_JUEGO ? Colores.GREEN.getColor() : (estado == EstadoJugador.ENCARCELADO ? Colores.YELLOW.getColor() : Colores.RED.getColor());
     }
