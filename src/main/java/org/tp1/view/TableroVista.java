@@ -25,5 +25,14 @@ public class TableroVista {
         Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
         CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
         casilleroVista.mostrarOpcionesCasillero(jugador);
+
+        /*
+         * Agregar la logica segun el estado del jugador.
+         *
+         * Ya sea:
+         * Hipotecar, construir, vender, etc
+         * Expandir a los demas casilleros
+         *
+         * */
     }
 }
