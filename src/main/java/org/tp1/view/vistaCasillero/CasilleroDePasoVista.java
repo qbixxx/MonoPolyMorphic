@@ -25,5 +25,14 @@ public class CasilleroDePasoVista implements CasilleroVista {
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
         System.out.println("🚶 "+jugador.getNombre()+"! Estás en un casillero de paso, aqui no pasa nada :)");
+
+        /*
+        * Agregar la logica segun el estado del jugador.
+        *
+        * Ya sea:
+        * Hipotecar, construir, vender, etc
+        * Expandir a los demas casilleros
+        *
+        * */
     }
 }
