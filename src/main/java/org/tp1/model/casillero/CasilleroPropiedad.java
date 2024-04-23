@@ -11,6 +11,8 @@ public class CasilleroPropiedad extends Casillero {
     String grupo;
     private final double costoCompra;
     private double renta;
+    private double hipoteca;
+    private boolean hipotecada;
     private Jugador dueno;
 
     public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta, String grupo, List<Jugador> jugadores) {
@@ -21,8 +23,19 @@ public class CasilleroPropiedad extends Casillero {
         this.dueno = null;
 
     }
+    public boolean estaHipotecada(){
+        return this.hipotecada;
+    }
 
-
+    public void hipotecar(){
+        this.hipotecada = true;
+    }
+    public void desHipotecar(){
+        this.hipotecada = false;
+    }
+    public double getHipoteca(){
+        return this.hipoteca;
+    }
     public String getGrupo() {
         return this.grupo;
     }

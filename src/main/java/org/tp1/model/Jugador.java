@@ -4,13 +4,12 @@ import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroPropiedad;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Jugador {
 
     private final String nombre;
     private double dineroDisponible;
-    private List<Casillero> propiedades;
+    private ArrayList<CasilleroPropiedad> propiedades;
     private EstadoJugador estadoJugador;
     private int posicionActual;
     private Casillero casilleroActual;
@@ -19,7 +18,7 @@ public class Jugador {
     public Jugador(String nombre) {
         this.dineroDisponible = 100;
         this.nombre = nombre;
-        this.propiedades = new ArrayList<>();
+        this.propiedades = new ArrayList<CasilleroPropiedad>();
         this.estadoJugador = EstadoJugador.EN_JUEGO;
         this.posicionActual = 0;
         this.casilleroActual = null;
@@ -42,7 +41,7 @@ public class Jugador {
         return dineroDisponible;
     }
 
-    public List<Casillero> getPropiedades() {
+    public ArrayList<CasilleroPropiedad> getPropiedades() {
         return propiedades;
     }
 

@@ -36,5 +36,7 @@ public class TableroVista {
          * Expandir a los demas casilleros
          *
          * */
+
+
     }
 }
