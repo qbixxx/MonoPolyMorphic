@@ -41,6 +41,7 @@ public class CasilleroPropiedad extends Casillero {
 
     public void comprar(Jugador comprador) {
         this.dueno = comprador;
+        comprador.agregarPropiedad(this);
     }
 
     public void pagarRenta(Jugador inquilino) {

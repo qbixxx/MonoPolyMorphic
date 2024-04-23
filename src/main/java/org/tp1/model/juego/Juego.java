@@ -46,6 +46,7 @@ public class Juego implements Banco, IJuego {
         Casillero casilleroDeCaida = tablero.getCasillero(jugador.getPosicionActual());
         ComportamientoCasilla comportamiento = casilleroDeCaida.getComportamientoCasilla();
         comportamiento.ejecutarAlCaer(jugador, casilleroDeCaida, this);
+
     }
 
     public void pasarTurnoEnCarcel() {
@@ -66,7 +67,7 @@ public class Juego implements Banco, IJuego {
 
         // Le sumé 1 para evitar el dado con valor cer (0) y que no se mueva el jugador
         int dado = rand.nextInt(5) + 1;
-
+        System.out.println("Avanzas "+dado+" Casilleros!");
         Jugador jugador = jugadorEnTurnoActual();
         int posicionAnterior = jugador.getPosicionActual();
         jugador.setPosicionActual(jugador.getPosicionActual() + dado);

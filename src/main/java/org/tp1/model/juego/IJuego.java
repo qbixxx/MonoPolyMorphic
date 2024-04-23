@@ -27,4 +27,6 @@ public interface IJuego {
     boolean pasoPorSalida(Jugador jugador);
 
     void cobro(Jugador jugador, double monto);
+
+
 }

@@ -1,6 +1,7 @@
 package org.tp1.model;
 
 import org.tp1.model.casillero.Casillero;
+import org.tp1.model.casillero.CasilleroPropiedad;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Jugador {
     private EstadoJugador estadoJugador;
     private int posicionActual;
     private Casillero casilleroActual;
+    private String ultimoMensaje;
 
     public Jugador(String nombre) {
         this.dineroDisponible = 100;
@@ -23,6 +25,15 @@ public class Jugador {
         this.casilleroActual = null;
     }
 
+    public void setMensaje(String mensaje){
+        this.ultimoMensaje = mensaje;
+    }
+    public String getUltimoMensaje(){
+        String msg = this.ultimoMensaje;
+        this.ultimoMensaje = "";
+        return msg;
+
+    }
     public String getNombre() {
         return nombre;
     }
@@ -64,6 +75,12 @@ public class Jugador {
     public void recibirDinero(Jugador jugador, double monto) {
 
         this.dineroDisponible += jugador.entregarDinero(monto);
+    }
+
+    public void agregarPropiedad(CasilleroPropiedad propiedad){
+        this.propiedades.add(propiedad);
+        this.dineroDisponible -= propiedad.getCostoCompra();
+
     }
 
 }

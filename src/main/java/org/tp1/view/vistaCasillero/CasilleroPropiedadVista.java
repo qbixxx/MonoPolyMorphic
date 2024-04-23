@@ -20,10 +20,21 @@ public class CasilleroPropiedadVista implements CasilleroVista {
                 System.out.println(Colores.RED.getColor() + "\t|" + Colores.RESET.getColor() + Colores.GREEN.getColor() + "+ " + Colores.RESET.getColor() + Colores.RED.getColor() + jugador.getNombre() + "\t|" + Colores.RESET.getColor());
             }
         }
+
+        if (casillero.getDueno() != null){
+            System.out.println(Colores.BLUE.getColor() +"Dueño:"+ casillero.getDueno().getNombre() + Colores.RESET.getColor());
+        }else{
+            System.out.println(Colores.BLUE.getColor() +"- No tiene Dueño" + Colores.RESET.getColor());
+        }
         System.out.println(Colores.BLUE.getColor() + "--------------------" + Colores.RESET.getColor());
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("Opciones casillero propiedad");
+        System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de propiedad" );
+
+        System.out.println("    > 3 Comprar la propiedad por $"+this.casillero.getCostoCompra());
+        System.out.println("    > Enter: No Comprar la propiedad."+Colores.RESET.getColor());
+
+
     }
 }
