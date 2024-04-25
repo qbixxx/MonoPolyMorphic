@@ -15,9 +15,9 @@ public abstract class CasilleroVista {
         }
         System.out.println("2. Para pasar al siguiente");
         if (jugador.getPropiedades() != null && !jugador.getPropiedades().isEmpty()) {
-            System.out.println("3. Para hipotecar");
-            System.out.println("4. Para deshipotecar");
             System.out.println("5. Para vender una prop");
+            System.out.println("7. Para hipotecar");
+            System.out.println("8. Para deshipotecar");
             /*if ( si tiene un grupo completo) {
                 // comprar casa / hotel
             }*/

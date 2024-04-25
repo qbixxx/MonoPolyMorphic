@@ -83,6 +83,12 @@ public class ControladorJuego {
             CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadAHipotecar);
             this.monopoly.hipotecarPropiedad(propiedadElegida);
         }
+        if (decision.equals("8")) {
+            this.juegoVista.mostrarPropiedadesHipotecadas();
+            String indicePropiedadADeshipotecar = this.juegoVista.recibirOpciones();
+            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadADeshipotecar);
+            this.monopoly.deshipotecarPropiedad(propiedadElegida);
+        }
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }
@@ -113,7 +119,7 @@ public class ControladorJuego {
             }
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_PROPIEDAD)) {
-            String respuesta = comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(),
+            comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(),
                     casilleroActual,
                     this.monopoly, decision);
             repetirTurno();

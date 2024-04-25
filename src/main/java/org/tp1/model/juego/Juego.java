@@ -120,9 +120,9 @@ public class Juego implements Banco {
         this.cobro(this.jugadorEnTurnoActual(), propiedadAHipotecar.getHipoteca());
         propiedadAHipotecar.hipotecar();
     }
-    public void desHipotecarPropiedad(Jugador jugador,int index, Juego juego){
-        juego.cobro(jugador, -jugador.getPropiedades().get(index).getHipoteca());
-        jugador.getPropiedades().get(index).desHipotecar();
+    public void deshipotecarPropiedad(CasilleroPropiedad casilleroPropiedad){
+        this.cobro(this.jugadorEnTurnoActual(), -casilleroPropiedad.getHipoteca());
+        casilleroPropiedad.deshipotecar();
     }
 
     public Casillero obtenerCasilleroActual() {

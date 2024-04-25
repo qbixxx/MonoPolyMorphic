@@ -76,4 +76,13 @@ public class JuegoVista {
             }
         }
     }
+    public void mostrarPropiedadesHipotecadas() {
+        List<CasilleroPropiedad> propiedades =  this.juego.jugadorEnTurnoActual().getPropiedades();
+        for (int i = 0; i < propiedades.size(); i++) {
+            if (propiedades.get(i).estaHipotecada()) {
+                System.out.println(i + ". " + propiedades.get(i).getNombre());
+            }
+        }
+    }
+
 }

@@ -30,7 +30,7 @@ public class CasilleroPropiedad extends Casillero {
     public void hipotecar(){
         this.hipotecada = true;
     }
-    public void desHipotecar(){
+    public void deshipotecar(){
         this.hipotecada = false;
     }
     public double getHipoteca(){
