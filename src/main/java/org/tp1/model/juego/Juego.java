@@ -68,7 +68,6 @@ public class Juego implements Banco {
     }
 
     public void avanzar(int dado) {
-        // System.out.println("Avanzas "+dado+" Casilleros!");
         Jugador jugador = jugadorEnTurnoActual();
         int posicionAnterior = jugador.getPosicionActual();
         jugador.setPosicionActual(jugador.getPosicionActual() + dado);

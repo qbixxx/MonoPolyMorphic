@@ -40,9 +40,10 @@ public class ControladorJuego {
         juegoVista.mostrarOpciones();
         String decision = juegoVista.recibirOpciones();
         if (decision.equals("2")) {
+            this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
             monopoly.siguienteTurno();
-            this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         }
+        this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }
 
@@ -51,9 +52,10 @@ public class ControladorJuego {
         juegoVista.mostrarOpcionesGenericas();
         String decision = juegoVista.recibirOpciones();
         if (decision.equals("2")) {
+            this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
             monopoly.siguienteTurno();
-            this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         }
+        this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }
 
@@ -70,18 +72,19 @@ public class ControladorJuego {
     public void elegirOpcion(String decision) {
         Casillero casilleroActual = monopoly.obtenerCasilleroActual();
         ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
-
+        System.out.println("Si tiro dado es " + this.monopoly.jugadorEnTurnoActual().siTiroDado());
+        if (this.monopoly.jugadorEnTurnoActual().siTiroDado()) {
+            chequearEstadoJuego(casilleroActual);
+        }
         if (estadoJuego.equals(EstadoJuego.TURNO_JUGADOR)) {
             if (decision.equals("1")) {
+                this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
                 monopoly.avanzar(monopoly.tirarDado());
-                this.monopoly.jugadorEnTurnoActual().cambiarTiroDado();
-                chequearEstadoJuego(casilleroActual);
             } else {
                 System.out.println("No podes realizar otra accion antes de moverte");
             }
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_PROPIEDAD)) {
-
             String respuesta = comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(),
                     casilleroActual,
                     this.monopoly, decision);
@@ -91,6 +94,9 @@ public class ControladorJuego {
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_TRANSPORTE)) {
             comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
                     this.monopoly, decision);
+        }
+        if (estadoJuego.equals(EstadoJuego.CAIDA_IR_A_CARCEL)) {
+            jugarTurno();
         }
         else {
             System.out.println("No esta disponible esa accion");

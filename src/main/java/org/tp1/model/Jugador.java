@@ -16,17 +16,14 @@ public class Jugador {
     private int posicionActual;
     private Casillero casilleroActual;
     private String ultimoMensaje;
-    private boolean tiroDado;
+    private boolean dadoTirado;
     private State estado;
 
     public Jugador(String nombre) {
         this.dineroDisponible = 100;
         this.nombre = nombre;
-        this.propiedades = new ArrayList<CasilleroPropiedad>();
         this.estadoJugador = EstadoJugador.EN_JUEGO;
-        this.posicionActual = 0;
-        this.casilleroActual = null;
-        this.tiroDado = false;
+        this.dadoTirado = false;
         this.propiedades = new ArrayList<>();
         this.posicionActual = 0;
         this.casilleroActual = null;
@@ -44,12 +41,12 @@ public class Jugador {
 
     }
 
-    public boolean obtenerTiroDado() {
-        return this.tiroDado;
+    public boolean siTiroDado() {
+        return this.dadoTirado;
     }
 
-    public void cambiarTiroDado() {
-        this.tiroDado = !this.tiroDado;
+    public void cambiarSiTiroDado() {
+        this.dadoTirado = !this.dadoTirado;
     }
 
 public String getNombre() {
