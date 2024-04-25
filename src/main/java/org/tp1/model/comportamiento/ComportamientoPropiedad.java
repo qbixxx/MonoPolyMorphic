@@ -7,7 +7,9 @@ import org.tp1.model.juego.Juego;
 import org.tp1.view.vistaCasillero.CasilleroVista;
 import org.tp1.view.vistaCasillero.CasilleroVistaFactory;
 
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Function;
 
 public class ComportamientoPropiedad implements ComportamientoCasilla {
     public void ejecutarAlCaer(Jugador jugador, Casillero casillero, Juego juego) {
@@ -31,14 +33,19 @@ public class ComportamientoPropiedad implements ComportamientoCasilla {
         }
     }
 
-    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
         CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casillero;
         if (comando.equals("1")) {
             if (casilleroPropiedad.getCostoCompra() <= jugador.getDineroDisponible() && casilleroPropiedad.getDueno() == null) {
                 casilleroPropiedad.comprar(jugador);
+                return "y";
             }
+        } else if (comando.equals("3")) {
+            return "n";
         } else {
             jugador.setMensaje("Esa accion no existe");
+
         }
+        return "y";
     }
 }

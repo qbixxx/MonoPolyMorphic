@@ -24,6 +24,6 @@ public class CasilleroMultaVista extends CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("Opciones casillero multa");
+        this.mostrarOpcionesGenericas(jugador);
     }
 }

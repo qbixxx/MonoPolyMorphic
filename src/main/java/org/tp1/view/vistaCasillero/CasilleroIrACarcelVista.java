@@ -25,8 +25,5 @@ public class CasilleroIrACarcelVista extends CasilleroVista {
     }
     
     public void mostrarOpcionesCasillero(Jugador jugador) {
-
-        System.out.println("Opciones casillero ir a carcel");
-        System.out.println("1 1- terminar Turno");
     }
 }

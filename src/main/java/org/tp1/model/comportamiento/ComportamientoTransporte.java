@@ -13,7 +13,7 @@ public class ComportamientoTransporte implements ComportamientoCasilla {
         }
     }
 
-    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
-
+    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+        return "";
     }
 }

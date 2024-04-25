@@ -26,12 +26,6 @@ public class CasilleroLoteriaVista extends CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-
-        System.out.println("Opciones casillero loteria");
-        System.out.println("1 - Terminar Turno");
-        // hacer logica que se muestre si puede construir que aparezca opcion de construir
-        if(jugador.getDineroDisponible() >= 200){ // 200 seria reemplazado por el costo de construir una casa
-            System.out.println("2 - Construir");
-        }
+        this.mostrarOpcionesGenericas(jugador);
     }
 }

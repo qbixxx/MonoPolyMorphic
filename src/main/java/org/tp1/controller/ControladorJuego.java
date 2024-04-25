@@ -39,83 +39,61 @@ public class ControladorJuego {
         juegoVista.mostrarDatosJuego();
         juegoVista.mostrarOpciones();
         String decision = juegoVista.recibirOpciones();
+        if (decision.equals("2")) {
+            monopoly.siguienteTurno();
+            this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
+        }
         elegirOpcion(decision);
     }
 
+    public void repetirTurno() {
+        juegoVista.mostrarDatosJuego();
+        juegoVista.mostrarOpcionesGenericas();
+        String decision = juegoVista.recibirOpciones();
+        if (decision.equals("2")) {
+            monopoly.siguienteTurno();
+            this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
+        }
+        elegirOpcion(decision);
+    }
 
+    public void chequearEstadoJuego(Casillero casillero) {
+        switch (casillero.getTipoCasillero()) {
+            case PROPIEDAD -> this.estadoJuego = EstadoJuego.CAIDA_EN_PROPIEDAD;
+            case TRANSPORTE -> this.estadoJuego = EstadoJuego.CAIDA_EN_TRANSPORTE;
+            case LOTERIA, MULTA, DE_PASO -> this.estadoJuego = EstadoJuego.CAIDA_PASO_MULTA_LOT;
+            case CARCEL, IR_A_CARCEL -> this.estadoJuego = EstadoJuego.CAIDA_IR_A_CARCEL;
+            default -> this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
+        }
+    }
 
     public void elegirOpcion(String decision) {
         Casillero casilleroActual = monopoly.obtenerCasilleroActual();
-        switch (casilleroActual.getTipoCasillero()) {
-            case PROPIEDAD -> this.estadoJuego = EstadoJuego.CAIDA_EN_PROPIEDAD;
-            default -> this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
-        }
+        ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
+
         if (estadoJuego.equals(EstadoJuego.TURNO_JUGADOR)) {
             if (decision.equals("1")) {
                 monopoly.avanzar(monopoly.tirarDado());
+                this.monopoly.jugadorEnTurnoActual().cambiarTiroDado();
+                chequearEstadoJuego(casilleroActual);
             } else {
                 System.out.println("No podes realizar otra accion antes de moverte");
             }
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_PROPIEDAD)) {
 
-            ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
-            comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
-                    this.monopoly, this.juegoVista.recibirOpciones());
+            String respuesta = comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(),
+                    casilleroActual,
+                    this.monopoly, decision);
+            repetirTurno();
+
         }
-    /*
-        if (!monopoly.jugadorEnTurnoActual().getEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
-            if (decision.equals(Comandos.AVANZAR.getComando()) && !this.monopoly.jugadorEnTurnoActual().obtenerTiroDado()) {
-                monopoly.avanzar(monopoly.tirarDado());
-                //monopoly.siguienteTurno();
-            } else if (decision.equals(Comandos.SIG_TURNO.getComando())) {
-                monopoly.siguienteTurno();
-            } else {
-                System.out.println("Esta accion no existe");
-            }
-        } if (monopoly.getTablero().getCasillero(monopoly.jugadorEnTurnoActual().getPosicionActual()).getTipoCasillero().equals(TipoCasillero.PROPIEDAD)){
-            String nuevaDecision = juegoVista.mostrarOpciones();
-
-            Casillero casilleroActual = monopoly.obtenerCasilleroActual();
-            ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
-            comportamientoCasilla.ejecutarComando(monopoly.jugadorEnTurnoActual(), casilleroActual, this.monopoly, nuevaDecision);
-            CasilleroPropiedad propiedad = (CasilleroPropiedad) monopoly.getTablero().getCasillero(monopoly.jugadorEnTurnoActual().getPosicionActual());
-
-            if (propiedad.getCostoCompra() <= monopoly.jugadorEnTurnoActual().getDineroDisponible() && propiedad.getDueno() == null){
-                       /* String decisionProp = recibirInput();
-                        if (decisionProp.equals(Comandos.COMPRAR.getComando())) {
-                            System.out.println("PROPIEDAD COMPRADA");
-
-                            propiedad.comprar(monopoly.jugadorEnTurnoActual());
-
-                        }
-
-
-            }
-
+        if (estadoJuego.equals(EstadoJuego.CAIDA_EN_TRANSPORTE)) {
+            comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
+                    this.monopoly, decision);
         }
         else {
-            if (decision.equals(Comandos.AVANZAR.getComando())) {
-                monopoly.pasarTurnoEnCarcel();
-            }
+            System.out.println("No esta disponible esa accion");
         }
-
-        public void elegirOpcionTurnoJugador(String inputUsuario) {
-            int dado = 0;
-            if (!this.monopoly.jugadorEnTurnoActual().obtenerTiroDado()) {
-                if (Objects.equals(inputUsuario, "1")) {
-                    dado = this.monopoly.tirarDado();
-                    this.monopoly.jugadorEnTurnoActual().cambiarTiroDado();
-                }
-            }
-            if (Objects.equals(inputUsuario, "1")) {
-                this.monopoly.avanzar(dado);
-            } else {
-                System.out.println("No existe esa opcion");
-            }
-            this.estadoJuego = EstadoJuego.CAIDA_EN_PROPIEDAD;
-        }
-        */
-
     }
 }

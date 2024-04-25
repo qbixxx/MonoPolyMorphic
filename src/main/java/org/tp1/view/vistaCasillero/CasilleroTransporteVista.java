@@ -24,6 +24,12 @@ public class CasilleroTransporteVista extends CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("Opciones casillero transporte");
+        if (jugador.getDineroDisponible() < casillero.getCostoCompra() || casillero.getDueno() != null) {
+            System.out.println("No puedes comprar este transporte, presion 3 para continuar");
+        } else if (jugador.getDineroDisponible() >= casillero.getCostoCompra() && casillero.getDueno() == null) {
+            System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de transporte" );
+            System.out.println("1. Comprar el transporte por $"+this.casillero.getCostoCompra());
+            System.out.println("3. No comprar el transporte"+Colores.RESET.getColor());
+        }
     }
 }

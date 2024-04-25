@@ -34,4 +34,10 @@ public class JuegoVista {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
+    public void mostrarOpcionesGenericas() {
+        Tablero tablero = juego.getTablero();
+        TableroVista tableroVista = new TableroVista(tablero);
+        tableroVista.mostrarOpcionesGenericas(juego.jugadorEnTurnoActual());
+    }
 }

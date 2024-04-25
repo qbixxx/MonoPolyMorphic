@@ -9,7 +9,7 @@ public class ComportamientoCarcel implements ComportamientoCasilla {
         jugador.setMensaje("De visita en la carcel");
     }
 
-    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
-
+    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+        return "";
     }
 }

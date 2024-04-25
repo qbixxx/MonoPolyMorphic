@@ -15,7 +15,7 @@ public class ComportamientoIrACarcel implements ComportamientoCasilla {
         juego.siguienteTurno();
     }
 
-    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
-
+    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+        return"";
     }
 }

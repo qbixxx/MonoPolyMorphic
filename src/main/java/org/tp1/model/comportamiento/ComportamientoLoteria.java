@@ -12,7 +12,7 @@ public class ComportamientoLoteria implements ComportamientoCasilla {
         juego.cobro(jugador, casilleroLoteria.getValorPozo());
     }
 
-    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
-
+    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+        return "";
     }
 }
