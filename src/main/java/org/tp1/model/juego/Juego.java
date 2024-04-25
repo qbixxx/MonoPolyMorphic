@@ -8,7 +8,7 @@ import org.tp1.model.comportamiento.ComportamientoCasilla;
 
 import java.util.Random;
 
-public class Juego implements Banco, IJuego {
+public class Juego implements Banco {
     private final Tablero tablero;
     private final Jugador[] jugadores;
     private int posicionJugadorDeTurno;
@@ -62,12 +62,15 @@ public class Juego implements Banco, IJuego {
 
     }
 
-    public void avanzar() {
+    public int tirarDado() {
         Random rand = new Random();
-
         // Le sumé 1 para evitar el dado con valor cer (0) y que no se mueva el jugador
-        int dado = rand.nextInt(5) + 1;
-        System.out.println("Avanzas "+dado+" Casilleros!");
+       return rand.nextInt(5) + 1;
+    }
+
+    public void avanzar(int dado) {
+
+        // System.out.println("Avanzas "+dado+" Casilleros!");
         Jugador jugador = jugadorEnTurnoActual();
         int posicionAnterior = jugador.getPosicionActual();
         jugador.setPosicionActual(jugador.getPosicionActual() + dado);
@@ -119,5 +122,9 @@ public class Juego implements Banco, IJuego {
     public void desHipotecarPropiedad(Jugador jugador,int index, Juego juego){
         juego.cobro(jugador, -jugador.getPropiedades().get(index).getHipoteca());
         jugador.getPropiedades().get(index).desHipotecar();
+    }
+
+    public Casillero obtenerCasilleroActual() {
+        return this.tablero.getCasillero(jugadorEnTurnoActual().getPosicionActual());
     }
 }

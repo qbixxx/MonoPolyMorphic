@@ -4,7 +4,7 @@ import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroPropiedad;
 import org.tp1.view.Colores;
 
-public class CasilleroPropiedadVista implements CasilleroVista {
+public class CasilleroPropiedadVista extends CasilleroVista {
 
     private CasilleroPropiedad casillero;
 
@@ -30,11 +30,12 @@ public class CasilleroPropiedadVista implements CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de propiedad" );
-
-        System.out.println("    > 3 Comprar la propiedad por $"+this.casillero.getCostoCompra());
-        System.out.println("    > Enter: No Comprar la propiedad."+Colores.RESET.getColor());
-
-
+        if (jugador.getDineroDisponible() < casillero.getCostoCompra()) {
+            System.out.println("No podes comprar la propiedad, presiona ENTER para continuar");
+        } else if (jugador.getDineroDisponible() >= casillero.getCostoCompra()){
+            System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de propiedad" );
+            System.out.println("    > 3 Comprar la propiedad por $"+this.casillero.getCostoCompra());
+            System.out.println("    > Enter: No Comprar la propiedad."+Colores.RESET.getColor());
+        }
     }
 }

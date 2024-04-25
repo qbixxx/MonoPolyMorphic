@@ -7,7 +7,7 @@ import org.tp1.view.Colores;
 
 import java.util.List;
 
-public class CasilleroCarcelVista implements CasilleroVista {
+public class CasilleroCarcelVista extends CasilleroVista {
 
     CasilleroCarcel casillero;
 

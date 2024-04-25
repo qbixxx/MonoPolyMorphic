@@ -8,4 +8,8 @@ public class ComportamientoPaso implements ComportamientoCasilla {
     public void ejecutarAlCaer(Jugador jugador, Casillero casillero, Juego juego) {
             jugador.setMensaje("🚶 "+jugador.getNombre()+"! Estás en un casillero de paso, aqui no pasa nada :)");
     }
+
+    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+
+    }
 }

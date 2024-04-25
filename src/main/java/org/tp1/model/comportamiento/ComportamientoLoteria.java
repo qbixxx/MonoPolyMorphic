@@ -11,4 +11,8 @@ public class ComportamientoLoteria implements ComportamientoCasilla {
         jugador.setMensaje("💸 Ganaste la Lotería! El banco te depositó $"+casilleroLoteria.getValorPozo());
         juego.cobro(jugador, casilleroLoteria.getValorPozo());
     }
+
+    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+
+    }
 }

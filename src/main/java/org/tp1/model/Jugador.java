@@ -4,16 +4,18 @@ import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroPropiedad;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Jugador {
 
     private final String nombre;
     private double dineroDisponible;
-    private ArrayList<CasilleroPropiedad> propiedades;
+    private List<CasilleroPropiedad> propiedades;
     private EstadoJugador estadoJugador;
     private int posicionActual;
     private Casillero casilleroActual;
     private String ultimoMensaje;
+    private boolean tiroDado;
 
     public Jugador(String nombre) {
         this.dineroDisponible = 100;
@@ -22,6 +24,7 @@ public class Jugador {
         this.estadoJugador = EstadoJugador.EN_JUEGO;
         this.posicionActual = 0;
         this.casilleroActual = null;
+        this.tiroDado = false;
     }
 
     public void setMensaje(String mensaje){
@@ -33,6 +36,14 @@ public class Jugador {
         return msg;
 
     }
+
+    public boolean obtenerTiroDado() {
+        return this.tiroDado;
+    }
+
+    public void cambiarTiroDado() {
+        this.tiroDado = !this.tiroDado;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -41,7 +52,7 @@ public class Jugador {
         return dineroDisponible;
     }
 
-    public ArrayList<CasilleroPropiedad> getPropiedades() {
+    public List<CasilleroPropiedad> getPropiedades() {
         return propiedades;
     }
 
@@ -79,7 +90,5 @@ public class Jugador {
     public void agregarPropiedad(CasilleroPropiedad propiedad){
         this.propiedades.add(propiedad);
         this.dineroDisponible -= propiedad.getCostoCompra();
-
     }
-
 }

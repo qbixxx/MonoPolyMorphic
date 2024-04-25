@@ -4,7 +4,7 @@ import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroLoteria;
 import org.tp1.view.Colores;
 
-public class CasilleroLoteriaVista implements CasilleroVista {
+public class CasilleroLoteriaVista extends CasilleroVista {
 
     private CasilleroLoteria casillero;
 

@@ -7,6 +7,8 @@ import org.tp1.model.juego.Juego;
 import org.tp1.view.vistaCasillero.CasilleroVista;
 import org.tp1.view.vistaCasillero.CasilleroVistaFactory;
 
+import java.util.Scanner;
+
 public class ComportamientoPropiedad implements ComportamientoCasilla {
     public void ejecutarAlCaer(Jugador jugador, Casillero casillero, Juego juego) {
         CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casillero;
@@ -26,6 +28,17 @@ public class ComportamientoPropiedad implements ComportamientoCasilla {
 
         }else if (casilleroPropiedad.getDueno() == jugador){
             jugador.setMensaje("🏙️️ Caiste en tu propiedad.");
+        }
+    }
+
+    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+        CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casillero;
+        if (comando.equals("1")) {
+            if (casilleroPropiedad.getCostoCompra() <= jugador.getDineroDisponible() && casilleroPropiedad.getDueno() == null) {
+                casilleroPropiedad.comprar(jugador);
+            }
+        } else {
+            jugador.setMensaje("Esa accion no existe");
         }
     }
 }
