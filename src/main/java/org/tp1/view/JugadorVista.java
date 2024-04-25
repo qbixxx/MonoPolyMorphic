@@ -1,6 +1,6 @@
 package org.tp1.view;
 
-import org.tp1.model.EstadoJugador;
+import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroPropiedad;

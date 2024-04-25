@@ -12,8 +12,8 @@ public class CasilleroTransporte extends Casillero {
     private double tarifa;
     private Jugador dueno;
 
-    public CasilleroTransporte(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa, List<Jugador> jugadores) {
-        super(nombre, tipoCasillero, jugadores);
+    public CasilleroTransporte(String nombre, TipoCasillero tipoCasillero, double costoCompra, double tarifa) {
+        super(nombre, tipoCasillero);
         this.costoCompra = costoCompra;
         this.tarifa = tarifa;
         this.dueno = null;

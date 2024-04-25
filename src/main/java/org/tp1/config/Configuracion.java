@@ -2,8 +2,6 @@ package org.tp1.config;
 
 import org.tp1.model.casillero.*;
 
-import java.util.ArrayList;
-
 public class Configuracion {
     int montoSalidaLlegada = 200;
     Casillero[] tablero = {
@@ -17,7 +15,6 @@ public class Configuracion {
             new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 300, 30, new ArrayList<>()),
             new CasilleroMulta("Multa", TipoCasillero.MULTA, 150, new ArrayList<>()),
             new CasilleroCarcel("👮‍♂️ " + "Carcel", TipoCasillero.CARCEL, new ArrayList<>())};
-
     public Casillero[] getTablero() {
         return tablero;
     }

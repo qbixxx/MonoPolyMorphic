@@ -3,6 +3,7 @@ package org.tp1.model.casillero;
 import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Casillero {
@@ -10,9 +11,9 @@ public abstract class Casillero {
     protected List<Jugador> jugadores;
     private final TipoCasillero tipoCasillero;
 
-    public Casillero(String nombre, TipoCasillero tipoCasillero, List<Jugador> jugadores) {
+    public Casillero(String nombre, TipoCasillero tipoCasillero) {
         this.nombre = nombre;
-        this.jugadores = jugadores;
+        this.jugadores = new ArrayList<>();
         this.tipoCasillero = tipoCasillero;
     }
 
