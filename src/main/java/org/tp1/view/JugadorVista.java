@@ -27,6 +27,11 @@ public class JugadorVista {
         for (CasilleroPropiedad propiedad : jugador.getPropiedades()){
             System.out.printf(propiedad.getNombre()+"\t");
         }
+        System.out.println("\n");
+        System.out.printf("L___ Transportes:");
+        for (CasilleroTransporte transporte: jugador.obtenerTransportes()) {
+            System.out.println(transporte.getNombre()+"\t");
+        }
         System.out.println("");
 
         //System.out.println(colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador() + Colores.RESET.getColor());

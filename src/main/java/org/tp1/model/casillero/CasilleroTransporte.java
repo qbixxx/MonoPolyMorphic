@@ -21,6 +21,7 @@ public class CasilleroTransporte extends Casillero {
 
     public void comprar(Jugador jugador) {
         this.dueno = jugador;
+        jugador.agregarTransporte(this);
     }
 
     public double getTarifa() {

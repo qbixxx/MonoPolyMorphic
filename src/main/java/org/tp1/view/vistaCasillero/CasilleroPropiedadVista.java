@@ -37,6 +37,8 @@ public class CasilleroPropiedadVista extends CasilleroVista {
             System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de propiedad" );
             System.out.println("1. Comprar la propiedad por $"+this.casillero.getCostoCompra());
             System.out.println("3. No Comprar la propiedad."+Colores.RESET.getColor());
+        } else {
+            System.out.println("1. Avanzar (la propiedad ya es tuya)");
         }
     }
 }

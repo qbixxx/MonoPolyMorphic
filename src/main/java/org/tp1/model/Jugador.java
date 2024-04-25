@@ -2,6 +2,7 @@ package org.tp1.model;
 
 import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroPropiedad;
+import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.juego.estadoJugador.State;
 import org.tp1.model.juego.estadoJugador.enJuegoState;
@@ -12,6 +13,7 @@ public class Jugador {
     private final String nombre;
     private double dineroDisponible;
     private List<CasilleroPropiedad> propiedades;
+    private List<CasilleroTransporte> transportes;
     private EstadoJugador estadoJugador;
     private int posicionActual;
     private Casillero casilleroActual;
@@ -25,6 +27,7 @@ public class Jugador {
         this.estadoJugador = EstadoJugador.EN_JUEGO;
         this.dadoTirado = false;
         this.propiedades = new ArrayList<>();
+        this.transportes = new ArrayList<>();
         this.posicionActual = 0;
         this.casilleroActual = null;
         this.estado = new enJuegoState(this);
@@ -94,6 +97,15 @@ public void recibirDinero(Jugador jugador, double monto) {
 public void agregarPropiedad(CasilleroPropiedad propiedad) {
     this.propiedades.add(propiedad);
     this.dineroDisponible -= propiedad.getCostoCompra();
+}
+
+public void agregarTransporte(CasilleroTransporte transporte) {
+        this.transportes.add(transporte);
+        this.dineroDisponible -= transporte.getCostoCompra();
+}
+
+public List<CasilleroTransporte> obtenerTransportes() {
+        return this.transportes;
 }
     public Casillero getCasilleroActual() {
         return casilleroActual;

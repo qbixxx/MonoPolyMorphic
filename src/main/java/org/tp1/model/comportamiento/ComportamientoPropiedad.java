@@ -39,8 +39,10 @@ public class ComportamientoPropiedad implements ComportamientoCasilla {
             if (casilleroPropiedad.getCostoCompra() <= jugador.getDineroDisponible() && casilleroPropiedad.getDueno() == null) {
                 casilleroPropiedad.comprar(jugador);
                 return "y";
+            }else if (casilleroPropiedad.getDueno().equals(jugador)) {
+                return "n";
             }
-        } else if (comando.equals("3")) {
+        }  else if (comando.equals("3")) {
             return "n";
         } else {
             jugador.setMensaje("Esa accion no existe");
