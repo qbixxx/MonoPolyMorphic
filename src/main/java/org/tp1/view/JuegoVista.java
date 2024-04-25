@@ -1,11 +1,12 @@
 package org.tp1.view;
 
-import org.tp1.model.Juego;
 import org.tp1.model.Jugador;
-import org.tp1.model.Tablero;
+import org.tp1.model.juego.Juego;
+import org.tp1.model.juego.Tablero;
+
+import java.util.Scanner;
 
 public class JuegoVista {
-
     private final Juego juego;
 
     public JuegoVista(Juego juego) {
@@ -20,12 +21,23 @@ public class JuegoVista {
             jugadorVista.mostrarJugador();
         }
         Jugador jugadorEnTurno = juego.jugadorEnTurnoActual();
-        System.out.println("Turno de: " + jugadorEnTurno.getNombre() + ", dinero disponible: " + jugadorEnTurno.getDineroDisponible());
+        System.out.println(Colores.RED.getColor() + "------------------------------\n" + Colores.RESET.getColor() + "Turno de: " + Colores.GREEN.getColor() + jugadorEnTurno.getNombre() + Colores.RESET.getColor() + ",\n" + Colores.YELLOW.getColor() + "dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Colores.RESET.getColor() + Colores.RED.getColor() + "\n------------------------------" + Colores.RESET.getColor());
     }
 
     public void mostrarOpciones() {
         Tablero tablero = juego.getTablero();
         TableroVista tableroVista = new TableroVista(tablero);
-        tableroVista.mostrarOpciones(tablero.getCasilleros()[juego.jugadorEnTurnoActual().getPosicionActual()]);
+        tableroVista.mostrarOpciones(this.juego.jugadorEnTurnoActual());
+    }
+
+    public String recibirOpciones() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public void mostrarOpcionesGenericas() {
+        Tablero tablero = juego.getTablero();
+        TableroVista tableroVista = new TableroVista(tablero);
+        tableroVista.mostrarOpcionesGenericas(juego.jugadorEnTurnoActual());
     }
 }
