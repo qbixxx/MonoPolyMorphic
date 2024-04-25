@@ -3,6 +3,7 @@ package org.tp1.view;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
+import org.tp1.model.casillero.CasilleroPropiedad;
 
 public class JugadorVista {
 
@@ -13,7 +14,20 @@ public class JugadorVista {
     }
 
     public void mostrarJugador() {
-        System.out.println(jugador.getNombre() + ", Dinero en cuenta: " + jugador.getDineroDisponible()+ " : "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador() + Colores.RESET.getColor());
+        System.out.printf(jugador.getNombre() + ", Dinero en cuenta: " + jugador.getDineroDisponible()+ " : "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador()+Colores.RESET.getColor());
+        String msg = jugador.getUltimoMensaje();
+        if (msg == null){
+            System.out.println(Colores.BLUE.getColor()+ " Ultimo mensaje: -"+ Colores.RESET.getColor());
+        }else{
+            System.out.println(Colores.BLUE.getColor()+ " Ultimo mensaje: "+ msg+ Colores.RESET.getColor());
+        }
+
+        System.out.printf("L___ Propiedades:");
+        for (CasilleroPropiedad propiedad : jugador.getPropiedades()){
+            System.out.printf(propiedad.getNombre()+"\t");
+        }
+        System.out.println("");
+
         //System.out.println(colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador() + Colores.RESET.getColor());
         String propiedades = "";
         if (jugador.getPropiedades() != null) {
@@ -21,6 +35,13 @@ public class JugadorVista {
                 propiedades.concat(propiedad.getNombre() + ", ");
             }
         }
+    }
+
+    public void mostrarOpcionesJugador(){
+
+
+
+
     }
 
 

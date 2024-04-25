@@ -4,7 +4,7 @@ import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroMulta;
 import org.tp1.view.Colores;
 
-public class CasilleroMultaVista implements CasilleroVista {
+public class CasilleroMultaVista extends CasilleroVista {
 
     private CasilleroMulta casillero;
 
@@ -24,6 +24,6 @@ public class CasilleroMultaVista implements CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("Opciones casillero multa");
+        this.mostrarOpcionesGenericas(jugador);
     }
 }

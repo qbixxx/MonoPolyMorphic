@@ -7,7 +7,7 @@ import org.tp1.view.Colores;
 
 import java.util.List;
 
-public class CasilleroCarcelVista implements CasilleroVista {
+public class CasilleroCarcelVista extends CasilleroVista {
 
     CasilleroCarcel casillero;
 
@@ -50,9 +50,9 @@ public class CasilleroCarcelVista implements CasilleroVista {
         System.out.println("Opciones carcel");
         if (jugador.getEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
             System.out.println("1 - Pagar Multa de $100");
-            System.out.println("2- Tirar dados");
-        }else {
-            System.out.println("1 - Avanzar");
+            System.out.println("2 - Pasar turno en carcel");
+        } else {
+            this.mostrarOpcionesGenericas(jugador);
         }
         // moverse
     }

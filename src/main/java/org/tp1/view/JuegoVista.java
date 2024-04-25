@@ -4,6 +4,8 @@ import org.tp1.model.Jugador;
 import org.tp1.model.juego.Juego;
 import org.tp1.model.juego.Tablero;
 
+import java.util.Scanner;
+
 public class JuegoVista {
     private final Juego juego;
 
@@ -25,6 +27,17 @@ public class JuegoVista {
     public void mostrarOpciones() {
         Tablero tablero = juego.getTablero();
         TableroVista tableroVista = new TableroVista(tablero);
-        tableroVista.mostrarOpciones(juego.jugadorEnTurnoActual());
+        tableroVista.mostrarOpciones(this.juego.jugadorEnTurnoActual());
+    }
+
+    public String recibirOpciones() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public void mostrarOpcionesGenericas() {
+        Tablero tablero = juego.getTablero();
+        TableroVista tableroVista = new TableroVista(tablero);
+        tableroVista.mostrarOpcionesGenericas(juego.jugadorEnTurnoActual());
     }
 }

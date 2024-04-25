@@ -4,7 +4,7 @@ import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.view.Colores;
 
-public class CasilleroTransporteVista implements CasilleroVista {
+public class CasilleroTransporteVista extends CasilleroVista {
 
     private CasilleroTransporte casillero;
 
@@ -24,6 +24,12 @@ public class CasilleroTransporteVista implements CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("Opciones casillero transporte");
+        if (jugador.getDineroDisponible() < casillero.getCostoCompra() || casillero.getDueno() != null) {
+            System.out.println("No puedes comprar este transporte, presion 3 para continuar");
+        } else if (jugador.getDineroDisponible() >= casillero.getCostoCompra() && casillero.getDueno() == null) {
+            System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de transporte" );
+            System.out.println("1. Comprar el transporte por $"+this.casillero.getCostoCompra());
+            System.out.println("3. No comprar el transporte"+Colores.RESET.getColor());
+        }
     }
 }

@@ -12,4 +12,8 @@ public class ComportamientoTransporte implements ComportamientoCasilla {
             casilleroTransporte.getDueno().recibirDinero(jugador, casilleroTransporte.getTarifa());
         }
     }
+
+    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+        return "";
+    }
 }

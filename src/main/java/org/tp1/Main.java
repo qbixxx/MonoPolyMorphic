@@ -2,6 +2,7 @@ package org.tp1;
 
 import org.tp1.config.Configuracion;
 import org.tp1.controller.ControladorJuego;
+import org.tp1.controller.EstadoJuego;
 import org.tp1.model.Jugador;
 import org.tp1.model.juego.Juego;
 import org.tp1.model.juego.Tablero;
@@ -22,7 +23,7 @@ public class Main {
 
         Juego monopoly = new Juego(tablero, jugadores);
 
-        ControladorJuego controladorJuego = new ControladorJuego(monopoly);
+        ControladorJuego controladorJuego = new ControladorJuego(monopoly, EstadoJuego.TURNO_JUGADOR);
 
         while (controladorJuego.enJuego()) {
             controladorJuego.jugarTurno();

@@ -4,7 +4,7 @@ import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroPaso;
 import org.tp1.view.Colores;
 
-public class CasilleroDePasoVista implements CasilleroVista {
+public class CasilleroDePasoVista extends CasilleroVista {
 
     CasilleroPaso casilleroPaso;
 
@@ -24,8 +24,6 @@ public class CasilleroDePasoVista implements CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        System.out.println("🚶 "+jugador.getNombre()+"! Estás en un casillero de paso, aqui no pasa nada :)");
-
-
+        this.mostrarOpcionesGenericas(jugador);
     }
 }

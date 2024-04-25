@@ -6,4 +6,6 @@ import org.tp1.model.juego.Juego;
 
 public interface ComportamientoCasilla {
     void ejecutarAlCaer(Jugador jugador, Casillero casillero, Juego juego);
+
+    String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando);
 }

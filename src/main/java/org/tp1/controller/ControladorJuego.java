@@ -2,19 +2,27 @@ package org.tp1.controller;
 
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
-import org.tp1.model.juego.IJuego;
+import org.tp1.model.casillero.Casillero;
+import org.tp1.model.casillero.CasilleroPropiedad;
+import org.tp1.model.casillero.TipoCasillero;
+import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.juego.Juego;
 import org.tp1.view.JuegoVista;
+import org.tp1.view.vistaCasillero.CasilleroVista;
+import org.tp1.view.vistaCasillero.CasilleroVistaFactory;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ControladorJuego {
-    private final IJuego monopoly;
+    private final Juego monopoly;
     private final JuegoVista juegoVista;
+    private EstadoJuego estadoJuego;
 
-    public ControladorJuego(Juego juego) {
+    public ControladorJuego(Juego juego, EstadoJuego estadoJuego) {
         this.monopoly = juego;
         this.juegoVista = new JuegoVista(juego);
+        this.estadoJuego = estadoJuego;
     }
 
     public boolean enJuego() {
@@ -30,25 +38,62 @@ public class ControladorJuego {
     public void jugarTurno() {
         juegoVista.mostrarDatosJuego();
         juegoVista.mostrarOpciones();
-        elegirOpcion();
+        String decision = juegoVista.recibirOpciones();
+        if (decision.equals("2")) {
+            monopoly.siguienteTurno();
+            this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
+        }
+        elegirOpcion(decision);
     }
 
-    public void elegirOpcion() {
-        Scanner scanner = new Scanner(System.in);
-        String decision = scanner.nextLine();
-        if (!monopoly.jugadorEnTurnoActual().getEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
-            if (decision.equals(Comandos.AVANZAR.getComando())) {
-                monopoly.avanzar();
-                monopoly.siguienteTurno();
-            } else if (decision.equals(Comandos.SIG_TURNO.getComando())) {
-                monopoly.siguienteTurno();
+    public void repetirTurno() {
+        juegoVista.mostrarDatosJuego();
+        juegoVista.mostrarOpcionesGenericas();
+        String decision = juegoVista.recibirOpciones();
+        if (decision.equals("2")) {
+            monopoly.siguienteTurno();
+            this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
+        }
+        elegirOpcion(decision);
+    }
+
+    public void chequearEstadoJuego(Casillero casillero) {
+        switch (casillero.getTipoCasillero()) {
+            case PROPIEDAD -> this.estadoJuego = EstadoJuego.CAIDA_EN_PROPIEDAD;
+            case TRANSPORTE -> this.estadoJuego = EstadoJuego.CAIDA_EN_TRANSPORTE;
+            case LOTERIA, MULTA, DE_PASO -> this.estadoJuego = EstadoJuego.CAIDA_PASO_MULTA_LOT;
+            case CARCEL, IR_A_CARCEL -> this.estadoJuego = EstadoJuego.CAIDA_IR_A_CARCEL;
+            default -> this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
+        }
+    }
+
+    public void elegirOpcion(String decision) {
+        Casillero casilleroActual = monopoly.obtenerCasilleroActual();
+        ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
+
+        if (estadoJuego.equals(EstadoJuego.TURNO_JUGADOR)) {
+            if (decision.equals("1")) {
+                monopoly.avanzar(monopoly.tirarDado());
+                this.monopoly.jugadorEnTurnoActual().cambiarTiroDado();
+                chequearEstadoJuego(casilleroActual);
             } else {
-                System.out.println("Esta accion no existe");
+                System.out.println("No podes realizar otra accion antes de moverte");
             }
-        } else {
-            if (decision.equals(Comandos.AVANZAR.getComando())) {
-                monopoly.pasarTurnoEnCarcel();
-            }
+        }
+        if (estadoJuego.equals(EstadoJuego.CAIDA_EN_PROPIEDAD)) {
+
+            String respuesta = comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(),
+                    casilleroActual,
+                    this.monopoly, decision);
+            repetirTurno();
+
+        }
+        if (estadoJuego.equals(EstadoJuego.CAIDA_EN_TRANSPORTE)) {
+            comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
+                    this.monopoly, decision);
+        }
+        else {
+            System.out.println("No esta disponible esa accion");
         }
     }
 }

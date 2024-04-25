@@ -4,7 +4,7 @@ import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroIrACarcel;
 import org.tp1.view.Colores;
 
-public class CasilleroIrACarcelVista implements CasilleroVista {
+public class CasilleroIrACarcelVista extends CasilleroVista {
 
     private final CasilleroIrACarcel casillero;
 
@@ -25,8 +25,5 @@ public class CasilleroIrACarcelVista implements CasilleroVista {
     }
     
     public void mostrarOpcionesCasillero(Jugador jugador) {
-
-        System.out.println("Opciones casillero ir a carcel");
-        System.out.println("1 1- terminar Turno");
     }
 }

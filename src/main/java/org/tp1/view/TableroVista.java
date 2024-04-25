@@ -21,10 +21,18 @@ public class TableroVista {
         }
     }
 
+    public void mostrarOpcionesGenericas(Jugador jugador) {
+        Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
+        CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
+        casilleroVista.mostrarOpcionesGenericas(jugador);
+    }
+
     public void mostrarOpciones(Jugador jugador) {
+
         Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
         CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
         casilleroVista.mostrarOpcionesCasillero(jugador);
+
 
         /*
          * Agregar la logica segun el estado del jugador.
