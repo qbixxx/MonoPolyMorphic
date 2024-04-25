@@ -11,7 +11,7 @@ public class Configuracion {
             new CasilleroPaso("🏢 Casillero 1", TipoCasillero.DE_PASO),
             new CasilleroLoteria("🍀 " + "Loteria", TipoCasillero.LOTERIA, 300),
             new CasilleroPaso("🏢 Casillero 2", TipoCasillero.DE_PASO),
-            new CasilleroPropiedad("🏡 Departamento en Mar del Plata ", TipoCasillero.PROPIEDAD, 10 , 100, "A"),
+            new CasilleroPropiedad("🏡 Departamento en Mar del Plata ", TipoCasillero.PROPIEDAD, 10 , 100, "A",  500),
             new CasilleroIrACarcel("👮‍♂️ " + "Vas preso", TipoCasillero.IR_A_CARCEL),
             new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 151, 30),
             new CasilleroMulta("Multa", TipoCasillero.MULTA, 150),

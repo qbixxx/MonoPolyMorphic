@@ -13,13 +13,15 @@ public class CasilleroPropiedad extends Casillero {
     private boolean hipotecada;
     private Jugador dueno;
 
-    public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta, String grupo) {
+    public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta,
+                              String grupo, double valorHipoteca) {
         super(nombre, tipoCasillero);
         this.grupo = grupo;
         this.costoCompra = costoCompra;
         this.renta = renta;
         this.dueno = null;
-
+        this.hipoteca = valorHipoteca;
+        this.hipotecada = false;
     }
     public boolean estaHipotecada(){
         return this.hipotecada;

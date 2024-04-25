@@ -77,6 +77,12 @@ public class ControladorJuego {
             CasilleroTransporte transporteElegido = this.juegoVista.elegirTransporte(indiceTransporteElegido);
             this.monopoly.venderTransporte(transporteElegido);
         }
+        if (decision.equals("7")) {
+            this.juegoVista.mostrarPropiedadesSinHipotecar();
+            String indicePropiedadAHipotecar = this.juegoVista.recibirOpciones();
+            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadAHipotecar);
+            this.monopoly.hipotecarPropiedad(propiedadElegida);
+        }
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }
