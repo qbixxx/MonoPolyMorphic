@@ -1,5 +1,6 @@
 package org.tp1.controller;
 
+import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
@@ -43,6 +44,14 @@ public class ControladorJuego {
             this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
             monopoly.siguienteTurno();
         }
+        if (decision.equals("5")) {
+            System.out.println("A vender una propiedad!");
+            this.juegoVista.mostrarPropiedadesEnPosesion();
+            String indicePropiedadElegida = this.juegoVista.recibirOpciones();
+            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadElegida);
+            this.monopoly.venderPropiedad(propiedadElegida);
+
+        }
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }
@@ -54,6 +63,19 @@ public class ControladorJuego {
         if (decision.equals("2")) {
             this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
             monopoly.siguienteTurno();
+        }
+        if (decision.equals("5")) {
+            this.juegoVista.mostrarPropiedadesEnPosesion();
+            String indicePropiedadElegida = this.juegoVista.recibirOpciones();
+            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadElegida);
+            this.monopoly.venderPropiedad(propiedadElegida);
+
+        }
+        if (decision.equals("6")) {
+            this.juegoVista.mostrarTransportesEnPosesion();
+            String indiceTransporteElegido = this.juegoVista.recibirOpciones();
+            CasilleroTransporte transporteElegido = this.juegoVista.elegirTransporte(indiceTransporteElegido);
+            this.monopoly.venderTransporte(transporteElegido);
         }
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
@@ -99,8 +121,6 @@ public class ControladorJuego {
         if (estadoJuego.equals(EstadoJuego.CAIDA_IR_A_CARCEL)) {
             jugarTurno();
         }
-        else {
-            System.out.println("No esta disponible esa accion");
-        }
     }
+
 }

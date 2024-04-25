@@ -5,8 +5,6 @@ import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoPropiedad;
 
-import java.util.List;
-
 public class CasilleroPropiedad extends Casillero {
     String grupo;
     private final double costoCompra;
@@ -55,6 +53,11 @@ public class CasilleroPropiedad extends Casillero {
     public void comprar(Jugador comprador) {
         this.dueno = comprador;
         comprador.agregarPropiedad(this);
+    }
+
+    public void vender(Jugador vendedor) {
+        this.dueno = null;
+        vendedor.venderPropiedad(this);
     }
 
     public void pagarRenta(Jugador inquilino) {

@@ -22,6 +22,9 @@ public abstract class CasilleroVista {
                 // comprar casa / hotel
             }*/
         }
+        if (jugador.obtenerTransportes() != null && !jugador.obtenerTransportes().isEmpty()) {
+            System.out.println("6. Vender un transporte");
+        }
 
     }
 }

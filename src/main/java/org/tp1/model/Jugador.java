@@ -99,9 +99,19 @@ public void agregarPropiedad(CasilleroPropiedad propiedad) {
     this.dineroDisponible -= propiedad.getCostoCompra();
 }
 
+public void venderPropiedad(CasilleroPropiedad propiedad) {
+        this.propiedades.remove(propiedad);
+        this.dineroDisponible += propiedad.getCostoCompra();
+}
+
 public void agregarTransporte(CasilleroTransporte transporte) {
         this.transportes.add(transporte);
         this.dineroDisponible -= transporte.getCostoCompra();
+}
+
+public void venderTransporte(CasilleroTransporte transporte) {
+        this.transportes.remove(transporte);
+        this.dineroDisponible += transporte.getCostoCompra();
 }
 
 public List<CasilleroTransporte> obtenerTransportes() {

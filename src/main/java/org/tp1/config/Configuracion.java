@@ -13,7 +13,7 @@ public class Configuracion {
             new CasilleroPaso("🏢 Casillero 2", TipoCasillero.DE_PASO),
             new CasilleroPropiedad("🏡 Departamento en Mar del Plata ", TipoCasillero.PROPIEDAD, 10 , 100, "A"),
             new CasilleroIrACarcel("👮‍♂️ " + "Vas preso", TipoCasillero.IR_A_CARCEL),
-            new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 300, 30),
+            new CasilleroTransporte("🚂 Estacion 1", TipoCasillero.TRANSPORTE, 151, 30),
             new CasilleroMulta("Multa", TipoCasillero.MULTA, 150),
             new CasilleroCarcel("👮‍♂️ " + "Carcel", TipoCasillero.CARCEL)};
     public Casillero[] getTablero() {

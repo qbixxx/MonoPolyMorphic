@@ -3,6 +3,8 @@ package org.tp1.model.juego;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
 import org.tp1.model.casillero.CasilleroCarcel;
+import org.tp1.model.casillero.CasilleroPropiedad;
+import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 
 import java.util.Random;
@@ -125,5 +127,13 @@ public class Juego implements Banco {
 
     public Casillero obtenerCasilleroActual() {
         return this.tablero.getCasillero(jugadorEnTurnoActual().getPosicionActual());
+    }
+
+    public void venderPropiedad(CasilleroPropiedad propiedad) {
+        propiedad.vender(this.jugadorEnTurnoActual());
+    }
+
+    public void venderTransporte(CasilleroTransporte transporte) {
+        transporte.vender(this.jugadorEnTurnoActual());
     }
 }

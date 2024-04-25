@@ -4,8 +4,6 @@ import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoTransporte;
 
-import java.util.List;
-
 public class CasilleroTransporte extends Casillero {
 
     private final double costoCompra;
@@ -19,9 +17,15 @@ public class CasilleroTransporte extends Casillero {
         this.dueno = null;
     }
 
-    public void comprar(Jugador jugador) {
-        this.dueno = jugador;
-        jugador.agregarTransporte(this);
+    public void comprar(Jugador comprador) {
+        this.dueno = comprador;
+        comprador.agregarTransporte(this);
+    }
+
+    public void vender(Jugador vendedor) {
+        this.dueno = null;
+        vendedor.venderTransporte(this);
+
     }
 
     public double getTarifa() {
