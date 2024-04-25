@@ -94,6 +94,7 @@ public class ControladorJuego {
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_TRANSPORTE)) {
             comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
                     this.monopoly, decision);
+            repetirTurno();
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_IR_A_CARCEL)) {
             jugarTurno();

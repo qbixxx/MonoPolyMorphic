@@ -14,7 +14,7 @@ public abstract class CasilleroVista {
             System.out.println("1. Para avanzar");
         }
         System.out.println("2. Para pasar al siguiente");
-        if (jugador.getPropiedades() != null) {
+        if (jugador.getPropiedades() != null && !jugador.getPropiedades().isEmpty()) {
             System.out.println("3. Para hipotecar");
             System.out.println("4. Para deshipotecar");
             System.out.println("5. Para vender una prop");

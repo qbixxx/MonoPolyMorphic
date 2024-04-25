@@ -1,5 +1,6 @@
 package org.tp1.view;
 
+import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
@@ -36,14 +37,6 @@ public class JugadorVista {
             }
         }
     }
-
-    public void mostrarOpcionesJugador(){
-
-
-
-
-    }
-
 
     private String colorEstado(EstadoJugador estado) {
         return estado == EstadoJugador.EN_JUEGO ? Colores.GREEN.getColor() : (estado == EstadoJugador.ENCARCELADO ? Colores.YELLOW.getColor() : Colores.RED.getColor());
