@@ -41,10 +41,13 @@ public class CasilleroPropiedadVista extends CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        if (jugador.getDineroDisponible() < casillero.getCostoCompra() ) {
+        if (casillero.getDueno() != null && !casillero.getDueno().equals(jugador)) {
+            System.out.println("1. Avanzar");
+        }
+        else if (jugador.getDineroDisponible() < casillero.getCostoCompra() ) {
             System.out.println("No podes comprar la propiedad, presiona ENTER para continuar");
-        } else if (jugador.getDineroDisponible() >= casillero.getCostoCompra() && casillero.getDueno() == null ||
-                !casillero.getDueno().equals(jugador)){
+        }
+        else if (jugador.getDineroDisponible() >= casillero.getCostoCompra() && casillero.getDueno() == null){
             System.out.println(Colores.GREEN.getColor()+" + Opciones en casillero de propiedad" );
             System.out.println("1. Comprar la propiedad por $"+this.casillero.getCostoCompra());
             System.out.println("3. No Comprar la propiedad."+Colores.RESET.getColor());

@@ -42,7 +42,7 @@ public class ControladorJuego {
         String decision = juegoVista.recibirOpciones();
         if (decision.equals("2")) {
             this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
-            monopoly.siguienteTurno();
+            this.monopoly.siguienteTurno();
         }
         if (decision.equals("5")) {
             System.out.println("A vender una propiedad!");
@@ -62,7 +62,7 @@ public class ControladorJuego {
         String decision = juegoVista.recibirOpciones();
         if (decision.equals("2")) {
             this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
-            monopoly.siguienteTurno();
+            this.monopoly.siguienteTurno();
         }
         if (decision.equals("5")) {
             this.juegoVista.mostrarPropiedadesEnPosesion();
@@ -121,6 +121,7 @@ public class ControladorJuego {
             if (decision.equals("1")) {
                 this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
                 monopoly.avanzar(monopoly.tirarDado());
+                jugarTurno();
             } else {
                 System.out.println("No podes realizar otra accion antes de moverte");
             }
@@ -129,16 +130,14 @@ public class ControladorJuego {
             comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(),
                     casilleroActual,
                     this.monopoly, decision);
-            repetirTurno();
-
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_TRANSPORTE)) {
             comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
                     this.monopoly, decision);
-            repetirTurno();
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_IR_A_CARCEL)) {
             jugarTurno();
         }
+        repetirTurno();
     }
 }
