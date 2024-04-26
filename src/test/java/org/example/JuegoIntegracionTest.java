@@ -323,7 +323,7 @@ public class JuegoIntegracionTest {
                 List.of(
                         new LLegadaPartida(new Posicion(0,0), null),
                         new DePaso(new Posicion(0,0), null),
-                        new Terreno(new Posicion(0,0), "TerrenoA", null, 50))
+                        new Terreno(new Posicion(0,0), "TerrenoA", null, 1000))
                 , List.of(jugador), banco);
 
         banco.pagarRondaCompletaA(jugador);
