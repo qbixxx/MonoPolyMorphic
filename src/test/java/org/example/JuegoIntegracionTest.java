@@ -52,7 +52,7 @@ public class JuegoIntegracionTest {
         Jugador jugador = new Jugador(new Saldo(0), new Dado(), "Pepito");
         Banco banco = new Banco(2000);
         Juego juego = new Juego();
-        Terreno terreno = new Terreno(new Posicion(0,0), "Terrero A", null);
+        Terreno terreno = new Terreno(new Posicion(0,0), "Terrero A", null, 50);
 
         //Act
         assertThrows(SaldoNoDisponible.class, () -> jugador.comprarPropiedad(terreno, 1));
@@ -69,7 +69,7 @@ public class JuegoIntegracionTest {
 
         Jugador jugador = new Jugador(new Saldo(0), new Dado(), "Pepito");
         Banco banco = new Banco(2000);
-        Terreno terreno = new Terreno(new Posicion(0,4), "Terreno A", null);
+        Terreno terreno = new Terreno(new Posicion(0,4), "Terreno A", null, 50);
         Tablero tablero = new Tablero(
                 List.of(new DePaso(new Posicion(0, 0), null),
                         new Loteria(new Posicion(0, 1), null),
@@ -323,7 +323,7 @@ public class JuegoIntegracionTest {
                 List.of(
                         new LLegadaPartida(new Posicion(0,0), null),
                         new DePaso(new Posicion(0,0), null),
-                        new Terreno(new Posicion(0,0), "TerrenoA", null))
+                        new Terreno(new Posicion(0,0), "TerrenoA", null, 50))
                 , List.of(jugador), banco);
 
         banco.pagarRondaCompletaA(jugador);
@@ -345,7 +345,7 @@ public class JuegoIntegracionTest {
         Tablero tablero = new Tablero(
                 List.of(
                         new LLegadaPartida(new Posicion(0,0), null),
-                        new Terreno(new Posicion(0,1), "TerrenoA", null)),
+                        new Terreno(new Posicion(0,1), "TerrenoA", null, 50)),
                 List.of(propietario, jugador), banco);
 
         banco.pagarRondaCompletaA(jugador);
@@ -364,7 +364,7 @@ public class JuegoIntegracionTest {
 
         Banco banco = new Banco(4000);
         Jugador jugador = new Jugador(new Saldo(0), new Dado(), "Pepito");
-        Terreno terreno = new Terreno(new Posicion(0,0), "TerreoA", null);
+        Terreno terreno = new Terreno(new Posicion(0,0), "TerreoA", null, 2000);
 
         banco.pagarRondaCompletaA(jugador);
         jugador.comprarPropiedad(terreno, 2000);
@@ -376,10 +376,10 @@ public class JuegoIntegracionTest {
     public void test17JugadorConGrupoCompletoDePropiedadesPuedeConstruirCasa() {
 
         Jugador jugador = new Jugador(new Saldo(10000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "Terreno A", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "Terreno A", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "Terreno A", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "Terreno A", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "Terreno A", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "Terreno A", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "Terreno A", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "Terreno A", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
@@ -394,10 +394,10 @@ public class JuegoIntegracionTest {
     public void test18JugadorConGrupoCompletoDePropiedadesNoPuedeConstruir2CasasEnSoloUnTerreno() {
 
         Jugador jugador = new Jugador(new Saldo(10000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
@@ -413,10 +413,10 @@ public class JuegoIntegracionTest {
     public void test19LaDiferenciaEntreCantidadDeCasasPorTerrenoAgrupableNoPuedeSerMayorA1() {
 
         Jugador jugador = new Jugador(new Saldo(10000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
@@ -438,10 +438,10 @@ public class JuegoIntegracionTest {
     public void test20ConstruirUnEdificioSobreUnTerrenoSiAntesConstruirTodasLasCasasNoLanzaraUnaExcepcion() {
 
         Jugador jugador = new Jugador(new Saldo(100000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
@@ -475,10 +475,10 @@ public class JuegoIntegracionTest {
     public void test21ConstruirUnEdificioSobreUnTerrenoSinAntesConstruirTodasLasCasasLanzaraUnaExcepcion() {
 
         Jugador jugador = new Jugador(new Saldo(100000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
@@ -495,7 +495,7 @@ public class JuegoIntegracionTest {
         Jugador propietario = new Jugador(new Saldo(0), new Dado(), "Pepito");
         Jugador jugador = new Jugador(new Saldo(0), new Dado(), "Juancito");
         Propiedad propiedadDePrueba = new Transporte(new Posicion(0,0), null);
-        Terreno propiedad = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno propiedad = new Terreno(new Posicion(0,0), "TerrenoA", null, 2000);
         Tablero tablero = new Tablero(
                 List.of(
                         new LLegadaPartida(new Posicion(0,0), null),
@@ -519,7 +519,7 @@ public class JuegoIntegracionTest {
     @Test
     public void test24JugadorCompraYVendePropiedad() {
         Jugador jugador = new Jugador(new Saldo(10000), new Dado(), "Pepito");
-        Propiedad propiedad = new Terreno(new Posicion(0, 0), "Terreno A", null);
+        Propiedad propiedad = new Terreno(new Posicion(0, 0), "Terreno A", null, 2000);
 
         jugador.comprarPropiedad(propiedad, 2000);
         jugador.venderPropiedad(propiedad);
@@ -531,7 +531,7 @@ public class JuegoIntegracionTest {
     @Test
     public void test25JugadorHipotecaYDesHipotecaPropiedad() {
         Jugador jugador = new Jugador(new Saldo(10000), new Dado(), "Pepito");
-        Propiedad propiedad = new Terreno(new Posicion(0, 0), "Terreno A", null);
+        Propiedad propiedad = new Terreno(new Posicion(0, 0), "Terreno A", null, 2000);
 
         jugador.comprarPropiedad(propiedad, 2000);
         jugador.hipotecarPropiedad(propiedad);
@@ -544,10 +544,10 @@ public class JuegoIntegracionTest {
     public void test26JugadorConPropiedadHipotecadaNoPuedeConstruir() {
 
         Jugador jugador = new Jugador(new Saldo(2000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
@@ -566,7 +566,7 @@ public class JuegoIntegracionTest {
     @Test
     public void test27JugadorConPropiedadHipotecadaNoLaPuedeVenderYlanzaUnaExcepcion() {
         Jugador jugador = new Jugador(new Saldo(2000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.hipotecarPropiedad(terrenoA1);
@@ -578,7 +578,7 @@ public class JuegoIntegracionTest {
     public void test28JugadorConPropiedadHipotecadaNoPuedeConstruir() {
 
         Jugador jugador = new Jugador(new Saldo(2000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.hipotecarPropiedad(terrenoA1);
@@ -590,7 +590,7 @@ public class JuegoIntegracionTest {
     public void test29JugadorCompraPropiedadYLaHipotecaYLuegoLaVendeLanzaUnaExcecion() {
 
         Jugador jugador = new Jugador(new Saldo(2000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.hipotecarPropiedad(terrenoA1);
@@ -602,7 +602,7 @@ public class JuegoIntegracionTest {
     public void test30JugadorCompraPropiedadYLaHipotecaYLaVendeLanzaExepcionLuegoLaDesHipotecaYLuegoLaVendeNoLanzaUnaExcecion() {
 
         Jugador jugador = new Jugador(new Saldo(2000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.hipotecarPropiedad(terrenoA1);
@@ -618,7 +618,7 @@ public class JuegoIntegracionTest {
         Banco banco = new Banco(2000);
         Jugador propietario = new Jugador(new Saldo(2000), new Dado(), "Pepito");
         Propiedad propiedadDePrueba = new Transporte(new Posicion(0,0), null);
-        Terreno propiedad = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno propiedad = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
         Tablero tablero = new Tablero(
                 List.of(
                         new LLegadaPartida(new Posicion(0,0), null),
@@ -636,10 +636,10 @@ public class JuegoIntegracionTest {
     public void test32JugadorVendeUnaPropiedadConEdificiosLanzaraUnaExcepcion() {
 
         Jugador jugador = new Jugador(new Saldo(2000), new Dado(), "Pepito");
-        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null);
-        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null);
+        Terreno terrenoA1 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA2 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA3 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
+        Terreno terrenoA4 = new Terreno(new Posicion(0,0), "TerrenoA", null, 0);
 
         jugador.comprarPropiedad(terrenoA1, 0);
         jugador.comprarPropiedad(terrenoA2, 0);
