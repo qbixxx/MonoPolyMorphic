@@ -6,6 +6,7 @@ import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoPropiedad;
 import org.tp1.model.construibles.Casa;
 import org.tp1.model.construibles.Edificio;
+import org.tp1.model.construibles.Hotel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,8 +88,31 @@ public class CasilleroPropiedad extends Casillero {
         return this.edificios;
     }
 
-    public void construirCasa() {
-        this.edificios.add(new Casa());
+    public void construirCasa(Jugador jugador) {
+        if (this.edificios.size() == 1) {
+            if (!edificios.get(0).getClass().equals(Hotel.class)) {
+                Casa casa = new Casa();
+                this.edificios.add(casa);
+                jugador.entregarDinero(casa.obtenerPrecio());
+            }
+        }
+        else if (this.edificios.size() < cantidadMaxCasas) {
+            Casa casa = new Casa();
+            this.edificios.add(casa);
+            jugador.entregarDinero(casa.obtenerPrecio());
+        }
+        else {
+            this.construirHotel(jugador);
+        }
+    }
+
+    public void construirHotel(Jugador jugador) {
+        if (this.edificios.size() == cantidadMaxCasas) {
+            Hotel hotel = new Hotel();
+            this.edificios = new ArrayList<>();
+            this.edificios.add(hotel);
+            jugador.entregarDinero(hotel.obtenerPrecio());
+        }
     }
 
     public ComportamientoCasilla getComportamientoCasilla() {

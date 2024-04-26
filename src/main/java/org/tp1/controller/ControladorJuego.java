@@ -93,8 +93,9 @@ public class ControladorJuego {
             String indicePropiedadDondeConstruir = this.juegoVista.recibirOpciones();
             CasilleroPropiedad propiedadElegida =
                     this.juegoVista.elegirPropiedadDondeConstruir(indicePropiedadDondeConstruir);
-            this.monopoly.construir(propiedadElegida);
+            this.monopoly.construirCasa(propiedadElegida);
         }
+
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }

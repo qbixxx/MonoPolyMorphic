@@ -11,4 +11,8 @@ public abstract class Edificio {
     }
 
     public abstract double obtenerPeaje();
+
+    public double obtenerPrecio() {
+        return this.precio;
+    }
 }

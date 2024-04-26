@@ -2,6 +2,8 @@ package org.tp1.view.vistaCasillero;
 
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroPropiedad;
+import org.tp1.model.construibles.Edificio;
+import org.tp1.model.construibles.Hotel;
 import org.tp1.view.Colores;
 
 public class CasilleroPropiedadVista extends CasilleroVista {
@@ -21,8 +23,12 @@ public class CasilleroPropiedadVista extends CasilleroVista {
             }
         }
         if (casillero.obtenerEdificios() != null) {
-            for (int i = 0; i < casillero.obtenerEdificios().size(); i++) {
-                System.out.printf("Casa n" + i + casillero.obtenerEdificios().get(i).obtenerPeaje());
+            for (Edificio edificio: casillero.obtenerEdificios()) {
+                if (edificio.getClass().equals(Hotel.class)) {
+                    System.out.println("Hotel");
+                } else {
+                    System.out.println("Casa");
+                }
             }
         }
 

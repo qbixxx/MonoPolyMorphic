@@ -88,7 +88,6 @@ public class JuegoVista {
     public void mostrarPropiedadesDondeConstruir() {
         List<CasilleroPropiedad> propiedades =
                 this.juego.getTablero().chequearSiJugadorTieneAlgunGrupo(this.juego.jugadorEnTurnoActual());
-        System.out.println(propiedades.size());
         for (int i = 0; i < propiedades.size(); i++) {
             System.out.println(i + ". " + propiedades.get(i).getNombre());
         }
