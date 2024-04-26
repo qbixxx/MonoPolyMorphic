@@ -7,6 +7,7 @@ import org.tp1.model.casillero.CasilleroPropiedad;
 import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.construibles.Casa;
+import org.tp1.model.juego.estadoJugador.enJuegoState;
 
 import java.util.List;
 import java.util.Random;
@@ -141,5 +142,10 @@ public class Juego implements Banco {
 
     public void construirCasa(CasilleroPropiedad casilleroPropiedad) {
         casilleroPropiedad.construirCasa(this.jugadorEnTurnoActual());
+    }
+
+    public void pagarMulta(Jugador jugador) {
+        cobro(jugador, -100);
+        jugador.setEstado(new enJuegoState(jugador));
     }
 }

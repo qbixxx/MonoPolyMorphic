@@ -11,7 +11,7 @@ public class ComportamientoMulta implements ComportamientoCasilla {
         jugador.setMensaje("Te pescó la aduana traficando autopartes. Pagás una multa de $"+casilleroMulta.getValorMulta());
         juego.cobro(jugador, -casilleroMulta.getValorMulta());
     }
-    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
-        return "";
+    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+
     }
 }

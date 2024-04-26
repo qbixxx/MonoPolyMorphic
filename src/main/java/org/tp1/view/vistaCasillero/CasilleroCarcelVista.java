@@ -51,7 +51,7 @@ public class CasilleroCarcelVista extends CasilleroVista {
         System.out.println("Opciones carcel");
         if (jugador.getEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
             System.out.println("1 - Pagar Multa de $100");
-            System.out.println("2 - Pasar turno en carcel");
+            System.out.println("Presiona otra tecla si quieres pasar el turno en la carcel");
         } else {
             this.mostrarOpcionesGenericas(jugador, null);
         }

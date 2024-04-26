@@ -32,21 +32,12 @@ public class ComportamientoPropiedad implements ComportamientoCasilla {
         }
     }
 
-    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
         CasilleroPropiedad casilleroPropiedad = (CasilleroPropiedad) casillero;
         if (comando.equals("1")) {
             if (casilleroPropiedad.getCostoCompra() <= jugador.getDineroDisponible() && casilleroPropiedad.getDueno() == null) {
                 casilleroPropiedad.comprar(jugador);
-                return "y";
-            }else if (casilleroPropiedad.getDueno().equals(jugador)) {
-                return "n";
             }
-        }  else if (comando.equals("3")) {
-            return "n";
-        } else {
-            jugador.setMensaje("Esa accion no existe");
-
         }
-        return "y";
     }
 }

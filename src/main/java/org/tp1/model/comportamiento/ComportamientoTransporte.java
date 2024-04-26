@@ -13,19 +13,13 @@ public class ComportamientoTransporte implements ComportamientoCasilla {
         }
     }
 
-    public String ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
+    public void ejecutarComando(Jugador jugador, Casillero casillero, Juego juego, String comando) {
         CasilleroTransporte casilleroTransporte = (CasilleroTransporte) casillero;
         if (comando.equals("1")) {
             if (casilleroTransporte.getCostoCompra() <= jugador.getDineroDisponible() && casilleroTransporte.getDueno() == null) {
                 casilleroTransporte.comprar(jugador);
-                return "y";
+
             }
-        } else if (comando.equals("3")) {
-            return "n";
-        } else {
-            jugador.setMensaje("Esa accion no existe");
-            return "n";
         }
-        return "";
     }
 }

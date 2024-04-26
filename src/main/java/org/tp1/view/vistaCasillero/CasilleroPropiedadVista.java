@@ -45,14 +45,15 @@ public class CasilleroPropiedadVista extends CasilleroVista {
             System.out.println("1. Avanzar");
         }
         else if (jugador.getDineroDisponible() < casillero.getCostoCompra() ) {
-            System.out.println("No podes comprar la propiedad, presiona ENTER para continuar");
+            System.out.println("No podes comprar la propiedad");
         }
         else if (jugador.getDineroDisponible() >= casillero.getCostoCompra() && casillero.getDueno() == null){
             System.out.println(Color.GREEN.getColor()+" + Opciones en casillero de propiedad" );
             System.out.println("1. Comprar la propiedad por $"+this.casillero.getCostoCompra());
-            System.out.println("3. No Comprar la propiedad."+ Color.RESET.getColor());
+            System.out.println("Sino queres comprar la propiedad presiona 3"+ Color.RESET.getColor());
         } else {
             System.out.println("1. Avanzar (la propiedad ya es tuya)");
         }
+        System.out.println("2. Para pasar al siguiente turno");
     }
 }

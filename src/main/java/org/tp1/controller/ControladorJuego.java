@@ -1,5 +1,6 @@
 package org.tp1.controller;
 
+import org.tp1.controller.comandos.*;
 import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
@@ -52,40 +53,30 @@ public class ControladorJuego {
         juegoVista.mostrarDatosJuego();
         juegoVista.mostrarOpcionesGenericas();
         String decision = juegoVista.recibirOpciones();
+        Comando comando;
         if (decision.equals("2")) {
             this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
             this.monopoly.siguienteTurno();
         }
         if (decision.equals("5")) {
-            this.juegoVista.mostrarPropiedadesEnPosesion();
-            String indicePropiedadElegida = this.juegoVista.recibirOpciones();
-            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadElegida);
-            this.monopoly.venderPropiedad(propiedadElegida);
+            comando = new ComandoVenderPropiedad();
+            comando.ejecutar(this.juegoVista, this.monopoly);
         }
         if (decision.equals("6")) {
-            this.juegoVista.mostrarTransportesEnPosesion();
-            String indiceTransporteElegido = this.juegoVista.recibirOpciones();
-            CasilleroTransporte transporteElegido = this.juegoVista.elegirTransporte(indiceTransporteElegido);
-            this.monopoly.venderTransporte(transporteElegido);
+            comando = new ComandoVenderTransporte();
+            comando.ejecutar(this.juegoVista, this.monopoly);
         }
         if (decision.equals("7")) {
-            this.juegoVista.mostrarPropiedadesSinHipotecar();
-            String indicePropiedadAHipotecar = this.juegoVista.recibirOpciones();
-            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadAHipotecar);
-            this.monopoly.hipotecarPropiedad(propiedadElegida);
+            comando = new ComandoHipotecarPrioridad();
+            comando.ejecutar(this.juegoVista, this.monopoly);
         }
         if (decision.equals("8")) {
-            this.juegoVista.mostrarPropiedadesHipotecadas();
-            String indicePropiedadADeshipotecar = this.juegoVista.recibirOpciones();
-            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadADeshipotecar);
-            this.monopoly.deshipotecarPropiedad(propiedadElegida);
+            comando = new ComandoDeshipotecarPropiedad();
+            comando.ejecutar(this.juegoVista, this.monopoly);
         }
         if (decision.equals("9")) {
-            this.juegoVista.mostrarPropiedadesDondeConstruir();
-            String indicePropiedadDondeConstruir = this.juegoVista.recibirOpciones();
-            CasilleroPropiedad propiedadElegida =
-                    this.juegoVista.elegirPropiedadDondeConstruir(indicePropiedadDondeConstruir);
-            this.monopoly.construirCasa(propiedadElegida);
+            comando = new ComandoConstruirCasa();
+            comando.ejecutar(this.juegoVista, this.monopoly);
         }
 
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
@@ -97,7 +88,8 @@ public class ControladorJuego {
             case PROPIEDAD -> this.estadoJuego = EstadoJuego.CAIDA_EN_PROPIEDAD;
             case TRANSPORTE -> this.estadoJuego = EstadoJuego.CAIDA_EN_TRANSPORTE;
             case LOTERIA, MULTA, DE_PASO -> this.estadoJuego = EstadoJuego.CAIDA_PASO_MULTA_LOT;
-            case CARCEL, IR_A_CARCEL -> this.estadoJuego = EstadoJuego.CAIDA_IR_A_CARCEL;
+            case IR_A_CARCEL -> this.estadoJuego = EstadoJuego.CAIDA_IR_A_CARCEL;
+            case CARCEL -> this.estadoJuego = EstadoJuego.CAIDA_EN_CARCEL;
             default -> this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         }
     }
@@ -105,7 +97,6 @@ public class ControladorJuego {
     public void elegirOpcion(String decision) {
         Casillero casilleroActual = monopoly.obtenerCasilleroActual();
         ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
-        System.out.println("Si tiro dado es " + this.monopoly.jugadorEnTurnoActual().siTiroDado());
         if (this.monopoly.jugadorEnTurnoActual().siTiroDado()) {
             chequearEstadoJuego(casilleroActual);
         }
@@ -114,8 +105,6 @@ public class ControladorJuego {
                 this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
                 monopoly.avanzar(monopoly.tirarDado());
                 jugarTurno();
-            } else {
-                System.out.println("No podes realizar otra accion antes de moverte");
             }
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_PROPIEDAD)) {
@@ -124,6 +113,10 @@ public class ControladorJuego {
                     this.monopoly, decision);
         }
         if (estadoJuego.equals(EstadoJuego.CAIDA_EN_TRANSPORTE)) {
+            comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
+                    this.monopoly, decision);
+        }
+        if (estadoJuego.equals(EstadoJuego.CAIDA_EN_CARCEL)) {
             comportamientoCasilla.ejecutarComando(this.monopoly.jugadorEnTurnoActual(), casilleroActual,
                     this.monopoly, decision);
         }

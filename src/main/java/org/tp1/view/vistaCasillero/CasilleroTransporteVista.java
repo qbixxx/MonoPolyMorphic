@@ -31,11 +31,12 @@ public class CasilleroTransporteVista extends CasilleroVista {
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
         if (jugador.getDineroDisponible() < casillero.getCostoCompra() || casillero.getDueno() != null) {
-            System.out.println("No puedes comprar este transporte, presiona 3 para continuar");
+            System.out.println("No puedes comprar este transporte");
         } else if (jugador.getDineroDisponible() >= casillero.getCostoCompra() && casillero.getDueno() == null) {
             System.out.println(Color.GREEN.getColor()+" + Opciones en casillero de transporte" );
             System.out.println("1. Comprar el transporte por $"+this.casillero.getCostoCompra());
-            System.out.println("3. No comprar el transporte"+ Color.RESET.getColor());
+            System.out.println("Presiona cualquier tecla sino queres comprar el transporte"+ Color.RESET.getColor());
         }
+        System.out.println("2. Para pasar al siguiente");
     }
 }
