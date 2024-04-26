@@ -1,9 +1,9 @@
 # Monopoly-morphic
-Grupo:  Los Devaluados.
-+Damian Lima
-+Luciano Salerno
-+Valentin Calomino
-+Valentin Cedeño
+Grupo 12 - Los Devaluados:
+- Damian Lima
+- Luciano Salerno
+- Valentin Calomino
+- Valentin Cedeño
 
 
 
