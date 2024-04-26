@@ -1,5 +1,6 @@
 package org.example.model.casilla;
 
+import org.example.configuracion.Configuracion;
 import org.example.configuracion.DataCasilla;
 import org.example.model.Logger;
 import org.example.model.Posicion;
@@ -22,12 +23,12 @@ import java.util.List;
 public class Terreno extends Casilla implements Propiedad {
 
 
-    private final double coste = 1000;
-    private final double peaje = 100;
+    private final double coste;
+    private final double peaje = Configuracion.peaje;
 
-    private double precioCasa;
+    private final double precioCasa = Configuracion.precioCasa;
 
-    private double precioHotel = 5000;
+    private double precioHotel = Configuracion.precioHotel;
 
 
     private String grupo;
@@ -37,15 +38,14 @@ public class Terreno extends Casilla implements Propiedad {
     protected boolean sePuedeConstruirHotel;
     protected final int cantidadMaximaDeCasas = 4;
 
-    public Terreno(Posicion posicion, String grupo, DataCasilla dataCasilla) {
+    public Terreno(Posicion posicion, String grupo, DataCasilla dataCasilla, double coste) {
         this.disponibilidad = new EnVenta();
         this.edificios = new ArrayList<>();
         this.dataCasilla = dataCasilla;
         this.sePuedeConstruirHotel = false;
         this.posicion = posicion;
         this.grupo = grupo;
-        this.precioCasa = 1000;
-        this.precioHotel = 1000;
+        this.coste = coste;
     }
 
     @Override

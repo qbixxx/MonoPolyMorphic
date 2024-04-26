@@ -35,7 +35,7 @@ public class JuegoIntegracionTest {
         //Arrange
         Saldo saldo = new Saldo(2000);
         Jugador jugador = new Jugador(saldo, new Dado(), "Pepito");
-        Propiedad propiedadDePrueba = new Transporte(new Posicion(0,0), null;
+        Propiedad propiedadDePrueba = new Transporte(new Posicion(0,0), null);
         Banco banco = new Banco(2000);
 
         //Act
