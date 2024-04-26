@@ -15,13 +15,13 @@ public class CasilleroLoteriaVista extends CasilleroVista {
 
     public void mostrarCasillero() {
         System.out.println(Color.BLUE.getColor() + "-------------------------" + Color.RESET.getColor());
-        System.out.println(Color.YELLOW.getColor() + casillero.getNombre() + Color.RESET.getColor());
-        if (casillero.getJugadores() != null) {
-            for (Jugador jugador : casillero.getJugadores()) {
-                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + jugador.obtenerColor().getColor() + jugador.getNombre() + Color.RED.getColor() +"\t|" + Color.RESET.getColor());
+        System.out.println(Color.YELLOW.getColor() + casillero.obtenerNombre() + Color.RESET.getColor());
+        if (casillero.obtenerJugadores() != null) {
+            for (Jugador jugador : casillero.obtenerJugadores()) {
+                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + jugador.obtenerColor().getColor() + jugador.obtenerNombre() + Color.RED.getColor() +"\t|" + Color.RESET.getColor());
             }
         }
-        System.out.println(Color.YELLOW.getColor() + "\tCobrar: $" + casillero.getValorPozo()+ Color.RESET.getColor());
+        System.out.println(Color.YELLOW.getColor() + "\tCobrar: $" + casillero.obtenerValorPozo()+ Color.RESET.getColor());
         System.out.println(Color.BLUE.getColor() + "-------------------------" + Color.RESET.getColor());
     }
 

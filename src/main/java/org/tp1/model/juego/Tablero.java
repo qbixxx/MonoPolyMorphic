@@ -19,7 +19,7 @@ public class Tablero {
 
     public Tablero(Casillero[] tablero) {
         this.tablero = tablero;
-        this.posicionCarcel = obtenerPosicionCarcel();
+        this.posicionCarcel = calcularPosicionCarcel();
         this.gruposDePropiedades = inicializarGrupos();
     }
 
@@ -28,16 +28,16 @@ public class Tablero {
         for (Casillero casillero: this.tablero) {
             if (casillero.getTipoCasillero().equals(TipoCasillero.PROPIEDAD)) {
                 CasilleroPropiedad c = (CasilleroPropiedad) casillero;
-                if (!props.containsKey(c.getGrupo())) {
-                    props.put(c.getGrupo(), new ArrayList<>());
+                if (!props.containsKey(c.obtenerGrupo())) {
+                    props.put(c.obtenerGrupo(), new ArrayList<>());
                 }
-                props.get(c.getGrupo()).add(c);
+                props.get(c.obtenerGrupo()).add(c);
             }
         }
         return props;
     }
 
-    private int obtenerPosicionCarcel() {
+    private int calcularPosicionCarcel() {
         for (int i = 0; i < tablero.length; i++) {
             if (tablero[i].getTipoCasillero().equals(TipoCasillero.CARCEL)) {
                 return i;
@@ -53,7 +53,7 @@ public class Tablero {
             boolean tieneElGrupo = true;
 
             for (CasilleroPropiedad propiedad : propiedades) {
-                if (propiedad.getDueno() == null || !propiedad.getDueno().equals(jugador)) {
+                if (propiedad.obtenerDueno() == null || !propiedad.obtenerDueno().equals(jugador)) {
                     tieneElGrupo = false;
                     break;
                 }
@@ -71,19 +71,19 @@ public class Tablero {
         return true;
     }
 
-    public Casillero[] getCasilleros() {
+    public Casillero[] obtenerCasilleros() {
         return tablero;
     }
 
-    public Casillero getCasillero(int indice) {
+    public Casillero obtenerCasillero(int indice) {
         return tablero[indice];
     }
 
-    public int getPosicionCarcel() {
+    public int obtenerPosicionCarcel() {
         return posicionCarcel;
     }
 
-    private void setPosicionCarcel(int carcel) {
+    private void setearPosicionCarcel(int carcel) {
         this.posicionCarcel = carcel;
     }
 }

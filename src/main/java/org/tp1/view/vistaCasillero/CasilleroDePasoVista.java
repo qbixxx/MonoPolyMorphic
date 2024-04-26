@@ -14,10 +14,10 @@ public class CasilleroDePasoVista extends CasilleroVista {
 
     public void mostrarCasillero() {
         System.out.println(Color.BLUE.getColor() + "--------------------" + Color.RESET.getColor());
-        System.out.println(Color.YELLOW.getColor() + casilleroPaso.getNombre() + Color.RESET.getColor());
-        if (casilleroPaso.getJugadores() != null) {
-            for (Jugador jugador : casilleroPaso.getJugadores()) {
-                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + Color.RESET.getColor() + jugador.obtenerColor().getColor() + jugador.getNombre() + "\t|" + Color.RESET.getColor());
+        System.out.println(Color.YELLOW.getColor() + casilleroPaso.obtenerNombre() + Color.RESET.getColor());
+        if (casilleroPaso.obtenerJugadores() != null) {
+            for (Jugador jugador : casilleroPaso.obtenerJugadores()) {
+                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + Color.RESET.getColor() + jugador.obtenerColor().getColor() + jugador.obtenerNombre() + "\t|" + Color.RESET.getColor());
             }
         }
         System.out.println(Color.BLUE.getColor() + "--------------------" + Color.RESET.getColor());

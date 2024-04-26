@@ -38,10 +38,10 @@ public class Jugador {
     }
 
 
-    public void setMensaje(String mensaje){
+    public void setearMensaje(String mensaje){
         this.ultimoMensaje = mensaje;
     }
-    public String getUltimoMensaje(){
+    public String obtenerUltimoMensaje(){
         String msg = this.ultimoMensaje;
         this.ultimoMensaje = "";
         return msg;
@@ -56,79 +56,74 @@ public class Jugador {
         this.dadoTirado = !this.dadoTirado;
     }
 
-public String getNombre() {
+    public String obtenerNombre() {
     return nombre;
 }
-public double getDineroDisponible() {
+    public double obtenerDineroDisponible() {
     return dineroDisponible;
 }
-public List<CasilleroPropiedad> getPropiedades() {
+    public List<CasilleroPropiedad> obtenerPropiedades() {
     return propiedades;
 }
-public EstadoJugador getEstadoJugador() {
+    public EstadoJugador obtenerEstadoJugador() {
     return this.estado.getEstado();
 }
-public int getPosicionActual() {
+    public int obtenerPosicionActual() {
     return posicionActual;
 }
-public void setPosicionActual(int nuevaPosicion) {
+    public void setearPosicionActual(int nuevaPosicion) {
     this.posicionActual = nuevaPosicion;
 }
-public void setDineroDisponible(double monto) {
+    public void setDineroDisponible(double monto) {
     this.dineroDisponible += monto;
 }
-public double entregarDinero(double monto) {
-    this.dineroDisponible -= monto;
-    // logica si queda negativo
-    return monto;
-}
-public void setEstado(State estado){
+    public double entregarDinero(double monto) {
+        this.dineroDisponible -= monto;
+        return monto;
+    }
+    public void setEstado(State estado){
     this.estado = estado;
 }
-public void enJuego(){
+    public void enJuego(){
     this.estado.enJuego();
 }
-public void enCarcel(){
+    public void enCarcel(){
     this.estado.enCarcel();
 }
-public void enQuiebra(){
+    public void enQuiebra(){
     this.estado.enQuiebra();
 }
-public void recibirDinero(Jugador jugador, double monto) {
+    public void recibirDinero(Jugador jugador, double monto) {
+        this.dineroDisponible += jugador.entregarDinero(monto);
+    }
+    public void agregarPropiedad(CasilleroPropiedad propiedad) {
+        this.propiedades.add(propiedad);
+        this.dineroDisponible -= propiedad.obtenerCostoCompra();
+    }
 
-    this.dineroDisponible += jugador.entregarDinero(monto);
-}
-public void agregarPropiedad(CasilleroPropiedad propiedad) {
-    this.propiedades.add(propiedad);
-    this.dineroDisponible -= propiedad.getCostoCompra();
-}
-
-public void venderPropiedad(CasilleroPropiedad propiedad) {
+    public void venderPropiedad(CasilleroPropiedad propiedad) {
         this.propiedades.remove(propiedad);
-        this.dineroDisponible += propiedad.getCostoCompra();
-}
+        this.dineroDisponible += propiedad.obtenerCostoCompra();
+    }
 
-public void agregarTransporte(CasilleroTransporte transporte) {
+    public void agregarTransporte(CasilleroTransporte transporte) {
         this.transportes.add(transporte);
-        this.dineroDisponible -= transporte.getCostoCompra();
-}
+        this.dineroDisponible -= transporte.obtenerCostoCompra();
+    }
 
-public void venderTransporte(CasilleroTransporte transporte) {
+    public void venderTransporte(CasilleroTransporte transporte) {
         this.transportes.remove(transporte);
-        this.dineroDisponible += transporte.getCostoCompra();
-}
+        this.dineroDisponible += transporte.obtenerCostoCompra();
+    }
 
-public List<CasilleroTransporte> obtenerTransportes() {
+    public List<CasilleroTransporte> obtenerTransportes() {
         return this.transportes;
 }
-    public Casillero getCasilleroActual() {
+    public Casillero obtenerCasilleroActual() {
         return casilleroActual;
     }
-    public void setCasilleroActual(Casillero casilleroActual) {
+    public void setearCasilleroActual(Casillero casilleroActual) {
         this.casilleroActual = casilleroActual;
-    }
-    public State getEstado() {
-        return estado;
     }
 
     public Color obtenerColor() {

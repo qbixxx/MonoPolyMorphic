@@ -15,8 +15,4 @@ public enum TipoCasillero {
     TipoCasillero(String tipoCasillero) {
         this.tipoCasillero = tipoCasillero;
     }
-
-    public String getTipoCasillero() {
-        return tipoCasillero;
-    }
 }

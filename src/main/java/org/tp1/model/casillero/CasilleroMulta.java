@@ -11,11 +11,11 @@ public class CasilleroMulta extends Casillero {
         this.valorMulta = valorMulta;
     }
 
-    public double getValorMulta() {
+    public double obtenerValorMulta() {
         return valorMulta;
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoMulta();
     }
 }

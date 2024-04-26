@@ -11,7 +11,7 @@ public class CasilleroPaso extends Casillero {
         super(nombre, tipoCasillero);
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoPaso();
     }
 }

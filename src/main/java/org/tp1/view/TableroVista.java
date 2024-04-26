@@ -15,21 +15,21 @@ public class TableroVista {
     }
 
     public void mostrarTablero() {
-        for (Casillero casillero : tablero.getCasilleros()) {
+        for (Casillero casillero : tablero.obtenerCasilleros()) {
             CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casillero);
             casilleroVista.mostrarCasillero();
         }
     }
 
     public void mostrarOpcionesGenericas(Jugador jugador) {
-        Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
+        Casillero casilleroActual = tablero.obtenerCasillero(jugador.obtenerPosicionActual());
         CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
         casilleroVista.mostrarOpcionesGenericas(jugador, this.tablero);
     }
 
     public void mostrarOpciones(Jugador jugador) {
 
-        Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
+        Casillero casilleroActual = tablero.obtenerCasillero(jugador.obtenerPosicionActual());
         CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
         casilleroVista.mostrarOpcionesCasillero(jugador);
 

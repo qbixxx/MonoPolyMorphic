@@ -10,7 +10,7 @@ public class CasilleroIrACarcel extends Casillero {
         super(nombre, tipoCasillero);
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoIrACarcel();
     }
 }

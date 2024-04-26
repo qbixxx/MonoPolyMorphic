@@ -1,20 +1,12 @@
 package org.tp1.controller;
 
 import org.tp1.controller.comandos.*;
-import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.Casillero;
-import org.tp1.model.casillero.CasilleroPropiedad;
-import org.tp1.model.casillero.TipoCasillero;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.juego.Juego;
 import org.tp1.view.JuegoVista;
-import org.tp1.view.vistaCasillero.CasilleroVista;
-import org.tp1.view.vistaCasillero.CasilleroVistaFactory;
-
-import java.util.Objects;
-import java.util.Scanner;
 
 public class ControladorJuego {
     private final Juego monopoly;
@@ -30,7 +22,7 @@ public class ControladorJuego {
     public boolean enJuego() {
         int numJugadoresEnJuego = 0;
         for (Jugador jugador : monopoly.getJugadores()) {
-            if (!jugador.getEstadoJugador().equals(EstadoJugador.EN_QUIEBRA)) {
+            if (!jugador.obtenerEstadoJugador().equals(EstadoJugador.EN_QUIEBRA)) {
                 numJugadoresEnJuego++;
             }
         }
@@ -96,7 +88,7 @@ public class ControladorJuego {
 
     public void elegirOpcion(String decision) {
         Casillero casilleroActual = monopoly.obtenerCasilleroActual();
-        ComportamientoCasilla comportamientoCasilla = casilleroActual.getComportamientoCasilla();
+        ComportamientoCasilla comportamientoCasilla = casilleroActual.obtenerComportamientoCasilla();
         if (this.monopoly.jugadorEnTurnoActual().siTiroDado()) {
             chequearEstadoJuego(casilleroActual);
         }

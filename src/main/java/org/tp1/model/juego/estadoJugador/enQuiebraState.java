@@ -12,10 +12,10 @@ public class enQuiebraState implements State {
         return estado;
     }
     public void enJuego() {
-        System.out.println(this.jugador.getNombre() + " Ya habias quedado afuera del juego por quebrar");
+        System.out.println(this.jugador.obtenerNombre() + " Ya habias quedado afuera del juego por quebrar");
     }
     public void enCarcel() {
-        System.out.println(this.jugador.getNombre() + " ya habias quebrado, no podes estar en carcel");
+        System.out.println(this.jugador.obtenerNombre() + " ya habias quebrado, no podes estar en carcel");
     }
     public void enQuiebra() {
         System.out.println("Ya habias quebrado");

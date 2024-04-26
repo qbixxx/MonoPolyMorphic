@@ -15,12 +15,12 @@ public class JugadorVista {
     }
 
     public void mostrarJugador() {
-        System.out.printf(jugador.obtenerColor().getColor() + jugador.getNombre() + Color.RESET.getColor() + ", " +
+        System.out.printf(jugador.obtenerColor().getColor() + jugador.obtenerNombre() + Color.RESET.getColor() + ", " +
                 "Dinero en " +
-                "cuenta: " + jugador.getDineroDisponible()+
+                "cuenta: " + jugador.obtenerDineroDisponible()+
                 " :" +
-                " "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador()+ Color.RESET.getColor());
-        String msg = jugador.getUltimoMensaje();
+                " "+colorEstado(jugador.obtenerEstadoJugador()) + jugador.obtenerEstadoJugador()+ Color.RESET.getColor());
+        String msg = jugador.obtenerUltimoMensaje();
         if (msg == null){
             System.out.println(Color.BLUE.getColor()+ " Ultimo mensaje: -"+ Color.RESET.getColor());
         }else{
@@ -28,20 +28,20 @@ public class JugadorVista {
         }
 
         System.out.printf("L___ Propiedades:");
-        for (CasilleroPropiedad propiedad : jugador.getPropiedades()){
-            System.out.printf(propiedad.getNombre()+"\t");
+        for (CasilleroPropiedad propiedad : jugador.obtenerPropiedades()){
+            System.out.printf(propiedad.obtenerNombre()+"\t");
         }
         System.out.println("\n");
         System.out.printf("L___ Transportes:");
         for (CasilleroTransporte transporte: jugador.obtenerTransportes()) {
-            System.out.println(transporte.getNombre()+"\t");
+            System.out.println(transporte.obtenerNombre()+"\t");
         }
         System.out.println("");
 
         String propiedades = "";
-        if (jugador.getPropiedades() != null) {
-            for (Casillero propiedad : jugador.getPropiedades()) {
-                propiedades.concat(propiedad.getNombre() + ", ");
+        if (jugador.obtenerPropiedades() != null) {
+            for (Casillero propiedad : jugador.obtenerPropiedades()) {
+                propiedades.concat(propiedad.obtenerNombre() + ", ");
             }
         }
     }

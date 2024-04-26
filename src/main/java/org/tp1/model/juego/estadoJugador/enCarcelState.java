@@ -16,10 +16,10 @@ public class enCarcelState implements State {
         this.jugador.setEstado(new enJuegoState(this.jugador));
     }
     public void enCarcel() {
-        System.out.println(this.jugador.getNombre() + " ya esta en la Carcel");
+        System.out.println(this.jugador.obtenerNombre() + " ya esta en la Carcel");
     }
     public void enQuiebra() {
-        if(this.jugador.getDineroDisponible() <= 0){
+        if(this.jugador.obtenerDineroDisponible() <= 0){
             this.jugador.setEstado(new enQuiebraState(this.jugador));
             System.out.println("Quebraste desde la carcel");
         }

@@ -29,13 +29,13 @@ public abstract class Casillero {
         jugadores.remove(jugador);
     }
 
-    public String getNombre() {
+    public String obtenerNombre() {
         return nombre;
     }
 
-    public List<Jugador> getJugadores() {
+    public List<Jugador> obtenerJugadores() {
         return jugadores;
     }
 
-    public abstract ComportamientoCasilla getComportamientoCasilla();
+    public abstract ComportamientoCasilla obtenerComportamientoCasilla();
 }

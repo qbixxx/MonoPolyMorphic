@@ -1,10 +1,7 @@
 package org.tp1.model.casillero;
 
-import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoLoteria;
-
-import java.util.List;
 
 public class CasilleroLoteria extends Casillero {
 
@@ -15,11 +12,11 @@ public class CasilleroLoteria extends Casillero {
         this.monto = monto;
     }
 
-    public double getValorPozo() {
+    public double obtenerValorPozo() {
         return this.monto;
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoLoteria();
     }
 }

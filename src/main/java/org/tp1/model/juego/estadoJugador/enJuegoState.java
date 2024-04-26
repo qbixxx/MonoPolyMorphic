@@ -14,16 +14,16 @@ public class enJuegoState implements State {
         return estado;
     }
     public void enJuego() {
-        System.out.println(this.jugador.getNombre() +" ya está en Juego");
+        System.out.println(this.jugador.obtenerNombre() +" ya está en Juego");
     }
     public void enCarcel() {
-        if(this.jugador.getCasilleroActual().getTipoCasillero() == TipoCasillero.IR_A_CARCEL ){
+        if(this.jugador.obtenerCasilleroActual().getTipoCasillero() == TipoCasillero.IR_A_CARCEL ){
             this.jugador.setEstado(new enCarcelState(this.jugador));
             System.out.println("Va pa' la carcel");
         }
     }
     public void enQuiebra() {
-        if(this.jugador.getDineroDisponible() <= 0){
+        if(this.jugador.obtenerDineroDisponible() <= 0){
             this.jugador.setEstado(new enQuiebraState(this.jugador));
             System.out.println("quebraste loco en el juego!");
         }

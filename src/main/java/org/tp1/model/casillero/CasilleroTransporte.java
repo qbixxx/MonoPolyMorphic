@@ -28,19 +28,19 @@ public class CasilleroTransporte extends Casillero {
 
     }
 
-    public double getTarifa() {
+    public double obtenerTarifa() {
         return this.tarifa;
     }
 
-    public Jugador getDueno() {
+    public Jugador obtenerDueno() {
         return this.dueno;
     }
 
-    public double getCostoCompra() {
+    public double obtenerCostoCompra() {
         return this.costoCompra;
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoTransporte();
     }
 }

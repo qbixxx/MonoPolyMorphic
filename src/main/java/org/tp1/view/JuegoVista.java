@@ -25,7 +25,7 @@ public class JuegoVista {
         }
         Jugador jugadorEnTurno = juego.jugadorEnTurnoActual();
         System.out.println(Color.RED.getColor() + "------------------------------\n" + Color.RESET.getColor() +
-                "Turno de: " + jugadorEnTurno.obtenerColor().getColor() +  jugadorEnTurno.getNombre() + Color.RESET.getColor() + ",\n" + Color.YELLOW.getColor() + "dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Color.RESET.getColor() + Color.RED.getColor() + "\n------------------------------" + Color.RESET.getColor());
+                "Turno de: " + jugadorEnTurno.obtenerColor().getColor() +  jugadorEnTurno.obtenerNombre() + Color.RESET.getColor() + ",\n" + Color.YELLOW.getColor() + "dinero disponible: " + jugadorEnTurno.obtenerDineroDisponible() + Color.RESET.getColor() + Color.RED.getColor() + "\n------------------------------" + Color.RESET.getColor());
     }
 
     public void mostrarOpciones() {
@@ -46,22 +46,22 @@ public class JuegoVista {
     }
 
     public void mostrarPropiedadesEnPosesion() {
-        List<CasilleroPropiedad> propiedades = this.juego.jugadorEnTurnoActual().getPropiedades();
+        List<CasilleroPropiedad> propiedades = this.juego.jugadorEnTurnoActual().obtenerPropiedades();
         for (int i = 0; i < propiedades.size(); i++) {
-            System.out.println(i + ". " + propiedades.get(i).getNombre());
+            System.out.println(i + ". " + propiedades.get(i).obtenerNombre());
         }
     }
 
     public void mostrarTransportesEnPosesion() {
         List<CasilleroTransporte> transportes = this.juego.jugadorEnTurnoActual().obtenerTransportes();
         for (int i = 0; i < transportes.size(); i++) {
-            System.out.println(i + ". " + transportes.get(i).getNombre());
+            System.out.println(i + ". " + transportes.get(i).obtenerNombre());
         }
     }
 
     public CasilleroPropiedad elegirPropiedad(String indicePropiedadElegida) {
         int indicePropElegidaEnNum = Integer.parseInt(indicePropiedadElegida);
-        return this.juego.jugadorEnTurnoActual().getPropiedades().get(indicePropElegidaEnNum);
+        return this.juego.jugadorEnTurnoActual().obtenerPropiedades().get(indicePropElegidaEnNum);
     }
 
     public CasilleroTransporte elegirTransporte(String indiceTransporteElegido) {
@@ -70,18 +70,18 @@ public class JuegoVista {
     }
 
     public void mostrarPropiedadesSinHipotecar() {
-        List<CasilleroPropiedad> propiedades =  this.juego.jugadorEnTurnoActual().getPropiedades();
+        List<CasilleroPropiedad> propiedades =  this.juego.jugadorEnTurnoActual().obtenerPropiedades();
         for (int i = 0; i < propiedades.size(); i++) {
             if (!propiedades.get(i).estaHipotecada()) {
-                System.out.println(i + ". " + propiedades.get(i).getNombre());
+                System.out.println(i + ". " + propiedades.get(i).obtenerNombre());
             }
         }
     }
     public void mostrarPropiedadesHipotecadas() {
-        List<CasilleroPropiedad> propiedades =  this.juego.jugadorEnTurnoActual().getPropiedades();
+        List<CasilleroPropiedad> propiedades =  this.juego.jugadorEnTurnoActual().obtenerPropiedades();
         for (int i = 0; i < propiedades.size(); i++) {
             if (propiedades.get(i).estaHipotecada()) {
-                System.out.println(i + ". " + propiedades.get(i).getNombre());
+                System.out.println(i + ". " + propiedades.get(i).obtenerNombre());
             }
         }
     }
@@ -90,7 +90,7 @@ public class JuegoVista {
         List<CasilleroPropiedad> propiedades =
                 this.juego.getTablero().chequearSiJugadorTieneAlgunGrupo(this.juego.jugadorEnTurnoActual());
         for (int i = 0; i < propiedades.size(); i++) {
-            System.out.println(i + ". " + propiedades.get(i).getNombre());
+            System.out.println(i + ". " + propiedades.get(i).obtenerNombre());
         }
     }
 

@@ -6,7 +6,6 @@ import org.tp1.model.casillero.CasilleroCarcel;
 import org.tp1.model.casillero.CasilleroPropiedad;
 import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
-import org.tp1.model.construibles.Casa;
 import org.tp1.model.juego.estadoJugador.enJuegoState;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class Juego implements Banco {
         this.jugadores = jugadores;
 
         for (Jugador jugador : jugadores){
-            this.tablero.getCasillero(0).agregarJugador(jugador);
+            this.tablero.obtenerCasillero(0).agregarJugador(jugador);
         }
     }
 
@@ -47,16 +46,16 @@ public class Juego implements Banco {
     }
 
     private void chequearCasilla(Jugador jugador) {
-        Casillero casilleroDeCaida = tablero.getCasillero(jugador.getPosicionActual());
-        ComportamientoCasilla comportamiento = casilleroDeCaida.getComportamientoCasilla();
+        Casillero casilleroDeCaida = tablero.obtenerCasillero(jugador.obtenerPosicionActual());
+        ComportamientoCasilla comportamiento = casilleroDeCaida.obtenerComportamientoCasilla();
         comportamiento.ejecutarAlCaer(jugador, casilleroDeCaida, this);
 
     }
 
     public void pasarTurnoEnCarcel() {
         Jugador jugador = jugadorEnTurnoActual();
-        CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(jugador.getPosicionActual());
-        System.out.println(jugador.getNombre() + carcel.cantTurnosEncarcelado(jugador));
+        CasilleroCarcel carcel = (CasilleroCarcel) tablero.obtenerCasillero(jugador.obtenerPosicionActual());
+        System.out.println(jugador.obtenerNombre() + carcel.cantTurnosEncarcelado(jugador));
         if (carcel.cantTurnosEncarcelado(jugador) < 3) {
             carcel.pasarTurnoEnCarcel(jugador);
             siguienteTurno();
@@ -74,8 +73,8 @@ public class Juego implements Banco {
 
     public void avanzar(int dado) {
         Jugador jugador = jugadorEnTurnoActual();
-        int posicionAnterior = jugador.getPosicionActual();
-        jugador.setPosicionActual(jugador.getPosicionActual() + dado);
+        int posicionAnterior = jugador.obtenerPosicionActual();
+        jugador.setearPosicionActual(jugador.obtenerPosicionActual() + dado);
 
         if (pasoPorSalida(jugador)) {
             setearPosicion(jugador);
@@ -85,31 +84,31 @@ public class Juego implements Banco {
     }
 
     public void encarcelarJugador(Jugador jugador, int posicionAnterior) {
-        tablero.getCasillero(posicionAnterior).eliminarJugador(jugador);
-        CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(tablero.getPosicionCarcel());
+        tablero.obtenerCasillero(posicionAnterior).eliminarJugador(jugador);
+        CasilleroCarcel carcel = (CasilleroCarcel) tablero.obtenerCasillero(tablero.obtenerPosicionCarcel());
         carcel.encarcelarJugador(jugador);
     }
 
     public void liberarJugador(Jugador jugador) {
-        CasilleroCarcel carcel = (CasilleroCarcel) tablero.getCasillero(tablero.getPosicionCarcel());
+        CasilleroCarcel carcel = (CasilleroCarcel) tablero.obtenerCasillero(tablero.obtenerPosicionCarcel());
         carcel.liberarJugador(jugador);
         jugador.enJuego();
     }
 
     public void moverJugador(Jugador jugador, int posicionAnterior) {
-        this.tablero.getCasillero(jugador.getPosicionActual()).agregarJugador(jugador);
-        this.tablero.getCasillero(posicionAnterior).eliminarJugador(jugador);
-        jugador.setCasilleroActual(this.tablero.getCasillero(jugador.getPosicionActual()));
+        this.tablero.obtenerCasillero(jugador.obtenerPosicionActual()).agregarJugador(jugador);
+        this.tablero.obtenerCasillero(posicionAnterior).eliminarJugador(jugador);
+        jugador.setearCasilleroActual(this.tablero.obtenerCasillero(jugador.obtenerPosicionActual()));
         chequearCasilla(jugador);
     }
 
     public void setearPosicion(Jugador jugador) {
-        int nuevaPosicion = Math.abs(this.tablero.getCasilleros().length - jugador.getPosicionActual());
-        jugador.setPosicionActual(nuevaPosicion);
+        int nuevaPosicion = Math.abs(this.tablero.obtenerCasilleros().length - jugador.obtenerPosicionActual());
+        jugador.setearPosicionActual(nuevaPosicion);
     }
 
     public boolean pasoPorSalida(Jugador jugador) {
-        return jugador.getPosicionActual() >= this.tablero.getCasilleros().length;
+        return jugador.obtenerPosicionActual() >= this.tablero.obtenerCasilleros().length;
     }
 
     // Pre:  monto deberia ser un valor positivo si el banco le paga al Jugador
@@ -120,16 +119,16 @@ public class Juego implements Banco {
     }
 
     public void hipotecarPropiedad(CasilleroPropiedad propiedadAHipotecar){
-        this.cobro(this.jugadorEnTurnoActual(), propiedadAHipotecar.getHipoteca());
+        this.cobro(this.jugadorEnTurnoActual(), propiedadAHipotecar.obtenerHipoteca());
         propiedadAHipotecar.hipotecar();
     }
     public void deshipotecarPropiedad(CasilleroPropiedad casilleroPropiedad){
-        this.cobro(this.jugadorEnTurnoActual(), -casilleroPropiedad.getHipoteca());
+        this.cobro(this.jugadorEnTurnoActual(), -casilleroPropiedad.obtenerHipoteca());
         casilleroPropiedad.deshipotecar();
     }
 
     public Casillero obtenerCasilleroActual() {
-        return this.tablero.getCasillero(jugadorEnTurnoActual().getPosicionActual());
+        return this.tablero.obtenerCasillero(jugadorEnTurnoActual().obtenerPosicionActual());
     }
 
     public void venderPropiedad(CasilleroPropiedad propiedad) {

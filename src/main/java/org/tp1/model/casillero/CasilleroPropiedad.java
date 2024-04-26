@@ -42,18 +42,18 @@ public class CasilleroPropiedad extends Casillero {
     public void deshipotecar(){
         this.hipotecada = false;
     }
-    public double getHipoteca(){
+    public double obtenerHipoteca(){
         return this.hipoteca;
     }
-    public String getGrupo() {
+    public String obtenerGrupo() {
         return this.grupo;
     }
 
-    public double getCostoCompra() {
+    public double obtenerCostoCompra() {
         return this.costoCompra;
     }
 
-    public double getRenta() {
+    public double obtenerRenta() {
         double valorRealRenta = this.renta;
         if (this.edificios != null) {
             for (Edificio edificio: this.edificios) {
@@ -63,7 +63,7 @@ public class CasilleroPropiedad extends Casillero {
         return valorRealRenta;
     }
 
-    public Jugador getDueno() {
+    public Jugador obtenerDueno() {
         return this.dueno;
     }
 
@@ -115,7 +115,7 @@ public class CasilleroPropiedad extends Casillero {
         }
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoPropiedad();
     }
 }

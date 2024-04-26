@@ -22,7 +22,7 @@ public class CasilleroCarcel extends Casillero {
     public void encarcelarJugador(Jugador jugador) {
         encarcelados.add(jugador);
         jugador.enCarcel();
-        turnosEncarcelados.put(jugador.getNombre(), 0);
+        turnosEncarcelados.put(jugador.obtenerNombre(), 0);
     }
 
     public void liberarJugador(Jugador jugador) {
@@ -32,18 +32,18 @@ public class CasilleroCarcel extends Casillero {
     }
 
     public int cantTurnosEncarcelado(Jugador jugador) {
-        return turnosEncarcelados.get(jugador.getNombre());
+        return turnosEncarcelados.get(jugador.obtenerNombre());
     }
 
     public void pasarTurnoEnCarcel(Jugador jugador) {
-        turnosEncarcelados.put(jugador.getNombre(), cantTurnosEncarcelado(jugador) + 1);
+        turnosEncarcelados.put(jugador.obtenerNombre(), cantTurnosEncarcelado(jugador) + 1);
     }
 
-    public List<Jugador> getEncarcelados() {
+    public List<Jugador> obtenerEncarcelados() {
         return encarcelados;
     }
 
-    public ComportamientoCasilla getComportamientoCasilla() {
+    public ComportamientoCasilla obtenerComportamientoCasilla() {
         return new ComportamientoCarcel();
     }
 }

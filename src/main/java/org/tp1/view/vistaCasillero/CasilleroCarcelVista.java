@@ -17,14 +17,14 @@ public class CasilleroCarcelVista extends CasilleroVista {
 
     public void mostrarCasillero() {
         System.out.println(Color.BLUE.getColor() + "-------------------------" + Color.RESET.getColor());
-        System.out.println(Color.YELLOW.getColor() + casillero.getNombre() + Color.RESET.getColor());
+        System.out.println(Color.YELLOW.getColor() + casillero.obtenerNombre() + Color.RESET.getColor());
         System.out.println(Color.GREEN.getColor() + "\tSolo Visitas" + Color.RESET.getColor());
-        if (casillero.getJugadores() != null) {
-            listarJugadores(casillero.getJugadores());
+        if (casillero.obtenerJugadores() != null) {
+            listarJugadores(casillero.obtenerJugadores());
         }
         System.out.println(Color.RED.getColor() + "\tEncarcelados" + Color.RESET.getColor());
-        if (casillero.getEncarcelados() != null) {
-            listarJugadores(casillero.getEncarcelados());
+        if (casillero.obtenerEncarcelados() != null) {
+            listarJugadores(casillero.obtenerEncarcelados());
         }
         System.out.println(Color.BLUE.getColor() + "-------------------------" + Color.RESET.getColor());
     }
@@ -38,7 +38,7 @@ public class CasilleroCarcelVista extends CasilleroVista {
                             + Color.GREEN.getColor()
                             + "+ "
                             + jugador.obtenerColor().getColor()
-                            + jugador.getNombre()
+                            + jugador.obtenerNombre()
                             + Color.RESET.getColor()
                             + Color.RED.getColor()
                             + "\t|"
@@ -49,7 +49,7 @@ public class CasilleroCarcelVista extends CasilleroVista {
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
         System.out.println("Opciones carcel");
-        if (jugador.getEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
+        if (jugador.obtenerEstadoJugador().equals(EstadoJugador.ENCARCELADO)) {
             System.out.println("1 - Pagar Multa de $100");
             System.out.println("Presiona otra tecla si quieres pasar el turno en la carcel");
         } else {
