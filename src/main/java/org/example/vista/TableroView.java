@@ -149,9 +149,16 @@ public class TableroView extends View  {
         boolean esta = false;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (this.casillasView[row][col] != null && this.casillasView[row][col] instanceof TerrenoView)
-                    if (((TerrenoView) this.casillasView[row][col]).mostrarBotonesElegibles(jugador, accion) && !esta)
-                        esta = true;
+                if (this.casillasView[row][col] != null) {
+                    if (this.casillasView[row][col] instanceof TerrenoView) {
+                        if (((TerrenoView) this.casillasView[row][col]).mostrarBotonesElegibles(jugador, accion) && !esta)
+                            esta = true;
+                    }
+                    else if (this.casillasView[row][col] instanceof TransporteView) {
+                        if (((TransporteView) this.casillasView[row][col]).mostrarBotonesElegibles(jugador, accion) && !esta)
+                            esta = true;
+                    }
+                }
             }
         }
         if (!esta)
@@ -187,9 +194,15 @@ public class TableroView extends View  {
         jugadorViewActual.ifPresent(jugadorView -> {
             for (int row = 0; row < rows; row++) {
                 for (int col = 0; col < cols; col++) {
-                    if (this.casillasView[row][col] != null && this.casillasView[row][col] instanceof TerrenoView) {
-                        ((TerrenoView) this.casillasView[row][col]).actualizarVistaPropiedad(jugadorView);
+                    if (this.casillasView[row][col] != null) {
+                        if (this.casillasView[row][col] instanceof TerrenoView) {
+                            ((TerrenoView) this.casillasView[row][col]).actualizarVistaPropiedad(jugadorView);
+                        }
+                        else if (this.casillasView[row][col] != null && this.casillasView[row][col] instanceof TransporteView) {
+                            ((TransporteView) this.casillasView[row][col]).actualizarVistaPropiedad(jugadorView);
+                        }
                     }
+
                 }
             }
         });
@@ -242,6 +255,8 @@ public class TableroView extends View  {
     private void quitarBotonesElegibles(int row, int col) {
         if (this.casillasView[row][col] != null && this.casillasView[row][col] instanceof TerrenoView)
             ((TerrenoView) this.casillasView[row][col]).quitarBotonCompra();
+        if (this.casillasView[row][col] != null && this.casillasView[row][col] instanceof TransporteView)
+            ((TransporteView) this.casillasView[row][col]).quitarBotonCompra();
     }
 
     public void quitarOpcionable() {
