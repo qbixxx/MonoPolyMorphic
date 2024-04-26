@@ -20,35 +20,38 @@ public class Controller implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent actionEvent) {
-        //try {
-        if (this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Ir a la carcel")) {
-            Jugador jugadorEnTurno = this.juego.getJugadorEnTurno();
-            Posicion vieajPosicion = jugadorEnTurno.getPosicion();
-            this.juego.ejecutarOpcionableDelJugadorDeTurno();
-            tableroView.actualizarVista(vieajPosicion, jugadorEnTurno);
-            this.tableroView.buttonTerminar.setDisable(false);
-            this.juego.getJugadorEnTurno().getOpcionable().removerOpcionableExtra();
-            this.tableroView.quitarOpcionableExtra();
-        } else {
-            this.juego.ejecutarOpcionableDelJugadorDeTurno();
-            if (this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Estas Quebrado")) {
-                new AlertDialogo("Estas Quebrado", "Chau");
-                Jugador eliminado = this.juego.getJugadorEnTurno();
+        try {
+            if (this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Ir a la carcel")) {
+                Jugador jugadorEnTurno = this.juego.getJugadorEnTurno();
+                Posicion vieajPosicion = jugadorEnTurno.getPosicion();
                 this.juego.ejecutarOpcionableDelJugadorDeTurno();
-                this.tableroView.eliminarJugadorView(eliminado);
-                this.tableroView.quitarOpcionable();
-                this.verificarGanador();
-            } else {
-                if (this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Pagar peaje")
-                        || this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Pagar multa") ||
-                        this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Ir a la carcel")
-                )
-                    this.tableroView.buttonTerminar.setDisable(false);
+                tableroView.actualizarVista(vieajPosicion, jugadorEnTurno);
+                this.tableroView.buttonTerminar.setDisable(false);
                 this.juego.getJugadorEnTurno().getOpcionable().removerOpcionableExtra();
                 this.tableroView.quitarOpcionableExtra();
-                this.tableroView.actualizarCasillas(this.juego.getJugadorEnTurno());
-                this.tableroView.insertarTexto();
+            } else {
+                this.juego.ejecutarOpcionableDelJugadorDeTurno();
+                if (this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Estas Quebrado")) {
+                    new AlertDialogo("Estas Quebrado", "Chau");
+                    Jugador eliminado = this.juego.getJugadorEnTurno();
+                    this.juego.ejecutarOpcionableDelJugadorDeTurno();
+                    this.tableroView.eliminarJugadorView(eliminado);
+                    this.tableroView.quitarOpcionable();
+                    this.verificarGanador();
+                } else {
+                    if (this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Pagar peaje")
+                            || this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Pagar multa") ||
+                            this.juego.getJugadorEnTurno().getOpcionable().getOpcionableExtra().equals("Ir a la carcel")
+                    )
+                        this.tableroView.buttonTerminar.setDisable(false);
+                    this.juego.getJugadorEnTurno().getOpcionable().removerOpcionableExtra();
+                    this.tableroView.quitarOpcionableExtra();
+                    this.tableroView.actualizarCasillas(this.juego.getJugadorEnTurno());
+                    this.tableroView.insertarTexto();
+                }
             }
+        } catch (Exception ex) {
+            new AlertDialogo("Error", ex.getMessage());
         }
     }
 

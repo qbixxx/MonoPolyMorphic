@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import org.example.model.Logger;
 import org.example.model.casilla.Terreno;
 import org.example.model.jugador.Jugador;
@@ -31,7 +32,6 @@ public class TerrenoView extends CasillaView {
         HBox.setHgrow(edificiosView, Priority.ALWAYS);
         edificiosView.setAlignment(Pos.CENTER);
         this.stackPane.getChildren().add(this.edificiosView);
-        //StackPane.setAlignment(edificiosView, Pos.CENTER_LEFT);
     }
     public void updateConstrucciones(Jugador jugador) {
         this.updateConstruccionesTerrenos();
@@ -56,8 +56,6 @@ public class TerrenoView extends CasillaView {
         }
     }
 
-
-
     public boolean mostrarBotonesElegibles(Jugador jugador, String accion) {
         boolean esta = this.terreno.lePerteneceA(jugador);
         if (esta) {
@@ -75,6 +73,8 @@ public class TerrenoView extends CasillaView {
                 try {
                     opcionable.ejecutar();
                     updateConstrucciones(jugador);
+                    if (opcionable instanceof VenderPropiedadUseCase)
+                        this.layout.setFill(Color.WHITE);
                 } catch (Exception ex) {
                     new AlertDialogo("Accion invalida", ex.getMessage());
                 }
@@ -92,15 +92,6 @@ public class TerrenoView extends CasillaView {
     public void quitarBotonCompra() {
         this.stackPane.getChildren().remove(this.botonElegir);
     }
-
-    /*public void mostrarBotonesVenta(Jugador jugador) {
-        if (this.casilla.getPropietario() != null && jugador.getPosicion() == this.casilla.getPropietario().getPosicion()) {
-            this.stackPane.getChildren().add(this.botonElegir);
-            this.botonElegir.setOnAction(e -> {
-                this.clicleable.onClick(new GrupoA((TerrenoA) this.casilla));
-            });
-        }
-    }*/
 
     @Override
     public void update(Jugador jugador) {

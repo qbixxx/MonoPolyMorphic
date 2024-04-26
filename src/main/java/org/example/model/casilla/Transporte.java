@@ -32,6 +32,10 @@ public class Transporte extends Casilla implements Propiedad {
         this.disponibilidad.interactuarCon(jugador, this, coste);
     }
 
+    public boolean lePerteneceA(Jugador jugador) {
+        return this.disponibilidad.lePerteneceA(jugador);
+    }
+
     @Override
     public boolean equals(Object other) {
         return this.getClass().equals(other.getClass());
