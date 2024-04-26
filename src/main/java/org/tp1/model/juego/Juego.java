@@ -13,11 +13,11 @@ import java.util.Random;
 
 public class Juego implements Banco {
     private final Tablero tablero;
-    private final Jugador[] jugadores;
+    private final List<Jugador> jugadores;
     private int posicionJugadorDeTurno;
     private final double DINERO_POR_PASAR_POR_SALIDA = 200;
 
-    public Juego(Tablero tablero, Jugador[] jugadores) {
+    public Juego(Tablero tablero, List<Jugador> jugadores) {
         this.tablero = tablero;
         this.jugadores = jugadores;
 
@@ -27,12 +27,12 @@ public class Juego implements Banco {
     }
 
     public Jugador jugadorEnTurnoActual() {
-        return jugadores[posicionJugadorDeTurno];
+        return jugadores.get(posicionJugadorDeTurno);
     }
 
     public void siguienteTurno() {
         posicionJugadorDeTurno += 1;
-        if (posicionJugadorDeTurno > jugadores.length - 1) {
+        if (posicionJugadorDeTurno > jugadores.size() - 1) {
             posicionJugadorDeTurno = 0;
         }
     }
@@ -41,7 +41,7 @@ public class Juego implements Banco {
         return tablero;
     }
 
-    public Jugador[] getJugadores() {
+    public List<Jugador> getJugadores() {
         return jugadores;
     }
 
