@@ -15,7 +15,11 @@ public class JugadorVista {
     }
 
     public void mostrarJugador() {
-        System.out.printf(jugador.getNombre() + ", Dinero en cuenta: " + jugador.getDineroDisponible()+ " : "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador()+ Color.RESET.getColor());
+        System.out.printf(jugador.obtenerColor().getColor() + jugador.getNombre() + Color.RESET.getColor() + ", " +
+                "Dinero en " +
+                "cuenta: " + jugador.getDineroDisponible()+
+                " :" +
+                " "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador()+ Color.RESET.getColor());
         String msg = jugador.getUltimoMensaje();
         if (msg == null){
             System.out.println(Color.BLUE.getColor()+ " Ultimo mensaje: -"+ Color.RESET.getColor());
@@ -34,7 +38,6 @@ public class JugadorVista {
         }
         System.out.println("");
 
-        //System.out.println(colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador() + Colores.RESET.getColor());
         String propiedades = "";
         if (jugador.getPropiedades() != null) {
             for (Casillero propiedad : jugador.getPropiedades()) {

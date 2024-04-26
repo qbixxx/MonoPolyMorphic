@@ -21,17 +21,17 @@ public class Main {
             for (Color color: Color.values()) {
                 System.out.println(color);
             }
-            System.out.println("Ingresa un color de la lista: ");
-            String colorElegido = scanner.nextLine();
+
+            String colorElegido;
             Color color;
+            do {
+                System.out.println("Ingresa un color de la lista: ");
+                colorElegido = scanner.nextLine();
+            } while (coloresElegidos.get(colorElegido) != null);
             if (coloresElegidos.isEmpty()) {
                 coloresElegidos.put(colorElegido, true);
-                color = Color.valueOf(colorElegido);
-            } else {
-                System.out.println("Ese color ya lo eligieron, ingresa otro: ");
-                String otroColor = scanner.nextLine();
-                color = Color.valueOf(otroColor);
             }
+            color = Color.valueOf(colorElegido);
             Jugador jugador = new Jugador(nombreJugador, color);
             jugadores.add(jugador);
         }

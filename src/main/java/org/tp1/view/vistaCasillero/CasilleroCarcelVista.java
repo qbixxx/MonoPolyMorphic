@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CasilleroCarcelVista extends CasilleroVista {
 
-    CasilleroCarcel casillero;
+    private final CasilleroCarcel casillero;
 
     public CasilleroCarcelVista(CasilleroCarcel casillero) {
         this.casillero = casillero;
@@ -37,8 +37,9 @@ public class CasilleroCarcelVista extends CasilleroVista {
                             + Color.RESET.getColor()
                             + Color.GREEN.getColor()
                             + "+ "
-                            + Color.RESET.getColor()
+                            + jugador.obtenerColor().getColor()
                             + jugador.getNombre()
+                            + Color.RESET.getColor()
                             + Color.RED.getColor()
                             + "\t|"
                             + Color.RESET.getColor()
@@ -54,6 +55,5 @@ public class CasilleroCarcelVista extends CasilleroVista {
         } else {
             this.mostrarOpcionesGenericas(jugador, null);
         }
-        // moverse
     }
 }

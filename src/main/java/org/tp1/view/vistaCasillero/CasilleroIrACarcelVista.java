@@ -17,7 +17,8 @@ public class CasilleroIrACarcelVista extends CasilleroVista {
         System.out.println(Color.YELLOW.getColor() + casillero.getNombre() + Color.RESET.getColor());
         if (casillero.getJugadores() != null) {
             for (Jugador jugador : casillero.getJugadores()) {
-                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + Color.RESET.getColor() + Color.RED.getColor() + jugador.getNombre() + "\t|" + Color.RESET.getColor());
+                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() +
+                        "+ " + Color.RESET.getColor() + jugador.obtenerColor().getColor() + jugador.getNombre() + "\t|" + Color.RESET.getColor());
             }
         }
         System.out.println(Color.RED.getColor() + "Ir directo a la cárcel" + Color.RESET.getColor());

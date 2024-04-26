@@ -22,6 +22,7 @@ public class Jugador {
     private String ultimoMensaje;
     private boolean dadoTirado;
     private State estado;
+    private Color color;
 
     public Jugador(String nombre, Color color) {
         this.dineroDisponible = 100;
@@ -33,6 +34,7 @@ public class Jugador {
         this.posicionActual = 0;
         this.casilleroActual = null;
         this.estado = new enJuegoState(this);
+        this.color = color;
     }
 
 
@@ -127,5 +129,9 @@ public List<CasilleroTransporte> obtenerTransportes() {
     }
     public State getEstado() {
         return estado;
+    }
+
+    public Color obtenerColor() {
+        return this.color;
     }
 }

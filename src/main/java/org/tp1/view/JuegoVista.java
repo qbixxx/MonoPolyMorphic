@@ -24,7 +24,8 @@ public class JuegoVista {
             jugadorVista.mostrarJugador();
         }
         Jugador jugadorEnTurno = juego.jugadorEnTurnoActual();
-        System.out.println(Color.RED.getColor() + "------------------------------\n" + Color.RESET.getColor() + "Turno de: " + Color.GREEN.getColor() + jugadorEnTurno.getNombre() + Color.RESET.getColor() + ",\n" + Color.YELLOW.getColor() + "dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Color.RESET.getColor() + Color.RED.getColor() + "\n------------------------------" + Color.RESET.getColor());
+        System.out.println(Color.RED.getColor() + "------------------------------\n" + Color.RESET.getColor() +
+                "Turno de: " + jugadorEnTurno.obtenerColor().getColor() +  jugadorEnTurno.getNombre() + Color.RESET.getColor() + ",\n" + Color.YELLOW.getColor() + "dinero disponible: " + jugadorEnTurno.getDineroDisponible() + Color.RESET.getColor() + Color.RED.getColor() + "\n------------------------------" + Color.RESET.getColor());
     }
 
     public void mostrarOpciones() {

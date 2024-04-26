@@ -17,11 +17,12 @@ public class CasilleroTransporteVista extends CasilleroVista {
         System.out.println(Color.YELLOW.getColor() + casillero.getNombre() + Color.RESET.getColor());
         if (casillero.getJugadores() != null) {
             for (Jugador jugador : casillero.getJugadores()) {
-                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + Color.RESET.getColor() + Color.RED.getColor() + jugador.getNombre() + "\t|" + Color.RESET.getColor());
+                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() +
+                        "+ " + Color.RESET.getColor() + jugador.obtenerColor().getColor() + jugador.getNombre() + "\t|" + Color.RESET.getColor());
             }
         }
         if (casillero.getDueno() != null){
-            System.out.println(Color.BLUE.getColor() +"Dueño:"+ casillero.getDueno().getNombre() + Color.RESET.getColor());
+            System.out.println(Color.BLUE.getColor() +"Dueño:"+ casillero.getDueno().obtenerColor().getColor() + casillero.getDueno().getNombre() + Color.RESET.getColor());
         }else{
             System.out.println(Color.BLUE.getColor() +"- No tiene Dueño" + Color.RESET.getColor());
         }
