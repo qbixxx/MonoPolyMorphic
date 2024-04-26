@@ -8,7 +8,7 @@ import org.example.model.estado.construible.Semaforo;
 import org.example.model.estado.construible.Verde;
 import org.example.model.estado.propiedades.Disponible;
 import org.example.model.excepciones.NoSePuedeConstruir;
-import org.example.model.excepciones.PropiadNoPerteneceAJugador;
+import org.example.model.excepciones.PropiedadNoPerteneceAJugador;
 import org.example.model.jugador.Jugador;
 import org.example.model.jugador.Saldo;
 
@@ -38,7 +38,7 @@ public class AdministradorDePropiedades {
                 .filter(entry -> entry.getKey().contains(propiedad))
                 .findFirst()
                 .map(Map.Entry::getKey)
-                .orElseThrow(PropiadNoPerteneceAJugador::new);
+                .orElseThrow(PropiedadNoPerteneceAJugador::new);
     }
 
     private List<Propiedad> obtenerListaQueContieneAlTipoDe(Propiedad propiedad) {
@@ -46,7 +46,7 @@ public class AdministradorDePropiedades {
                 .filter(entry -> Objects.equals(entry.getKey().get(0).getGrupo(), propiedad.getGrupo()))
                 .findFirst()
                 .map(Map.Entry::getKey)
-                .orElseThrow(PropiadNoPerteneceAJugador::new);
+                .orElseThrow(PropiedadNoPerteneceAJugador::new);
     }
 
     public void agregarPropiedad(Propiedad propiedad, Jugador jugador) {
