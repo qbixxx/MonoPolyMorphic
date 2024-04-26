@@ -15,12 +15,12 @@ public class JugadorVista {
     }
 
     public void mostrarJugador() {
-        System.out.printf(jugador.getNombre() + ", Dinero en cuenta: " + jugador.getDineroDisponible()+ " : "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador()+Colores.RESET.getColor());
+        System.out.printf(jugador.getNombre() + ", Dinero en cuenta: " + jugador.getDineroDisponible()+ " : "+colorEstado(jugador.getEstadoJugador()) + jugador.getEstadoJugador()+ Color.RESET.getColor());
         String msg = jugador.getUltimoMensaje();
         if (msg == null){
-            System.out.println(Colores.BLUE.getColor()+ " Ultimo mensaje: -"+ Colores.RESET.getColor());
+            System.out.println(Color.BLUE.getColor()+ " Ultimo mensaje: -"+ Color.RESET.getColor());
         }else{
-            System.out.println(Colores.BLUE.getColor()+ " Ultimo mensaje: "+ msg+ Colores.RESET.getColor());
+            System.out.println(Color.BLUE.getColor()+ " Ultimo mensaje: "+ msg+ Color.RESET.getColor());
         }
 
         System.out.printf("L___ Propiedades:");
@@ -44,6 +44,6 @@ public class JugadorVista {
     }
 
     private String colorEstado(EstadoJugador estado) {
-        return estado == EstadoJugador.EN_JUEGO ? Colores.GREEN.getColor() : (estado == EstadoJugador.ENCARCELADO ? Colores.YELLOW.getColor() : Colores.RED.getColor());
+        return estado == EstadoJugador.EN_JUEGO ? Color.GREEN.getColor() : (estado == EstadoJugador.ENCARCELADO ? Color.YELLOW.getColor() : Color.RED.getColor());
     }
 }

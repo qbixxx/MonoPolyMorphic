@@ -6,6 +6,8 @@ import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.juego.estadoJugador.EstadoJugador;
 import org.tp1.model.juego.estadoJugador.State;
 import org.tp1.model.juego.estadoJugador.enJuegoState;
+import org.tp1.view.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class Jugador {
     private boolean dadoTirado;
     private State estado;
 
-    public Jugador(String nombre) {
+    public Jugador(String nombre, Color color) {
         this.dineroDisponible = 100;
         this.nombre = nombre;
         this.estadoJugador = EstadoJugador.EN_JUEGO;

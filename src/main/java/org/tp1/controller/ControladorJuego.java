@@ -44,14 +44,6 @@ public class ControladorJuego {
             this.monopoly.jugadorEnTurnoActual().cambiarSiTiroDado();
             this.monopoly.siguienteTurno();
         }
-        if (decision.equals("5")) {
-            System.out.println("A vender una propiedad!");
-            this.juegoVista.mostrarPropiedadesEnPosesion();
-            String indicePropiedadElegida = this.juegoVista.recibirOpciones();
-            CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadElegida);
-            this.monopoly.venderPropiedad(propiedadElegida);
-
-        }
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
     }

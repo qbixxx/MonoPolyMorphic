@@ -6,19 +6,33 @@ import org.tp1.controller.EstadoJuego;
 import org.tp1.model.Jugador;
 import org.tp1.model.juego.Juego;
 import org.tp1.model.juego.Tablero;
+import org.tp1.view.Color;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static List<Jugador> crearJugadores(Scanner scanner, int cantidadDeJugadores) {
+        Map<String, Boolean> coloresElegidos = new HashMap<>();
         List<Jugador> jugadores = new ArrayList<>(cantidadDeJugadores);
         for (int i = 0; i < cantidadDeJugadores; i++) {
             System.out.print("Ingresa el nombre del jugador: ");
             String nombreJugador = scanner.nextLine();
-            Jugador jugador = new Jugador(nombreJugador);
+            for (Color color: Color.values()) {
+                System.out.println(color);
+            }
+            System.out.println("Ingresa un color de la lista: ");
+            String colorElegido = scanner.nextLine();
+            Color color;
+            if (coloresElegidos.isEmpty()) {
+                coloresElegidos.put(colorElegido, true);
+                color = Color.valueOf(colorElegido);
+            } else {
+                System.out.println("Ese color ya lo eligieron, ingresa otro: ");
+                String otroColor = scanner.nextLine();
+                color = Color.valueOf(otroColor);
+            }
+            Jugador jugador = new Jugador(nombreJugador, color);
             jugadores.add(jugador);
         }
         return jugadores;

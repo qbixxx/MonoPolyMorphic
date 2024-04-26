@@ -2,7 +2,7 @@ package org.tp1.view.vistaCasillero;
 
 import org.tp1.model.Jugador;
 import org.tp1.model.casillero.CasilleroPaso;
-import org.tp1.view.Colores;
+import org.tp1.view.Color;
 
 public class CasilleroDePasoVista extends CasilleroVista {
 
@@ -13,14 +13,14 @@ public class CasilleroDePasoVista extends CasilleroVista {
     }
 
     public void mostrarCasillero() {
-        System.out.println(Colores.BLUE.getColor() + "--------------------" + Colores.RESET.getColor());
-        System.out.println(Colores.YELLOW.getColor() + casilleroPaso.getNombre() + Colores.RESET.getColor());
+        System.out.println(Color.BLUE.getColor() + "--------------------" + Color.RESET.getColor());
+        System.out.println(Color.YELLOW.getColor() + casilleroPaso.getNombre() + Color.RESET.getColor());
         if (casilleroPaso.getJugadores() != null) {
             for (Jugador jugador : casilleroPaso.getJugadores()) {
-                System.out.println(Colores.RED.getColor() + "\t|" + Colores.RESET.getColor() + Colores.GREEN.getColor() + "+ " + Colores.RESET.getColor() + Colores.RED.getColor() + jugador.getNombre() + "\t|" + Colores.RESET.getColor());
+                System.out.println(Color.RED.getColor() + "\t|" + Color.RESET.getColor() + Color.GREEN.getColor() + "+ " + Color.RESET.getColor() + Color.RED.getColor() + jugador.getNombre() + "\t|" + Color.RESET.getColor());
             }
         }
-        System.out.println(Colores.BLUE.getColor() + "--------------------" + Colores.RESET.getColor());
+        System.out.println(Color.BLUE.getColor() + "--------------------" + Color.RESET.getColor());
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
