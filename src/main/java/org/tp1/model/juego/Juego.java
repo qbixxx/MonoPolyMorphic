@@ -8,6 +8,7 @@ import org.tp1.model.casillero.CasilleroTransporte;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.construibles.Casa;
 
+import java.util.List;
 import java.util.Random;
 
 public class Juego implements Banco {

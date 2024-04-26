@@ -24,6 +24,6 @@ public class CasilleroDePasoVista extends CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        this.mostrarOpcionesGenericas(jugador);
+        this.mostrarOpcionesGenericas(jugador, null);
     }
 }

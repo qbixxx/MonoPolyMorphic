@@ -26,6 +26,6 @@ public class CasilleroLoteriaVista extends CasilleroVista {
     }
 
     public void mostrarOpcionesCasillero(Jugador jugador) {
-        this.mostrarOpcionesGenericas(jugador);
+        this.mostrarOpcionesGenericas(jugador, null);
     }
 }

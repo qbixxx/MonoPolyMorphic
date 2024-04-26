@@ -52,7 +52,7 @@ public class CasilleroCarcelVista extends CasilleroVista {
             System.out.println("1 - Pagar Multa de $100");
             System.out.println("2 - Pasar turno en carcel");
         } else {
-            this.mostrarOpcionesGenericas(jugador);
+            this.mostrarOpcionesGenericas(jugador, null);
         }
         // moverse
     }

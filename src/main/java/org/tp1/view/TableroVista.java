@@ -24,7 +24,7 @@ public class TableroVista {
     public void mostrarOpcionesGenericas(Jugador jugador) {
         Casillero casilleroActual = tablero.getCasillero(jugador.getPosicionActual());
         CasilleroVista casilleroVista = CasilleroVistaFactory.crearVista(casilleroActual);
-        casilleroVista.mostrarOpcionesGenericas(jugador);
+        casilleroVista.mostrarOpcionesGenericas(jugador, this.tablero);
     }
 
     public void mostrarOpciones(Jugador jugador) {
