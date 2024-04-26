@@ -4,6 +4,11 @@ package org.tp1.model.casillero;
 import org.tp1.model.Jugador;
 import org.tp1.model.comportamiento.ComportamientoCasilla;
 import org.tp1.model.comportamiento.ComportamientoPropiedad;
+import org.tp1.model.construibles.Casa;
+import org.tp1.model.construibles.Edificio;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CasilleroPropiedad extends Casillero {
     String grupo;
@@ -12,6 +17,8 @@ public class CasilleroPropiedad extends Casillero {
     private double hipoteca;
     private boolean hipotecada;
     private Jugador dueno;
+    private List<Edificio> edificios;
+    private final int cantidadMaxCasas = 4;
 
     public CasilleroPropiedad(String nombre, TipoCasillero tipoCasillero, double costoCompra, double renta,
                               String grupo, double valorHipoteca) {
@@ -22,6 +29,7 @@ public class CasilleroPropiedad extends Casillero {
         this.dueno = null;
         this.hipoteca = valorHipoteca;
         this.hipotecada = false;
+        this.edificios = new ArrayList<>();
     }
     public boolean estaHipotecada(){
         return this.hipotecada;
@@ -45,7 +53,13 @@ public class CasilleroPropiedad extends Casillero {
     }
 
     public double getRenta() {
-        return this.renta;
+        double valorRealRenta = this.renta;
+        if (this.edificios != null) {
+            for (Edificio edificio: this.edificios) {
+                valorRealRenta += edificio.obtenerPeaje();
+            }
+        }
+        return valorRealRenta;
     }
 
     public Jugador getDueno() {
@@ -67,6 +81,14 @@ public class CasilleroPropiedad extends Casillero {
             this.dueno.recibirDinero(inquilino, this.renta);
         }
 
+    }
+
+    public List<Edificio> obtenerEdificios() {
+        return this.edificios;
+    }
+
+    public void construirCasa() {
+        this.edificios.add(new Casa());
     }
 
     public ComportamientoCasilla getComportamientoCasilla() {

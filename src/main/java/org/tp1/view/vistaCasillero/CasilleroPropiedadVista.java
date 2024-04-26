@@ -20,6 +20,11 @@ public class CasilleroPropiedadVista extends CasilleroVista {
                 System.out.println(Colores.RED.getColor() + "\t|" + Colores.RESET.getColor() + Colores.GREEN.getColor() + "+ " + Colores.RESET.getColor() + Colores.RED.getColor() + jugador.getNombre() + "\t|" + Colores.RESET.getColor());
             }
         }
+        if (casillero.obtenerEdificios() != null) {
+            for (int i = 0; i < casillero.obtenerEdificios().size(); i++) {
+                System.out.printf("Casa n" + i + casillero.obtenerEdificios().get(i).obtenerPeaje());
+            }
+        }
 
         if (casillero.getDueno() != null){
             System.out.println(Colores.BLUE.getColor() +"Dueño:"+ casillero.getDueno().getNombre() + Colores.RESET.getColor());

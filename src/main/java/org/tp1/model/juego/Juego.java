@@ -136,4 +136,8 @@ public class Juego implements Banco {
     public void venderTransporte(CasilleroTransporte transporte) {
         transporte.vender(this.jugadorEnTurnoActual());
     }
+
+    public void construir(CasilleroPropiedad casilleroPropiedad) {
+        casilleroPropiedad.construirCasa();
+    }
 }

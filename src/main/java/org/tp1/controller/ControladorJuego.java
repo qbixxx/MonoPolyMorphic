@@ -69,7 +69,6 @@ public class ControladorJuego {
             String indicePropiedadElegida = this.juegoVista.recibirOpciones();
             CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadElegida);
             this.monopoly.venderPropiedad(propiedadElegida);
-
         }
         if (decision.equals("6")) {
             this.juegoVista.mostrarTransportesEnPosesion();
@@ -88,6 +87,13 @@ public class ControladorJuego {
             String indicePropiedadADeshipotecar = this.juegoVista.recibirOpciones();
             CasilleroPropiedad propiedadElegida = this.juegoVista.elegirPropiedad(indicePropiedadADeshipotecar);
             this.monopoly.deshipotecarPropiedad(propiedadElegida);
+        }
+        if (decision.equals("9")) {
+            this.juegoVista.mostrarPropiedadesDondeConstruir();
+            String indicePropiedadDondeConstruir = this.juegoVista.recibirOpciones();
+            CasilleroPropiedad propiedadElegida =
+                    this.juegoVista.elegirPropiedadDondeConstruir(indicePropiedadDondeConstruir);
+            this.monopoly.construir(propiedadElegida);
         }
         this.estadoJuego = EstadoJuego.TURNO_JUGADOR;
         elegirOpcion(decision);
@@ -134,5 +140,4 @@ public class ControladorJuego {
             jugarTurno();
         }
     }
-
 }
