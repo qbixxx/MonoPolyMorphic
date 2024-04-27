@@ -53,6 +53,8 @@ public class TableroView extends View  {
 
     private VBox columnaOpciones = new VBox();
 
+    private VBox statusJugador = new VBox();
+
     private VBox opcionables;
     private Button buttonTirarDados;
 
@@ -90,7 +92,40 @@ public class TableroView extends View  {
         this.insertarTextoEnVBox();
         this.columnaOpciones.getChildren().add(this.buttonTirarDados);
         this.pantalla.setBackground(new Background(new BackgroundFill(Color.rgb(51, 51, 51), null, null)));
+        this.actualizarStatusJugadores();
     }
+
+    public void actualizarStatusJugadores() {
+        this.statusJugador.getChildren().clear();
+        this.statusJugador = new VBox();
+        for (JugadorView jugadorView: this.jugadorViews) {
+            TextArea textArea1 = new TextArea();
+            textArea1.setPrefWidth(200);
+            textArea1.setPrefHeight(300);
+            textArea1.setMaxWidth(Double.MAX_VALUE);
+            textArea1.setEditable(false);
+            String texto = "Nombre: " + jugadorView.getJugador().getNombre() + "\n" +
+                    "Dinero disponible: " + jugadorView.getJugador().getSaldo().getDisponible() + "\n" +
+                    "Dinero invertido: " + jugadorView.getJugador().getSaldo().getInvertido();
+
+            if (this.juego.getJugadorEnTurno().equals(jugadorView.getJugador())) {
+                texto += "\n\n\n\n\nTurno de: " + jugadorView.getJugador().getNombre();
+                Color jugadorColor = jugadorView.getColor();
+                String backgroundColor = String.format("-fx-control-inner-background: #%02X%02X%02X;",
+                        (int)(jugadorColor.getRed() * 255),
+                        (int)(jugadorColor.getGreen() * 255),
+                        (int)(jugadorColor.getBlue() * 255));
+                textArea1.setStyle(backgroundColor);
+            }
+            textArea1.setText(texto);
+
+            this.statusJugador.getChildren().add(textArea1);
+        }
+        this.statusJugador.setMaxWidth(200);
+        this.statusJugador.setSpacing(10);
+        this.pantalla.getChildren().add(this.statusJugador);
+    }
+
 
     public void construir() {
         for (int row = 0; row < rows; row++) {
@@ -176,7 +211,7 @@ public class TableroView extends View  {
             this.opcionableExtra.setTextFill(Color.WHITE);
             this.opcionableExtra.setBackground(background);
             this.opcionables.getChildren().add(this.opcionableExtra);
-            this.opcionableExtra.setOnAction(new Controller(this.juego, this));
+            this.opcionableExtra.setOnAction(new Controller(this.juego, this, this.stage));
 
             if (opcionableExtraText.equals("Pagar peaje") || opcionableExtraText.equals("Pagar multa") || opcionableExtraText.equals("Ir a la carcel"))
                 this.buttonTerminar.setDisable(true);

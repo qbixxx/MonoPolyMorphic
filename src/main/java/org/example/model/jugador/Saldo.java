@@ -29,7 +29,7 @@ public class Saldo {
             jugadorObserver.notificarQuiebra();
         }
         else if (this.disponible < deuda) {
-            throw new SaldoNoDisponible();
+            throw new SaldoNoDisponible(deuda);
         }
 
         Logger.getInstance().info("paga " + deuda);
@@ -38,7 +38,7 @@ public class Saldo {
 
     public void pagarSinObligacion(double deuda) {
         if (this.disponible < deuda) {
-            throw new SaldoNoDisponible();
+            throw new SaldoNoDisponible(deuda);
         }
         Logger.getInstance().info("paga " + deuda);
         this.disponible -= deuda;
@@ -50,5 +50,13 @@ public class Saldo {
 
     public void desInvertir(double coste) {
         this.invertido -= coste;
+    }
+
+    public double getDisponible() {
+        return this.disponible;
+    }
+
+    public double getInvertido() {
+        return this.invertido;
     }
 }

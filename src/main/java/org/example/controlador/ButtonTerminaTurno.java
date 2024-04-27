@@ -23,5 +23,6 @@ public class ButtonTerminaTurno implements EventHandler<ActionEvent> {
         this.tableroView.quitarOpcionable();
         //this.tableroView.buttonTirarDados.setDisable(false);
         this.juego.cambiarTurno();
+        this.tableroView.actualizarStatusJugadores();
     }
 }

@@ -21,7 +21,7 @@ public class Juego implements JuegoObserver {
 
     public Juego() {
         this.jugadores = new ArrayList<>();
-        this.banco = new Banco(1);
+        this.banco = new Banco(2000);
     }
 
     public void agregarJugadores(List<Jugador> jugadores) {
@@ -31,6 +31,7 @@ public class Juego implements JuegoObserver {
             jugador.agregarJuegoObserver(this);
         });
         this.gestorDeTurno = new GestorDeTurno(jugadores);
+        iniciarPartida();
         this.cambiarTurno();
     }
 

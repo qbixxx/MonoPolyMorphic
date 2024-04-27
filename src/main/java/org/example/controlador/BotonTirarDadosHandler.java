@@ -28,5 +28,6 @@ public class BotonTirarDadosHandler implements EventHandler<ActionEvent> {
         this.tableroView.mostrarOpcionable(this.juego.getJugadorEnTurno());
         tableroView.actualizarVista(vieajPosicion, jugadorEnTurno);
         this.tableroView.insertarTexto();
+        this.tableroView.actualizarStatusJugadores();
     }
 }

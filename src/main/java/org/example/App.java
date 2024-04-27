@@ -19,7 +19,6 @@ public class App extends Application {
 
     private void configurarVentana(Stage stage) {
         stage.setTitle("Monopoly");
-        stage.setResizable(false);
         View.setDimensions(1500, 1000);
     }
 

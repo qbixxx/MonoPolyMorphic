@@ -130,4 +130,8 @@ public class Jugador {
     public void agregarJuegoObserver(JuegoObserver juegoObserver) {
         this.saldo.agregarObserver(juegoObserver);
     }
+
+    public Saldo getSaldo() {
+        return this.saldo;
+    }
 }
