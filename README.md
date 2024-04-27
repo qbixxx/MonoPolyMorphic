@@ -1,5 +1,12 @@
 # Monopoly-morphic
 
+
+Grupo 12 - Los Devaluados:
+- Damian Lima
+- Luciano Salerno
+- Valentin Calomino
+- Valentin Cedeño
+
 Este proyecto requiere las siguientes dependencias:
 
 JUnit Jupiter: Framework de pruebas unitarias para Java.
@@ -18,3 +25,4 @@ y para ejecutarlo:
 ```shell
 java -jar .\target\MonopolyPersonal-1.0-SNAPSHOT.jar
 ```
+UML del proyecto: [PDF del UML del programa](https://github.com/qbixxx/Monopoly-morphic/files/15135817/exported_from_idea.drawio.pdf)
