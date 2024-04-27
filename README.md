@@ -28,4 +28,4 @@ java -jar .\target\MonopolyPersonal-1.0-SNAPSHOT.jar
 [PDF del UML del programa](https://github.com/qbixxx/Monopoly-morphic/files/15135817/exported_from_idea.drawio.pdf)
 
 
-[Informe TP1 - Monopoly.pdf](https://github.com/qbixxx/Monopoly-morphic/files/15136720/Informe.TP1.-.Monopoly.pdf)
+[Informe TP1 - Monopoly.pdf](https://github.com/qbixxx/Monopoly-morphic/files/15136732/Informe.TP1.-.Monopoly.pdf)
