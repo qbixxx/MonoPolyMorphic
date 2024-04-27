@@ -9,3 +9,12 @@ Mockito Core: Framework para crear mocks en pruebas unitarias en Java.
 
 Configuración del Proyecto
 Este proyecto está configurado para compilar y ejecutar en Java 21
+
+Para compilar el proyecto:
+```shell
+mvn clean package
+```
+y para ejecutarlo:
+```shell
+java -jar .\target\MonopolyPersonal-1.0-SNAPSHOT.jar
+```
