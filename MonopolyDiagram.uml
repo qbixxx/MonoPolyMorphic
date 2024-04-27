@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/lsalerno/Desktop/FIUBA/Paradigmas/TP1/Monopoly-morphic/src/main</OriginalElement>
+  <nodes>
+    <node x="1756.5" y="3005.0">org.example.model.excepciones.PropiadNoPerteneceAJugador</node>
+    <node x="701.5" y="3643.0">org.example.model.propiedades.Propiedad</node>
+    <node x="207.5" y="1532.0">org.example.vista.casillasView.LoteriaView</node>
+    <node x="1561.5" y="1474.5">org.example.model.estado.propiedades.Disponibilidad</node>
+    <node x="1847.5" y="1012.0">org.example.vista.casillasView.CarcelView</node>
+    <node x="1447.5" y="987.0">org.example.vista.casillasView.TransporteView</node>
+    <node x="1683.5" y="89.5">org.example.vista.casillasView.CasillaView</node>
+    <node x="1887.0" y="3472.0">org.example.model.estado.jugador.Estado</node>
+    <node x="1180.0" y="3332.0">org.example.model.propiedades.construibles.Edificio</node>
+    <node x="1681.5" y="1769.5">org.example.model.estado.propiedades.Hipotecada</node>
+    <node x="1502.0" y="3005.0">org.example.model.excepciones.NoDesHipotecable</node>
+    <node x="1156.5" y="1438.0">org.example.vista.casillasView.TerrenoView</node>
+    <node x="1393.5" y="3675.5">org.example.controlador.BotonCantidadJugadorHandler</node>
+    <node x="1883.5" y="3898.5">org.example.model.estado.jugador.Libre</node>
+    <node x="210.0" y="2992.0">org.example.model.use_case.OpcionableLibre</node>
+    <node x="1141.5" y="4137.0">org.example.model.casilla.Terreno</node>
+    <node x="1562.0" y="455.5">org.example.model.Posicion</node>
+    <node x="1674.5" y="3295.5">org.example.model.use_case.PagarPeajeUseCase</node>
+    <node x="1522.5" y="3458.5">org.example.model.use_case.ConstruirCasaUseCase</node>
+    <node x="65.0" y="3460.5">org.example.model.estado.construible.Semaforo</node>
+    <node x="-105.0" y="3864.0">org.example.model.casilla.Casilla</node>
+    <node x="1047.5" y="998.5">org.example.vista.casillasView.MultaView</node>
+    <node x="655.0" y="4392.0">org.example.model.casilla.LLegadaPartida</node>
+    <node x="1481.5" y="2374.5">org.example.model.estado.propiedades.EnVenta</node>
+    <node x="881.5" y="4732.0">org.example.model.casilla.Transporte</node>
+    <node x="1180.0" y="3687.0">org.example.model.propiedades.construibles.Hotel</node>
+    <node x="1394.5" y="3318.5">org.example.model.use_case.PagarMultaUseCase</node>
+    <node x="1460.5" y="185.0">org.example.model.excepciones.NoComprable</node>
+    <node x="897.5" y="2361.0">org.example.model.use_case.Opcionable</node>
+    <node x="1366.5" y="505.0">org.example.vista.AlertDialogo</node>
+    <node x="495.0" y="4860.5">org.example.model.casilla.Carcel</node>
+    <node x="927.5" y="1532.0">org.example.vista.casillasView.EnCarcelarView</node>
+    <node x="807.5" y="1012.0">org.example.vista.casillasView.DePasoView</node>
+    <node x="-26.5" y="826.0">org.example.vista.View</node>
+    <node x="1744.5" y="3712.0">org.example.model.jugador.JuegoObserver</node>
+    <node x="1397.0" y="3125.0">org.example.model.excepciones.NoHipotecable</node>
+    <node x="1280.5" y="3458.5">org.example.model.use_case.HipotecarUseCase</node>
+    <node x="225.0" y="3900.5">org.example.model.estado.construible.Verde</node>
+    <node x="1631.0" y="3098.5">org.example.model.use_case.OpcionableQuebrado</node>
+    <node x="436.5" y="1815.5">org.example.model.GestorDeTurno</node>
+    <node x="1267.0" y="2978.5">org.example.model.use_case.OpcionablePreso</node>
+    <node x="1009.0" y="3458.5">org.example.model.use_case.VenderHotelUseCase</node>
+    <node x="1148.5" y="3112.0">org.example.configuracion.Configuracion</node>
+    <node x="335.0" y="4378.5">org.example.model.casilla.Multa</node>
+    <node x="-136.0" y="2349.5">org.example.model.Tablero</node>
+    <node x="907.0" y="-14.0">org.example.model.propiedades.AdministradorDePropiedades</node>
+    <node x="600.0" y="3887.0">org.example.model.propiedades.construibles.Casa</node>
+    <node x="1643.5" y="3875.5">org.example.model.estado.jugador.Preso</node>
+    <node x="861.5" y="3318.5">org.example.model.use_case.ConstruirHotelUseCase</node>
+    <node x="786.5" y="444.0">org.example.vista.JugadorView</node>
+    <node x="1281.5" y="1769.5">org.example.model.estado.propiedades.Disponible</node>
+    <node x="688.5" y="185.0">org.example.model.excepciones.NoVendible</node>
+    <node x="1067.0" y="2992.0">org.example.model.Dado</node>
+    <node x="758.5" y="1781.0">org.example.vista.InicioView</node>
+    <node x="1286.0" y="3898.5">org.example.model.estado.jugador.Quebrado</node>
+    <node x="935.0" y="3112.0">org.example.Main</node>
+    <node x="652.0" y="3125.0">org.example.model.excepciones.NoSePuedeConstruir</node>
+    <node x="520.5" y="3005.0">org.example.model.excepciones.SaldoNoDisponible</node>
+    <node x="317.5" y="3098.5">org.example.model.Banco</node>
+    <node x="1519.0" y="4849.0">org.example.App</node>
+    <node x="685.0" y="3447.0">org.example.model.use_case.ComprarPropiedadUseCase</node>
+    <node x="530.0" y="3318.5">org.example.model.use_case.VenderPropiedadUseCase</node>
+    <node x="513.0" y="455.5">org.example.controlador.ButtonTerminaTurno</node>
+    <node x="75.0" y="3112.0">org.example.controlador.BotonSalirHandler</node>
+    <node x="797.5" y="2978.5">org.example.model.use_case.EncarcelarUseCase</node>
+    <node x="1049.0" y="3852.5">org.example.model.Logger</node>
+    <node x="390.5" y="3458.5">org.example.model.use_case.VenderCasaUseCase</node>
+    <node x="380.0" y="3687.0">org.example.controlador.BotonIniciarSeleccionHandler</node>
+    <node x="315.5" y="78.0">org.example.model.jugador.Saldo</node>
+    <node x="585.5" y="2315.0">org.example.vista.JugadoresView</node>
+    <node x="1673.0" y="4229.0">org.example.model.Juego</node>
+    <node x="332.5" y="676.5">org.example.model.jugador.Jugador</node>
+    <node x="217.5" y="2027.5">org.example.vista.TableroView</node>
+    <node x="175.0" y="4858.5">org.example.model.casilla.Loteria</node>
+    <node x="15.0" y="4392.0">org.example.model.casilla.DePaso</node>
+    <node x="195.0" y="455.5">org.example.controlador.Controller</node>
+    <node x="245.5" y="3318.5">org.example.model.use_case.DesHipotecarUseCase</node>
+    <node x="676.5" y="1532.0">org.example.vista.casillasView.LlegadaPartidaView</node>
+    <node x="65.0" y="3700.5">org.example.model.estado.construible.Rojo</node>
+    <node x="79.5" y="1769.5">org.example.vista.SeleccionView</node>
+    <node x="-130.0" y="1509.0">org.example.configuracion.DataCasilla</node>
+    <node x="37.0" y="135.5">org.example.controlador.BotonTirarDadosHandler</node>
+    <node x="-132.5" y="455.5">org.example.controlador.BotonIniciarTableroHandler</node>
+    <node x="-145.0" y="4872.0">org.example.model.casilla.Encarcelar</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.example.model.casilla.LLegadaPartida" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="799.0" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.LlegadaPartidaView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="779.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.casilla.Encarcelar" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="-1.0" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.EnCarcelarView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="1019.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.use_case.OpcionableQuebrado" target="org.example.model.use_case.Opcionable" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1739.0" y="2939.0" />
+      <point x="1019.0" y="2939.0" />
+      <point x="0.0" y="98.0" />
+    </edge>
+    <edge source="org.example.model.use_case.OpcionablePreso" target="org.example.model.use_case.Opcionable" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1359.0" y="2939.0" />
+      <point x="1019.0" y="2939.0" />
+      <point x="0.0" y="98.0" />
+    </edge>
+    <edge source="org.example.model.use_case.ConstruirHotelUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="979.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.estado.propiedades.Hipotecada" target="org.example.model.estado.propiedades.Disponibilidad" relationship="REALIZATION">
+      <point x="0.0" y="-109.5" />
+      <point x="1859.0" y="1739.0" />
+      <point x="1659.0" y="1739.0" />
+      <point x="1659.0" y="1679.0" />
+      <point x="1739.0" y="1679.0" />
+      <point x="0.0" y="84.5" />
+    </edge>
+    <edge source="org.example.model.Juego" target="org.example.model.jugador.JuegoObserver" relationship="REALIZATION">
+      <point x="0.0" y="-190.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.use_case.EncarcelarUseCase" target="org.example.model.use_case.Opcionable" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="899.0" y="2939.0" />
+      <point x="1019.0" y="2939.0" />
+      <point x="0.0" y="98.0" />
+    </edge>
+    <edge source="org.example.model.estado.construible.Verde" target="org.example.model.estado.construible.Semaforo" relationship="REALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="359.0" y="3679.0" />
+      <point x="199.0" y="3679.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="org.example.vista.TableroView" target="org.example.vista.View" relationship="GENERALIZATION">
+      <point x="0.0" y="-431.5" />
+      <point x="379.0" y="1599.0" />
+      <point x="119.0" y="1599.0" />
+      <point x="0.0" y="213.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.TransporteView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-52.0" />
+      <point x="1539.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.vista.JugadoresView" target="org.example.vista.View" relationship="GENERALIZATION">
+      <point x="0.0" y="-144.0" />
+      <point x="719.0" y="1739.0" />
+      <point x="379.0" y="1739.0" />
+      <point x="379.0" y="1599.0" />
+      <point x="119.0" y="1599.0" />
+      <point x="0.0" y="213.0" />
+    </edge>
+    <edge source="org.example.model.estado.propiedades.Disponible" target="org.example.model.estado.propiedades.Disponibilidad" relationship="REALIZATION">
+      <point x="0.0" y="-109.5" />
+      <point x="1459.0" y="1739.0" />
+      <point x="1659.0" y="1739.0" />
+      <point x="1659.0" y="1679.0" />
+      <point x="1739.0" y="1679.0" />
+      <point x="0.0" y="84.5" />
+    </edge>
+    <edge source="org.example.model.propiedades.construibles.Casa" target="org.example.model.propiedades.construibles.Edificio" relationship="REALIZATION">
+      <point x="0.0" y="-52.0" />
+      <point x="679.0" y="3619.0" />
+      <point x="1259.0" y="3619.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.casilla.Carcel" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="639.0" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.vista.InicioView" target="org.example.vista.View" relationship="GENERALIZATION">
+      <point x="0.0" y="-98.0" />
+      <point x="879.0" y="1739.0" />
+      <point x="379.0" y="1739.0" />
+      <point x="379.0" y="1599.0" />
+      <point x="119.0" y="1599.0" />
+      <point x="0.0" y="213.0" />
+    </edge>
+    <edge source="org.example.model.estado.propiedades.EnVenta" target="org.example.model.estado.propiedades.Disponibilidad" relationship="REALIZATION">
+      <point x="0.0" y="-84.5" />
+      <point x="1659.0" y="1679.0" />
+      <point x="1739.0" y="1679.0" />
+      <point x="0.0" y="84.5" />
+    </edge>
+    <edge source="org.example.model.estado.construible.Rojo" target="org.example.model.estado.construible.Semaforo" relationship="REALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="org.example.vista.casillasView.LoteriaView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="299.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.use_case.VenderCasaUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="499.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.vista.SeleccionView" target="org.example.vista.View" relationship="GENERALIZATION">
+      <point x="0.0" y="-109.5" />
+      <point x="199.0" y="1739.0" />
+      <point x="379.0" y="1739.0" />
+      <point x="379.0" y="1599.0" />
+      <point x="119.0" y="1599.0" />
+      <point x="0.0" y="213.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.MultaView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.use_case.DesHipotecarUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.estado.jugador.Quebrado" target="org.example.model.estado.jugador.Estado" relationship="REALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1359.0" y="3659.0" />
+      <point x="1959.0" y="3659.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.use_case.PagarMultaUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1499.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.casilla.Multa" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.TerrenoView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-121.0" />
+      <point x="1339.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.use_case.VenderHotelUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1119.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.estado.jugador.Preso" target="org.example.model.estado.jugador.Estado" relationship="REALIZATION">
+      <point x="0.0" y="-63.5" />
+      <point x="1719.0" y="3659.0" />
+      <point x="1959.0" y="3659.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.use_case.ConstruirCasaUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1639.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.DePasoView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="899.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.casilla.Loteria" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="319.0" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.model.use_case.VenderPropiedadUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="659.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.vista.casillasView.CarcelView" target="org.example.vista.casillasView.CasillaView" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="1939.0" y="659.0" />
+      <point x="1139.0" y="659.0" />
+      <point x="1139.0" y="599.0" />
+      <point x="1819.0" y="599.0" />
+      <point x="0.0" y="109.5" />
+    </edge>
+    <edge source="org.example.model.use_case.OpcionableLibre" target="org.example.model.use_case.Opcionable" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="299.0" y="2939.0" />
+      <point x="1019.0" y="2939.0" />
+      <point x="0.0" y="98.0" />
+    </edge>
+    <edge source="org.example.model.use_case.HipotecarUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="1379.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.use_case.PagarPeajeUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-63.5" />
+      <point x="1779.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.propiedades.construibles.Hotel" target="org.example.model.propiedades.construibles.Edificio" relationship="REALIZATION">
+      <point x="0.0" y="-52.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.estado.jugador.Libre" target="org.example.model.estado.jugador.Estado" relationship="REALIZATION">
+      <point x="0.0" y="-40.5" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.casilla.Terreno" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="-78.75" y="-282.0" />
+      <point x="1220.25" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.model.use_case.ComprarPropiedadUseCase" target="org.example.model.use_case.OpcionableLibre" relationship="GENERALIZATION">
+      <point x="0.0" y="-52.0" />
+      <point x="819.0" y="3259.0" />
+      <point x="359.0" y="3259.0" />
+      <point x="359.0" y="3199.0" />
+      <point x="299.0" y="3199.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.example.model.casilla.Transporte" target="org.example.model.propiedades.Propiedad" relationship="REALIZATION">
+      <point x="78.75" y="-167.0" />
+      <point x="1117.75" y="4079.0" />
+      <point x="1259.0" y="4079.0" />
+      <point x="1259.0" y="4039.0" />
+      <point x="859.0" y="4039.0" />
+      <point x="0.0" y="96.0" />
+    </edge>
+    <edge source="org.example.model.casilla.Terreno" target="org.example.model.propiedades.Propiedad" relationship="REALIZATION">
+      <point x="78.75" y="-282.0" />
+      <point x="1377.75" y="4079.0" />
+      <point x="1259.0" y="4079.0" />
+      <point x="1259.0" y="4039.0" />
+      <point x="859.0" y="4039.0" />
+      <point x="0.0" y="96.0" />
+    </edge>
+    <edge source="org.example.model.casilla.Transporte" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="-78.75" y="-167.0" />
+      <point x="960.25" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+    <edge source="org.example.model.casilla.DePaso" target="org.example.model.casilla.Casilla" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="159.0" y="4099.0" />
+      <point x="479.0" y="4099.0" />
+      <point x="479.0" y="4039.0" />
+      <point x="39.0" y="4039.0" />
+      <point x="0.0" y="75.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.17666666666666667" showDependencies="false" x="958.5" y="2536.0" />
+  <SelectedNodes>
+    <node>org.example.vista.TableroView</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
