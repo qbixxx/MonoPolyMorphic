@@ -9,12 +9,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
         <javafx-version>15.0.1</javafx-version>
         <mockito-mockito-core-version>3.3.0</mockito-mockito-core-version>
+        <main-class>org.example.Main</main-class>
     </properties>
 
     <dependencies>
