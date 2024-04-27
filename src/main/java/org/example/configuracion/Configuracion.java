@@ -13,6 +13,8 @@ public class Configuracion {
 
     public static final double valorMulta = 500;
     public static final double premioLoteria = 100;
+
+    public static final double montoPorRondaCompleta = 1;
     public static final List<Casilla> casillas = List.of(
             new LLegadaPartida(new Posicion(0, 0), new DataCasilla("Llegada\nPartida", Color.WHITE, null)),
             new Multa(new Posicion(0, 1), new DataCasilla("Multa", Color.WHITE, null)),

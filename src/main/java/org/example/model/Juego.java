@@ -21,7 +21,7 @@ public class Juego implements JuegoObserver {
 
     public Juego() {
         this.jugadores = new ArrayList<>();
-        this.banco = new Banco(2000);
+        this.banco = new Banco(Configuracion.montoPorRondaCompleta);
     }
 
     public void agregarJugadores(List<Jugador> jugadores) {
