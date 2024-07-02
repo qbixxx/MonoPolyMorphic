@@ -1,4 +1,4 @@
-# Monopoly-morphic
+# monoPolyMorphic
 
 
 Grupo 12 - Los Devaluados:
