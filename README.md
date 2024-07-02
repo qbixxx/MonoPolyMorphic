@@ -2,10 +2,10 @@
 
 
 Grupo 12 - Los Devaluados:
-- Damian Lima
-- Luciano Salerno
-- Valentin Calomino
-- Valentin Cedeño
+- Valentin Calomino [@vcalomi](https://github.com/vcalomi)
+- - Valentin Cedeño [@qbixxx](https://github.com/qbixxx)
+- Luciano Salerno [@SalernoLuciano](https://github.com/SalernoLuciano)
+- Damian Lima  [@Damlima](https://github.com/Damlima)
 
 Este proyecto requiere las siguientes dependencias:
 
