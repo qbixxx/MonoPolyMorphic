@@ -1,12 +1,5 @@
 # Monopoly-morphic
 
-
-Grupo 12 - Los Devaluados:
-- Damian Lima
-- Luciano Salerno
-- Valentin Calomino
-- Valentin Cedeño
-
 Este proyecto requiere las siguientes dependencias:
 
 JUnit Jupiter: Framework de pruebas unitarias para Java.
