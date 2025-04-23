@@ -3,21 +3,6 @@
 **MonoPolyMorphic** is a fully-featured, object-oriented implementation of the classic **Monopoly®** board game.  
 It is written in **Java 21** and uses **JavaFX 15** for its graphical user interface. The codebase follows an MVC-inspired structure (`model`, `vista`, `controlador`) and ships as a single executable JAR produced by the Maven Shade plugin.
 
----
-
-## Table of contents
-1. [Features](#features)  
-2. [Quick start](#quick-start)  
-3. [Project layout](#project-layout)  
-4. [Build & run details](#build--run-details)  
-5. [Testing](#testing)  
-6. [UML diagrams](#uml-diagrams)  
-7. [Configuration](#configuration)  
-8. [Contributing](#contributing)  
-9. [License](#license)
-
----
-
 ## Features
 | Category | Highlights |
 |----------|------------|
@@ -43,4 +28,4 @@ mvn clean package
 # run
 java -jar target/MonopolyPersonal-1.0-SNAPSHOT.jar
 ```
-[UML](https://github.com/qbixxx/Monopoly-morphic/files/15135817/exported_from_idea.drawio.pdf)
+[UML Diagram](https://github.com/qbixxx/Monopoly-morphic/files/15135817/exported_from_idea.drawio.pdf)
